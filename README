@@ -1,0 +1,6 @@
+アプリケーションを起動するショートカットを作成するアプリです。
+
+@hyoromo さん作の DeleteAppShortcut https://github.com/hyoromo/DeleteAppShortcut を元にしています。
+
+TODO: 作成するショートカットのアイコンを元のアプリから取得するようにする
+TODO: 複数の Activity が LAUNCHER に表示されるアプリに対応する
