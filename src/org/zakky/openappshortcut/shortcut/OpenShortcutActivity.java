@@ -74,7 +74,8 @@ public final class OpenShortcutActivity extends Activity implements
         // ショートカット作成
         final Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
         shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        shortcutIntent.setPackage(appInfo.getPackageName());
+        shortcutIntent.setClassName(appInfo.getPackageName(),
+                appInfo.getActivityFqcn());
 
         // 作成したショートカットを設定するIntent。ここでショートカット名とアイコンも設定。
         final Intent intent = new Intent();
@@ -124,9 +125,11 @@ public final class OpenShortcutActivity extends Activity implements
             for (ResolveInfo info : apps) {
                 final CharSequence label = info.loadLabel(pm);
                 final Drawable icon = info.activityInfo.loadIcon(pm);
-                final String packageName = info.activityInfo.applicationInfo.packageName;
+                final String activityFqcn = info.activityInfo.name;
+                final String packageName = info.activityInfo.packageName;
 
-                final AppInfo appInfo = new AppInfo(label, icon, packageName);
+                final AppInfo appInfo = new AppInfo(label, icon, activityFqcn,
+                        packageName);
                 appList.add(appInfo);
             }
 
@@ -150,12 +153,15 @@ public final class OpenShortcutActivity extends Activity implements
     private static final class AppInfo {
         private final CharSequence label_;
         private final Drawable icon_;
+        private final String activityFqcn_;
         private final String packageName_;
 
-        public AppInfo(CharSequence label, Drawable icon, String packageName) {
+        public AppInfo(CharSequence label, Drawable icon, String activityFqcn,
+                String packageName) {
             super();
             label_ = label;
             icon_ = icon;
+            activityFqcn_ = activityFqcn;
             packageName_ = packageName;
         }
 
@@ -165,6 +171,10 @@ public final class OpenShortcutActivity extends Activity implements
 
         public Drawable getIcon() {
             return icon_;
+        }
+
+        public String getActivityFqcn() {
+            return activityFqcn_;
         }
 
         public String getPackageName() {
