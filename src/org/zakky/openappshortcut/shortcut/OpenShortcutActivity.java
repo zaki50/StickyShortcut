@@ -3,6 +3,7 @@ package org.zakky.openappshortcut.shortcut;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.zakky.openappshortcut.MainActivity;
 import org.zakky.openappshortcut.R;
 
 import android.app.Activity;
@@ -12,8 +13,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -35,6 +38,10 @@ import android.widget.TextView;
  */
 public final class OpenShortcutActivity extends Activity implements
         OnItemClickListener {
+
+    public static final String EXTRA_TARGET_PACKAGE = "EXTRA_TARGET_PACKAGE";
+    public static final String EXTRA_TARGET_FQCN = "EXTRA_TARGET_FQCN";
+    public static final String EXTRA_TARGET_LABEL = "EXTRA_TARGET_LABEL";
 
     /**
      * アプリ一覧をユーザに提示するためのグリッドです。
@@ -65,29 +72,34 @@ public final class OpenShortcutActivity extends Activity implements
 
         final BitmapDrawable bd = (BitmapDrawable) appInfo.getIcon();
         final Bitmap bmpBack = bd.getBitmap();
-        
+
         final Bitmap shortcutIcon = Bitmap.createBitmap(bmpBack.getWidth(),
                 bmpBack.getHeight(), Bitmap.Config.ARGB_8888);
-        
+
         // TODO アイコンにバッヂを合成
         //final Bitmap badge = BitmapFactory.decodeResource(getResources(),
         //        R.drawable.icon);
-        //final Canvas canvas = new Canvas(shortcutIcon);
-        //canvas.drawBitmap(bmpBack, 0, 0, null);
-        
+        final Canvas canvas = new Canvas(shortcutIcon);
+        canvas.drawBitmap(bmpBack, 0, 0, null);
 
         // ショートカット作成
         final Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
         shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        shortcutIntent.setClassName(appInfo.getPackageName(),
-                appInfo.getActivityFqcn());
+        shortcutIntent.setClassName(getApplicationContext().getPackageName(),
+                MainActivity.class.getCanonicalName());
+//        shortcutIntent.setData(Uri.parse("http://www.asahi.com/"));
+
+        shortcutIntent.putExtra(EXTRA_TARGET_PACKAGE, appInfo.getPackageName());
+        shortcutIntent.putExtra(EXTRA_TARGET_FQCN, appInfo.getActivityFqcn());
+        shortcutIntent.putExtra(EXTRA_TARGET_LABEL, appInfo.getLabel());
+        
 
         // 作成したショートカットを設定するIntent。ここでショートカット名とアイコンも設定。
         final Intent intent = new Intent();
         intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
         intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, shortcutIcon);
         intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, appInfo.getLabel());
-
+        
         setResult(RESULT_OK, intent);
         finish();
     }
