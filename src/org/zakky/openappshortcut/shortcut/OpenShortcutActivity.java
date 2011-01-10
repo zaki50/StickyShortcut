@@ -16,7 +16,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -87,19 +86,17 @@ public final class OpenShortcutActivity extends Activity implements
         shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         shortcutIntent.setClassName(getApplicationContext().getPackageName(),
                 MainActivity.class.getCanonicalName());
-//        shortcutIntent.setData(Uri.parse("http://www.asahi.com/"));
 
         shortcutIntent.putExtra(EXTRA_TARGET_PACKAGE, appInfo.getPackageName());
         shortcutIntent.putExtra(EXTRA_TARGET_FQCN, appInfo.getActivityFqcn());
         shortcutIntent.putExtra(EXTRA_TARGET_LABEL, appInfo.getLabel());
-        
 
         // 作成したショートカットを設定するIntent。ここでショートカット名とアイコンも設定。
         final Intent intent = new Intent();
         intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
         intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, shortcutIcon);
         intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, appInfo.getLabel());
-        
+
         setResult(RESULT_OK, intent);
         finish();
     }
