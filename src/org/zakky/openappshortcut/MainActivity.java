@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.webkit.WebView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -26,6 +27,9 @@ public class MainActivity extends Activity {
         targetLabel_ = getTargetLabel(getIntent());
         if (targetPackage_ == null) {
             setContentView(R.layout.main);
+            final WebView web = (WebView) findViewById(R.id.info);
+            web.loadData("<html><body><h1>OpenAppShortcut</h1></body></html>",
+                    "text/html", "utf-8");
         } else {
             setContentView(R.layout.launcher);
         }
