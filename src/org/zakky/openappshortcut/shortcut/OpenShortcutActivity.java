@@ -11,6 +11,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -61,15 +63,18 @@ public final class OpenShortcutActivity extends Activity implements
             long id) {
         final AppInfo appInfo = (AppInfo) parent.getItemAtPosition(position);
 
-        // アイコン作成(めんどうなのでやめた)
-        //        BitmapDrawable bd = (BitmapDrawable) appInfo.icon;
-        //        Bitmap bmpBack = bd.getBitmap();
-        //        Bitmap bmpFront = BitmapFactory.decodeResource(getResources(), R.drawable.icon);
-        //        Canvas canvas = new Canvas(bmpBack);
-        //        int widthSize = bmpBack.getWidth() / 2;
-        //        canvas.drawBitmap(bmpFront, widthSize, 0, null);
-        //        BitmapDrawable drawable = new BitmapDrawable(bmpBack);
-        //        drawable.draw(canvas);
+        final BitmapDrawable bd = (BitmapDrawable) appInfo.getIcon();
+        final Bitmap bmpBack = bd.getBitmap();
+        
+        final Bitmap shortcutIcon = Bitmap.createBitmap(bmpBack.getWidth(),
+                bmpBack.getHeight(), Bitmap.Config.ARGB_8888);
+        
+        // TODO アイコンにバッヂを合成
+        //final Bitmap badge = BitmapFactory.decodeResource(getResources(),
+        //        R.drawable.icon);
+        //final Canvas canvas = new Canvas(shortcutIcon);
+        //canvas.drawBitmap(bmpBack, 0, 0, null);
+        
 
         // ショートカット作成
         final Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
@@ -80,7 +85,7 @@ public final class OpenShortcutActivity extends Activity implements
         // 作成したショートカットを設定するIntent。ここでショートカット名とアイコンも設定。
         final Intent intent = new Intent();
         intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
-        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, R.drawable.icon);
+        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, shortcutIcon);
         intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, appInfo.getLabel());
 
         setResult(RESULT_OK, intent);
