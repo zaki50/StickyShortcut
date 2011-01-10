@@ -12,10 +12,19 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.Toast;
 
+/**
+ * 通常起動されたときは使用方法を表示し、起動対象情報を含むインテントから起動された場合は
+ * 起動対象を実際に呼び出すアクティビティです。
+ * 
+ * @author zaki
+ */
 public class MainActivity extends Activity {
 
+    /** 起動対象アプリのパッケージ名 */
     private String targetPackage_;
+    /** 起動対象アプリのクラス名 */
     private String targetFqcn_;
+    /** 起動対象アプリのラベル */
     private String targetLabel_;
 
     @Override
@@ -40,18 +49,23 @@ public class MainActivity extends Activity {
         super.onResume();
 
         if (targetPackage_ == null) {
+            // 通常起動の場合なので、使用方法の表示のみ。なにもしない。
             return;
         }
 
         final Intent launchIntent = buildLaunchIntent();
 
         if (!isTargetInstalled(launchIntent)) {
+            // 起動対象アプリがインストールされていない場合
+            
+            // TODO Toast ではなく、アクティビティ自信に表示を行う
             final String message = getString(R.string.target_app_not_installed,
                     targetLabel_);
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
             return;
         }
 
+        // 起動対象アプリを実際に呼び出す。
         startActivity(launchIntent);
         finish();
     }

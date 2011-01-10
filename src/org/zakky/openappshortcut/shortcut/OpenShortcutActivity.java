@@ -240,11 +240,6 @@ public final class OpenShortcutActivity extends Activity implements
             return v;
         }
 
-        /**
-         * 
-         * @param rowView
-         * @return
-         */
         private GridRowData createRowData(View rowView) {
             final TextView text = (TextView) rowView
                     .findViewById(R.id.grid_row_txt);
