@@ -94,7 +94,8 @@ public final class CreateShortcutActivity extends Activity implements
         canvas.drawBitmap(bmpBack, 0, 0, null);
 
         // ショートカット作成
-        final Intent shortcutIntent = new Intent("org.zakky.stickyshortcut.LAUNCH");
+        final Intent shortcutIntent = new Intent(
+                "org.zakky.stickyshortcut.LAUNCH");
         shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         shortcutIntent.setClassName(getApplicationContext().getPackageName(),
                 LauncherActivity.class.getCanonicalName());
@@ -145,14 +146,19 @@ public final class CreateShortcutActivity extends Activity implements
             mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
 
             final PackageManager pm = getPackageManager();
+            final String myPackage = getApplicationContext().getPackageName();
+
             final List<ResolveInfo> apps = pm.queryIntentActivities(mainIntent,
                     0);
             final List<AppInfo> appList = new ArrayList<AppInfo>(apps.size());
             for (ResolveInfo info : apps) {
+                final String packageName = info.activityInfo.packageName;
+                if (packageName == null || packageName.equals(myPackage)) {
+                    continue;
+                }
+                final String activityFqcn = info.activityInfo.name;
                 final CharSequence label = info.loadLabel(pm);
                 final Drawable icon = info.activityInfo.loadIcon(pm);
-                final String activityFqcn = info.activityInfo.name;
-                final String packageName = info.activityInfo.packageName;
 
                 final AppInfo appInfo = new AppInfo(label, icon, activityFqcn,
                         packageName);
