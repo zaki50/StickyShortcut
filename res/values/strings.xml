@@ -4,6 +4,4 @@
     <string name="shortcut_progressdialog_title">Loading...</string>
     
     <string name="target_app_not_installed">application not installed: %1$s</string>
-    
-    <string name="temp_launcher">Launcher!!</string>
 </resources>

@@ -68,6 +68,7 @@ public class LauncherActivity extends Activity {
             final String message = getString(R.string.target_app_not_installed,
                     targetLabel_);
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+            finish();
             return;
         }
 
