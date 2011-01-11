@@ -33,8 +33,15 @@ import android.widget.Toast;
  */
 public class LauncherActivity extends Activity {
 
+    /*
+     * スティッキーショートカットに保持させる EXTRA のキーのための定数群
+     */
+
+    /** 起動対象アプリのパッケージ名のためのキー */
     public static final String EXTRA_TARGET_PACKAGE = "EXTRA_TARGET_PACKAGE";
+    /** 起動対象アプリのクラス名のためのキー */
     public static final String EXTRA_TARGET_FQCN = "EXTRA_TARGET_FQCN";
+    /** 起動対象アプリのラベルのためのキー */
     public static final String EXTRA_TARGET_LABEL = "EXTRA_TARGET_LABEL";
 
     /** 起動対象アプリのパッケージ名 */
