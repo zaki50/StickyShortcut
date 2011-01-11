@@ -146,14 +146,12 @@ public final class CreateShortcutActivity extends Activity implements
             mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
 
             final PackageManager pm = getPackageManager();
-            final String myPackage = getApplicationContext().getPackageName();
-
             final List<ResolveInfo> apps = pm.queryIntentActivities(mainIntent,
                     0);
             final List<AppInfo> appList = new ArrayList<AppInfo>(apps.size());
             for (ResolveInfo info : apps) {
                 final String packageName = info.activityInfo.packageName;
-                if (packageName == null || packageName.equals(myPackage)) {
+                if (packageName == null) {
                     continue;
                 }
                 final String activityFqcn = info.activityInfo.name;
