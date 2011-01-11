@@ -33,6 +33,10 @@ import android.widget.Toast;
  */
 public class LauncherActivity extends Activity {
 
+    public static final String EXTRA_TARGET_PACKAGE = "EXTRA_TARGET_PACKAGE";
+    public static final String EXTRA_TARGET_FQCN = "EXTRA_TARGET_FQCN";
+    public static final String EXTRA_TARGET_LABEL = "EXTRA_TARGET_LABEL";
+
     /** 起動対象アプリのパッケージ名 */
     private String targetPackage_;
     /** 起動対象アプリのクラス名 */
@@ -95,7 +99,7 @@ public class LauncherActivity extends Activity {
             return null;
         }
         final String targetPackage = intent
-                .getStringExtra(CreateShortcutActivity.EXTRA_TARGET_PACKAGE);
+                .getStringExtra(EXTRA_TARGET_PACKAGE);
         return targetPackage;
     }
 
@@ -112,8 +116,7 @@ public class LauncherActivity extends Activity {
         if (intent == null) {
             return null;
         }
-        final String targetFqcn = intent
-                .getStringExtra(CreateShortcutActivity.EXTRA_TARGET_FQCN);
+        final String targetFqcn = intent.getStringExtra(EXTRA_TARGET_FQCN);
         return targetFqcn;
     }
 
@@ -130,8 +133,7 @@ public class LauncherActivity extends Activity {
         if (intent == null) {
             return null;
         }
-        final String targetLabel = intent
-                .getStringExtra(CreateShortcutActivity.EXTRA_TARGET_LABEL);
+        final String targetLabel = intent.getStringExtra(EXTRA_TARGET_LABEL);
         return targetLabel;
     }
 

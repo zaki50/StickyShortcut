@@ -15,10 +15,12 @@
  */
 package org.zakky.stickyshortcut;
 
+import static org.zakky.stickyshortcut.LauncherActivity.EXTRA_TARGET_FQCN;
+import static org.zakky.stickyshortcut.LauncherActivity.EXTRA_TARGET_LABEL;
+import static org.zakky.stickyshortcut.LauncherActivity.EXTRA_TARGET_PACKAGE;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.zakky.stickyshortcut.R;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -51,10 +53,6 @@ import android.widget.TextView;
  */
 public final class CreateShortcutActivity extends Activity implements
         OnItemClickListener {
-
-    public static final String EXTRA_TARGET_PACKAGE = "EXTRA_TARGET_PACKAGE";
-    public static final String EXTRA_TARGET_FQCN = "EXTRA_TARGET_FQCN";
-    public static final String EXTRA_TARGET_LABEL = "EXTRA_TARGET_LABEL";
 
     /**
      * アプリ一覧をユーザに提示するためのグリッドです。
