@@ -24,8 +24,7 @@ import android.webkit.WebView;
 import android.widget.TextView;
 
 /**
- * 通常起動されたときは使用方法を表示し、起動対象情報を含むインテントから起動された場合は
- * 起動対象を実際に呼び出すアクティビティです。
+ * 使用方法を表示するアクティビティです。
  * 
  * @author zaki
  */

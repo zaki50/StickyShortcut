@@ -95,7 +95,7 @@ public class LauncherActivity extends Activity {
             return null;
         }
         final String targetPackage = intent
-                .getStringExtra(OpenShortcutActivity.EXTRA_TARGET_PACKAGE);
+                .getStringExtra(CreateShortcutActivity.EXTRA_TARGET_PACKAGE);
         return targetPackage;
     }
 
@@ -113,7 +113,7 @@ public class LauncherActivity extends Activity {
             return null;
         }
         final String targetFqcn = intent
-                .getStringExtra(OpenShortcutActivity.EXTRA_TARGET_FQCN);
+                .getStringExtra(CreateShortcutActivity.EXTRA_TARGET_FQCN);
         return targetFqcn;
     }
 
@@ -131,7 +131,7 @@ public class LauncherActivity extends Activity {
             return null;
         }
         final String targetLabel = intent
-                .getStringExtra(OpenShortcutActivity.EXTRA_TARGET_LABEL);
+                .getStringExtra(CreateShortcutActivity.EXTRA_TARGET_LABEL);
         return targetLabel;
     }
 

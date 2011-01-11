@@ -49,7 +49,7 @@ import android.widget.TextView;
  * 
  * @author zaki
  */
-public final class OpenShortcutActivity extends Activity implements
+public final class CreateShortcutActivity extends Activity implements
         OnItemClickListener {
 
     public static final String EXTRA_TARGET_PACKAGE = "EXTRA_TARGET_PACKAGE";
@@ -116,7 +116,7 @@ public final class OpenShortcutActivity extends Activity implements
     }
 
     /**
-     * アプリ一覧を取得し、 {@value OpenShortcutActivity#appGrid_} にセットするタスクです。
+     * アプリ一覧を取得し、 {@value CreateShortcutActivity#appGrid_} にセットするタスクです。
      * 
      * <p>
      * 取得処理中はキャンセル不可なプログレスダイアログを表示します。
@@ -129,7 +129,7 @@ public final class OpenShortcutActivity extends Activity implements
         private final ProgressDialog progressDialog_;
 
         public LoadAppListTask() {
-            progressDialog_ = new ProgressDialog(OpenShortcutActivity.this);
+            progressDialog_ = new ProgressDialog(CreateShortcutActivity.this);
         }
 
         @Override
