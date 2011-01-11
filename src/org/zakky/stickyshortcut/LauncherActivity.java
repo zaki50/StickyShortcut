@@ -21,6 +21,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -64,10 +65,13 @@ public class LauncherActivity extends Activity {
         if (!isTargetInstalled(launchIntent)) {
             // 起動対象アプリがインストールされていない場合
 
-            // TODO Toast ではなく、アクティビティ自信に表示を行う
             final String message = getString(R.string.target_app_not_installed,
                     targetLabel_);
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+
+            final Intent istallIntent = buildInstallIntent();
+            startActivity(istallIntent);
+
             finish();
             return;
         }
@@ -147,8 +151,22 @@ public class LauncherActivity extends Activity {
     }
 
     /**
-     * 指定されたインテントを送った際に、レシーバが存在するかどうかを返します。
+     * ターゲットアプリをインストールするためのインテントを構築します。
      * 
+     * @return
+     * ターゲットアプリインストール用インテント。
+     */
+    private Intent buildInstallIntent() {
+        final Uri uri = Uri.parse("market://details?id=" + targetPackage_);
+        final Intent installIntent = new Intent(Intent.ACTION_VIEW, uri);
+        installIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        return installIntent;
+    }
+
+    /**
+     * 指定されたインテントを送った際に、レシーバが存在するかどうかを返します。
+     *
      * @param intent
      * インテント。
      * @return
