@@ -34,7 +34,7 @@ public class InfoActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.main);
+        setContentView(R.layout.info);
 
         // AppVersion取得
         final TextView versionView = (TextView) findViewById(R.id.info_txt_ver);

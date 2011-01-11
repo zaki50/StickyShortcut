@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/manual_background"
+    android:background="@color/info_background"
     >
     <LinearLayout
         android:layout_width="fill_parent"
@@ -11,47 +11,45 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
     >
+        <!-- app icon -->
         <ImageView
             android:background="@drawable/icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-        ></ImageView>
+        />
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
         >
-            <LinearLayout
-                android:layout_width="fill_parent"
+            <!-- app name -->
+            <TextView
+                android:text="@string/app_name"
+                android:textSize="28sp"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:gravity="center_horizontal"
-            >
-                <TextView
-                    android:text="@string/app_name"
-                    android:textSize="28px"
-                    android:textColor="@color/text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                ></TextView>
-                <TextView
-                    android:id="@+id/info_txt_ver"
-                    android:textSize="20px"
-                    android:textColor="@color/text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                ></TextView>
-            </LinearLayout>
+                android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+            <!-- app version -->
+            <TextView
+                android:id="@+id/info_txt_ver"
+                android:textSize="20sp"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+            />
         </LinearLayout>
     </LinearLayout>
     <WebView
         android:id="@+id/info_separator"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-    ></WebView>
+    />
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -60,6 +58,6 @@
             android:id="@+id/info"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-        ></WebView>
+        />
     </ScrollView>
 </LinearLayout>
