@@ -29,7 +29,7 @@ import android.widget.TextView;
  * 
  * @author zaki
  */
-public class MainActivity extends Activity {
+public class InfoActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

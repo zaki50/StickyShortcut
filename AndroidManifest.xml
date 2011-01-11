@@ -9,7 +9,7 @@
         android:debuggable="true">
         
         <!-- 通常起動の際に呼び出されるアクティビティ -->
-        <activity android:name=".MainActivity"
+        <activity android:name=".InfoActivity"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
