@@ -1,9 +1,9 @@
-package org.zakky.openappshortcut;
+package org.zakky.stickyshortcut;
 
 import java.util.List;
 import java.util.Locale;
 
-import org.zakky.openappshortcut.shortcut.OpenShortcutActivity;
+import org.zakky.stickyshortcut.R;
 
 import android.app.Activity;
 import android.content.Intent;

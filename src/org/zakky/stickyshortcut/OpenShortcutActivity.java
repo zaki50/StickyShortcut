@@ -1,10 +1,9 @@
-package org.zakky.openappshortcut.shortcut;
+package org.zakky.stickyshortcut;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.zakky.openappshortcut.MainActivity;
-import org.zakky.openappshortcut.R;
+import org.zakky.stickyshortcut.R;
 
 import android.app.Activity;
 import android.app.ProgressDialog;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="org.zakky.openappshortcut"
+      package="org.zakky.stickyshortcut"
       android:versionCode="1"
       android:versionName="1.0">
     <application
@@ -18,7 +18,7 @@
         </activity>
 
         <!-- ショートカット作成の際に呼び出される Activity -->
-        <activity android:name=".shortcut.OpenShortcutActivity" >
+        <activity android:name=".OpenShortcutActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
                 <category android:name="android.intent.category.DEFAULT" />
