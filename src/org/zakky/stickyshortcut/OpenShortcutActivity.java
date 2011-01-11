@@ -96,10 +96,10 @@ public final class OpenShortcutActivity extends Activity implements
         canvas.drawBitmap(bmpBack, 0, 0, null);
 
         // ショートカット作成
-        final Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
+        final Intent shortcutIntent = new Intent("org.zakky.stickyshortcut.LAUNCH");
         shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         shortcutIntent.setClassName(getApplicationContext().getPackageName(),
-                MainActivity.class.getCanonicalName());
+                LauncherActivity.class.getCanonicalName());
 
         shortcutIntent.putExtra(EXTRA_TARGET_PACKAGE, appInfo.getPackageName());
         shortcutIntent.putExtra(EXTRA_TARGET_FQCN, appInfo.getActivityFqcn());
