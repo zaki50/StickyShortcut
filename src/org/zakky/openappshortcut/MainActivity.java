@@ -1,6 +1,7 @@
 package org.zakky.openappshortcut;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.zakky.openappshortcut.shortcut.OpenShortcutActivity;
 
@@ -8,8 +9,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.webkit.WebView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -36,9 +39,22 @@ public class MainActivity extends Activity {
         targetLabel_ = getTargetLabel(getIntent());
         if (targetPackage_ == null) {
             setContentView(R.layout.main);
-            final WebView web = (WebView) findViewById(R.id.info);
-            web.loadData("<html><body><h1>OpenAppShortcut</h1></body></html>",
+
+            // AppVersion取得
+            final TextView versionView = (TextView) findViewById(R.id.info_txt_ver);
+            versionView.setText("ver " + getAppVersion());
+
+            // WebView
+            final WebView separator = (WebView) findViewById(R.id.info_separator);
+            separator.loadData("<body bgcolor=\"#FFFFFF\"><hr/></body>",
                     "text/html", "utf-8");
+
+            final WebView info = (WebView) findViewById(R.id.info);
+            if (Locale.getDefault().equals(Locale.JAPAN)) {
+                info.loadUrl("file:///android_asset/index_ja.html");
+            } else {
+                info.loadUrl("file:///android_asset/index.html");
+            }
         } else {
             setContentView(R.layout.launcher);
         }
@@ -57,7 +73,7 @@ public class MainActivity extends Activity {
 
         if (!isTargetInstalled(launchIntent)) {
             // 起動対象アプリがインストールされていない場合
-            
+
             // TODO Toast ではなく、アクティビティ自信に表示を行う
             final String message = getString(R.string.target_app_not_installed,
                     targetLabel_);
@@ -160,4 +176,19 @@ public class MainActivity extends Activity {
         return result;
     }
 
+    /**
+     * アプリケーションの表示用バージョン番号文字列を返します。
+     *
+     * @return
+     * 表示用バージョン番号文字列。取得に失敗した場合は "{@code unknon}" を返します。
+     */
+    private String getAppVersion() {
+        try {
+            final String version = getPackageManager().getPackageInfo(
+                    getPackageName(), 0).versionName;
+            return version;
+        } catch (NameNotFoundException e) {
+            return "unknown";
+        }
+    }
 }
