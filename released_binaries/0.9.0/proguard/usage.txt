@@ -1,0 +1,11 @@
+org.zakky.stickyshortcut.LauncherActivity:
+    public static final java.lang.String EXTRA_TARGET_PACKAGE
+    public static final java.lang.String EXTRA_TARGET_FQCN
+    public static final java.lang.String EXTRA_TARGET_LABEL
+org.zakky.stickyshortcut.R
+org.zakky.stickyshortcut.R$attr
+org.zakky.stickyshortcut.R$color
+org.zakky.stickyshortcut.R$drawable
+org.zakky.stickyshortcut.R$id
+org.zakky.stickyshortcut.R$layout
+org.zakky.stickyshortcut.R$string

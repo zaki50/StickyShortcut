@@ -1,0 +1,45 @@
+org.zakky.stickyshortcut.CreateShortcutActivity -> org.zakky.stickyshortcut.CreateShortcutActivity:
+    android.widget.GridView appGrid_ -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    void onStart() -> onStart
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    android.widget.GridView access$000() -> a
+org.zakky.stickyshortcut.CreateShortcutActivity$AppInfo -> org.zakky.stickyshortcut.d:
+    java.lang.CharSequence label_ -> a
+    android.graphics.drawable.Drawable icon_ -> b
+    java.lang.String activityFqcn_ -> c
+    java.lang.String packageName_ -> d
+    java.lang.CharSequence getLabel() -> a
+    android.graphics.drawable.Drawable getIcon() -> b
+    java.lang.String getActivityFqcn() -> c
+    java.lang.String getPackageName() -> d
+org.zakky.stickyshortcut.CreateShortcutActivity$AppsAdapter -> org.zakky.stickyshortcut.c:
+    java.util.List apps_ -> a
+    android.view.LayoutInflater inflater_ -> b
+    android.widget.LinearLayout$LayoutParams params_ -> c
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    int getCount() -> getCount
+    org.zakky.stickyshortcut.CreateShortcutActivity$AppInfo getItem(int) -> a
+    long getItemId(int) -> getItemId
+    java.lang.Object getItem(int) -> getItem
+org.zakky.stickyshortcut.CreateShortcutActivity$AppsAdapter$GridRowData -> org.zakky.stickyshortcut.b:
+    android.widget.TextView text_ -> a
+    android.widget.ImageView image_ -> b
+    android.widget.TextView getTextView() -> a
+    android.widget.ImageView getImageView() -> b
+org.zakky.stickyshortcut.CreateShortcutActivity$LoadAppListTask -> org.zakky.stickyshortcut.a:
+    android.app.ProgressDialog progressDialog_ -> a
+    org.zakky.stickyshortcut.CreateShortcutActivity this$0 -> b
+    void onPreExecute() -> onPreExecute
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+org.zakky.stickyshortcut.InfoActivity -> org.zakky.stickyshortcut.InfoActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+    java.lang.String getAppVersion() -> a
+org.zakky.stickyshortcut.LauncherActivity -> org.zakky.stickyshortcut.LauncherActivity:
+    java.lang.String targetPackage_ -> a
+    java.lang.String targetFqcn_ -> b
+    java.lang.String targetLabel_ -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
