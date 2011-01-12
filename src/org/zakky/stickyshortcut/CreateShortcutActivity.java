@@ -19,9 +19,12 @@ import static org.zakky.stickyshortcut.LauncherActivity.EXTRA_TARGET_FQCN;
 import static org.zakky.stickyshortcut.LauncherActivity.EXTRA_TARGET_LABEL;
 import static org.zakky.stickyshortcut.LauncherActivity.EXTRA_TARGET_PACKAGE;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import yanzm.products.quickaction.lib.ActionItem;
+import yanzm.products.quickaction.lib.QuickAction;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -29,17 +32,23 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -53,21 +62,41 @@ import android.widget.TextView;
  */
 public final class CreateShortcutActivity extends Activity implements
         OnItemClickListener {
+    private static final String TAG = CreateShortcutActivity.class
+            .getSimpleName();
 
     /**
-     * アプリ一覧をユーザに提示するためのグリッドです。
+     * バッヂアイコンリスト。
+     */
+    private static final int[] BADGE_RES_IDS = { -1, R.drawable.badge1,
+            R.drawable.badge2, R.drawable.badge3, R.drawable.badge4,
+            R.drawable.badge5, R.drawable.badge6 };
+
+    /**
+     * アプリ一覧表示用グリッド。
      */
     private static GridView appGrid_;
 
+    /**
+     * アプリ一覧のグリッドを用意します。
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /*
+         * アプリ一覧をユーザに提示するためのグリッドを用意します。
+         */
         setContentView(R.layout.grid);
 
         appGrid_ = (GridView) findViewById(R.id.grid);
         appGrid_.setOnItemClickListener(this);
     }
 
+    /**
+     * アクティビティ開始処理として、アプリ一覧を取得してグリッドにセットするためのタスクを
+     * 実行します。
+     */
     @Override
     protected void onStart() {
         super.onStart();
@@ -76,23 +105,165 @@ public final class CreateShortcutActivity extends Activity implements
         task.execute();
     }
 
+    /**
+     * アプリ一覧で、あるアプリがクリックされたときのアクションです。
+     */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
             long id) {
+
         final AppInfo appInfo = (AppInfo) parent.getItemAtPosition(position);
 
+        if (Integer.parseInt(Build.VERSION.SDK) <= 3) {
+            // 1.5 以下は、drawable-* を見てくれないので QuickActionLib を使わない
+            final BitmapDrawable bd = (BitmapDrawable) appInfo.getIcon();
+            final Bitmap originalIcon = bd.getBitmap();
+            final Bitmap shortcutIcon = createShortcutIcon(originalIcon,
+                    R.drawable.badge4);
+
+            final Intent result = buildResultIntent(appInfo, shortcutIcon);
+            setResult(RESULT_OK, result);
+            finish();
+            return;
+        }
+
+        // QuickAction を表示し、ユーザにアイコンを選択してもらう。
+        final QuickAction qa = new QuickAction(view);
+        for (int badgeResId : BADGE_RES_IDS) {
+            final ActionItem chart = buildCandidate(appInfo, badgeResId);
+            qa.addActionItem(chart);
+        }
+        setItemListGravity(qa, Gravity.CENTER);
+        qa.show();
+    }
+
+    /**
+     * 無理やりショートカットアイコンリストをセンタリングします。
+     *
+     * <p>
+     * {@code quickaction.xml} に含まれている、{@code id} が {@code tracks} な
+     * {@link LinearLayout} に対して、 layout_gravity をセットするメソッドです。
+     * </p>
+     *
+     * @param qa
+     * ショートカットアイコンリストを表示する {@link QuickAction}。
+     * @param gravity
+     * {@link Gravity} に定義された定数。
+     */
+    private void setItemListGravity(QuickAction qa, int gravity) {
+        try {
+            final Field mTrackField = qa.getClass().getDeclaredField("mTrack");
+            mTrackField.setAccessible(true);
+            final LinearLayout tracks = (LinearLayout) mTrackField.get(qa);
+            ((FrameLayout.LayoutParams) tracks.getLayoutParams()).gravity = gravity;
+        } catch (IllegalArgumentException e) {
+            Log.e(TAG, "failed to set icon list gravity. ignored.", e);
+        } catch (IllegalAccessException e) {
+            Log.e(TAG, "failed to set icon list gravity. ignored.", e);
+        } catch (SecurityException e) {
+            Log.e(TAG, "failed to set icon list gravity. ignored.", e);
+        } catch (NoSuchFieldException e) {
+            Log.e(TAG, "failed to set icon list gravity. ignored.", e);
+        }
+    }
+
+    /**
+     * {@link QuickAction} に表示する、ショートカットアイコン候補を構築します。
+     *
+     * 候補は、クリックされるとショートカット作成インテントをリザルトとしてセットして
+     * {@link CreateShortcutActivity} を終了します。
+     *
+     * @param appInfo
+     * 対象アプリ情報。
+     * @param badgeResId
+     * バッヂリソースID. {@code -1} はバッヂなしを表します。
+     * @return
+     * {@link ActionItem}。
+     */
+    private ActionItem buildCandidate(final AppInfo appInfo, int badgeResId) {
         final BitmapDrawable bd = (BitmapDrawable) appInfo.getIcon();
-        final Bitmap bmpBack = bd.getBitmap();
+        final Bitmap originalIcon = bd.getBitmap();
 
-        final Bitmap shortcutIcon = Bitmap.createBitmap(bmpBack.getWidth(),
-                bmpBack.getHeight(), Bitmap.Config.ARGB_8888);
+        final Bitmap shortcutIcon = createShortcutIcon(originalIcon, badgeResId);
 
-        // TODO アイコンにバッヂを合成
-        //final Bitmap badge = BitmapFactory.decodeResource(getResources(),
-        //        R.drawable.icon);
+        final ActionItem item = new ActionItem();
+        item.setIcon(new BitmapDrawable(shortcutIcon));
+        item.setOnClickListener(new View.OnClickListener() {
+            /**
+             * アイコンが選択されたので、選択されたアイコンでショートカットを作成し
+             * アクティビティ自体を終了する。
+             */
+            @Override
+            public void onClick(View v) {
+                final Intent result = buildResultIntent(appInfo, shortcutIcon);
+                CreateShortcutActivity.this.setResult(RESULT_OK, result);
+                CreateShortcutActivity.this.finish();
+            }
+        });
+
+        return item;
+    }
+
+    /**
+     * 指定されたバッヂ付きのショートカットアイコンを作成します。
+     * 
+     * @param originalIcon
+     * 対象アプリのオリジナルアイコン。
+     * @param badgeResId
+     * バッジに使用するリソースの識別子。
+     * {@code -1} が渡された場合はバッヂなしでアイコンを作成します。
+     * @return
+     * ショートカットアイコンお {@link Bitmap} オブジェクト。
+     * 必ず新たに作成された {@link Bitmap} オブジェクトが返ります。
+     */
+    private Bitmap createShortcutIcon(Bitmap originalIcon, int badgeResId) {
+        final Bitmap shortcutIcon = Bitmap.createBitmap(
+                originalIcon.getWidth(), originalIcon.getHeight(),
+                Bitmap.Config.ARGB_8888);
+
         final Canvas canvas = new Canvas(shortcutIcon);
-        canvas.drawBitmap(bmpBack, 0, 0, null);
+        canvas.drawBitmap(originalIcon, 0, 0, null);
 
+        if (badgeResId == -1) {
+            // バッヂなしなので、そのまま帰す。
+            return shortcutIcon;
+        }
+
+        // バッヂを重ねる
+        final Bitmap badge = BitmapFactory.decodeResource(getResources(),
+                badgeResId);
+        try {
+            final Matrix m = new Matrix();
+            final float originalX = originalIcon.getWidth();
+            final float badgeX = badge.getWidth();
+            final float ratioX = originalX / badgeX;
+            final float originalY = originalIcon.getHeight();
+            final float badgeY = badge.getHeight();
+            final float ratioY = originalY / badgeY;
+
+            // 縦横比を維持するため、比が小さい方を採用してスケーリングする
+            final float ratio = Math.min(ratioX, ratioY);
+            m.postScale(ratio, ratio);
+            canvas.drawBitmap(badge, m, null);
+        } finally {
+            badge.recycle();
+        }
+
+        return shortcutIcon;
+    }
+
+    /**
+     * このアクティビティの {@code result} として使用される、ショートカット作成インテントを
+     * 構築して返します。
+     *
+     * @param appInfo
+     * 作成するショートカットが対象とするアプリ情報。
+     * @param icon
+     * ショートカットセットするアイコン。
+     * @return
+     * {@code result} インテント。
+     */
+    private Intent buildResultIntent(AppInfo appInfo, Bitmap icon) {
         // ショートカット作成
         final Intent shortcutIntent = new Intent(
                 "org.zakky.stickyshortcut.LAUNCH");
@@ -105,13 +276,12 @@ public final class CreateShortcutActivity extends Activity implements
         shortcutIntent.putExtra(EXTRA_TARGET_LABEL, appInfo.getLabel());
 
         // 作成したショートカットを設定するIntent。ここでショートカット名とアイコンも設定。
-        final Intent intent = new Intent();
-        intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
-        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, shortcutIcon);
-        intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, appInfo.getLabel());
+        final Intent result = new Intent();
+        result.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
+        result.putExtra(Intent.EXTRA_SHORTCUT_ICON, icon);
+        result.putExtra(Intent.EXTRA_SHORTCUT_NAME, appInfo.getLabel());
 
-        setResult(RESULT_OK, intent);
-        finish();
+        return result;
     }
 
     /**
@@ -241,8 +411,13 @@ public final class CreateShortcutActivity extends Activity implements
             }
         }
 
+        /**
+         * アプリ1つ分を表現する {@link View} を返します。
+         *
+         * @return
+         * {@link View} オブジェクト。
+         */
         public View getView(int position, View convertView, ViewGroup parent) {
-
             final View v = (convertView == null) ? inflater_.inflate(
                     R.layout.grid_row, null) : convertView;
             final GridRowData rowData = (v.getTag() == null) ? createRowData(v)
