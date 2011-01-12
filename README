@@ -4,6 +4,5 @@ Galaxy S の標準 Home アプリのように、SD を unmount した際に SD �
 
 @hyoromo さん作の DeleteAppShortcut https://github.com/hyoromo/DeleteAppShortcut を元にしています。
 
-TODO: 複数の Activity が LAUNCHER に表示されるアプリに対応する
-TODO: ショートカットアイコンにバッジをつける
-TODO: バッジを付けるかどうかを設定で変更できるようにする
+ショートカットアイコンのバッヂ選択で使用している QuickAction は @yanzm さん作の QuickActionLib https://github.com/yanzm/QuickActionLib を使用しています。
+
