@@ -1,0 +1,4448 @@
+_____________________________________________________________________
++ Program class: org/zakky/stickyshortcut/a
+  Superclass:    android/os/AsyncTask
+  Major version: 0x31
+  Minor version: 0x0
+  Access flags:  0x30
+    = final class org.zakky.stickyshortcut.a extends android.os.AsyncTask
+
+Interfaces (count = 0):
+
+Constant Pool (count = 156):
+  - Integer [2131034114]
+  - String [android.intent.action.MAIN]
+  - String [android.intent.category.LAUNCHER]
+  - Class [android/app/ProgressDialog]
+  - Class [android/content/Intent]
+  - Class [android/content/pm/ActivityInfo]
+  - Class [android/content/pm/PackageManager]
+  - Class [android/content/pm/ResolveInfo]
+  - Class [android/content/res/Resources]
+  - Class [android/os/AsyncTask]
+  - Class [android/widget/GridView]
+  - Class [java/util/ArrayList]
+  - Class [java/util/Iterator]
+  - Class [java/util/List]
+  - Class [org/zakky/stickyshortcut/CreateShortcutActivity]
+  - Class [org/zakky/stickyshortcut/a]
+  - Class [org/zakky/stickyshortcut/b]
+  - Class [org/zakky/stickyshortcut/d]
+  - Fieldref [android/content/pm/ActivityInfo.name Ljava/lang/String;]
+  - Fieldref [android/content/pm/ActivityInfo.packageName Ljava/lang/String;]
+  - Fieldref [android/content/pm/ResolveInfo.activityInfo Landroid/content/pm/ActivityInfo;]
+  - Fieldref [org/zakky/stickyshortcut/a.a Landroid/app/ProgressDialog;]
+  - Fieldref [org/zakky/stickyshortcut/a.b Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+  - Methodref [android/app/ProgressDialog.<init> (Landroid/content/Context;)V]
+  - Methodref [android/app/ProgressDialog.dismiss ()V]
+  - Methodref [android/app/ProgressDialog.setCancelable (Z)V]
+  - Methodref [android/app/ProgressDialog.setMessage (Ljava/lang/CharSequence;)V]
+  - Methodref [android/app/ProgressDialog.show ()V]
+  - Methodref [android/content/Intent.<init> (Ljava/lang/String;Landroid/net/Uri;)V]
+  - Methodref [android/content/Intent.addCategory (Ljava/lang/String;)Landroid/content/Intent;]
+  - Methodref [android/content/pm/ActivityInfo.loadIcon (Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;]
+  - Methodref [android/content/pm/PackageManager.queryIntentActivities (Landroid/content/Intent;I)Ljava/util/List;]
+  - Methodref [android/content/pm/ResolveInfo.loadLabel (Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;]
+  - Methodref [android/content/res/Resources.getString (I)Ljava/lang/String;]
+  - Methodref [android/os/AsyncTask.<init> ()V]
+  - Methodref [android/os/AsyncTask.onPreExecute ()V]
+  - Methodref [android/widget/GridView.setAdapter (Landroid/widget/ListAdapter;)V]
+  - Methodref [java/util/ArrayList.<init> (I)V]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.a ()Landroid/widget/GridView;]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.getApplicationContext ()Landroid/content/Context;]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.getPackageManager ()Landroid/content/pm/PackageManager;]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.getResources ()Landroid/content/res/Resources;]
+  - Methodref [org/zakky/stickyshortcut/b.<init> (Landroid/content/Context;Ljava/util/List;)V]
+  - Methodref [org/zakky/stickyshortcut/d.<init> (Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Ljava/lang/String;Ljava/lang/String;)V]
+  - InterfaceMethodref [java/util/Iterator.hasNext ()Z]
+  - InterfaceMethodref [java/util/Iterator.next ()Ljava/lang/Object;]
+  - InterfaceMethodref [java/util/List.add (Ljava/lang/Object;)Z]
+  - InterfaceMethodref [java/util/List.iterator ()Ljava/util/Iterator;]
+  - InterfaceMethodref [java/util/List.size ()I]
+  + NameAndType [<init> ()V]
+  + NameAndType [<init> (I)V]
+  + NameAndType [<init> (Landroid/content/Context;)V]
+  + NameAndType [<init> (Landroid/content/Context;Ljava/util/List;)V]
+  + NameAndType [<init> (Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Ljava/lang/String;Ljava/lang/String;)V]
+  + NameAndType [<init> (Ljava/lang/String;Landroid/net/Uri;)V]
+  + NameAndType [a ()Landroid/widget/GridView;]
+  + NameAndType [a Landroid/app/ProgressDialog;]
+  + NameAndType [activityInfo Landroid/content/pm/ActivityInfo;]
+  + NameAndType [add (Ljava/lang/Object;)Z]
+  + NameAndType [addCategory (Ljava/lang/String;)Landroid/content/Intent;]
+  + NameAndType [b Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+  + NameAndType [dismiss ()V]
+  + NameAndType [getApplicationContext ()Landroid/content/Context;]
+  + NameAndType [getPackageManager ()Landroid/content/pm/PackageManager;]
+  + NameAndType [getResources ()Landroid/content/res/Resources;]
+  + NameAndType [getString (I)Ljava/lang/String;]
+  + NameAndType [hasNext ()Z]
+  + NameAndType [iterator ()Ljava/util/Iterator;]
+  + NameAndType [loadIcon (Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;]
+  + NameAndType [loadLabel (Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;]
+  + NameAndType [name Ljava/lang/String;]
+  + NameAndType [next ()Ljava/lang/Object;]
+  + NameAndType [onPreExecute ()V]
+  + NameAndType [packageName Ljava/lang/String;]
+  + NameAndType [queryIntentActivities (Landroid/content/Intent;I)Ljava/util/List;]
+  + NameAndType [setAdapter (Landroid/widget/ListAdapter;)V]
+  + NameAndType [setCancelable (Z)V]
+  + NameAndType [setMessage (Ljava/lang/CharSequence;)V]
+  + NameAndType [show ()V]
+  + NameAndType [size ()I]
+  + Utf8 [()I]
+  + Utf8 [()Landroid/content/Context;]
+  + Utf8 [()Landroid/content/pm/PackageManager;]
+  + Utf8 [()Landroid/content/res/Resources;]
+  + Utf8 [()Landroid/widget/GridView;]
+  + Utf8 [()Ljava/lang/Object;]
+  + Utf8 [()Ljava/util/Iterator;]
+  + Utf8 [()V]
+  + Utf8 [()Z]
+  + Utf8 [(I)Ljava/lang/String;]
+  + Utf8 [(I)V]
+  + Utf8 [(Landroid/content/Context;)V]
+  + Utf8 [(Landroid/content/Context;Ljava/util/List;)V]
+  + Utf8 [(Landroid/content/Intent;I)Ljava/util/List;]
+  + Utf8 [(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;]
+  + Utf8 [(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;]
+  + Utf8 [(Landroid/widget/ListAdapter;)V]
+  + Utf8 [(Ljava/lang/CharSequence;)V]
+  + Utf8 [(Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Ljava/lang/String;Ljava/lang/String;)V]
+  + Utf8 [(Ljava/lang/Object;)V]
+  + Utf8 [(Ljava/lang/Object;)Z]
+  + Utf8 [(Ljava/lang/String;)Landroid/content/Intent;]
+  + Utf8 [(Ljava/lang/String;Landroid/net/Uri;)V]
+  + Utf8 [(Lorg/zakky/stickyshortcut/CreateShortcutActivity;)V]
+  + Utf8 [(Z)V]
+  + Utf8 [([Ljava/lang/Object;)Ljava/lang/Object;]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Landroid/app/ProgressDialog;]
+  + Utf8 [Landroid/content/pm/ActivityInfo;]
+  + Utf8 [Ljava/lang/String;]
+  + Utf8 [Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+  + Utf8 [a]
+  + Utf8 [activityInfo]
+  + Utf8 [add]
+  + Utf8 [addCategory]
+  + Utf8 [android.intent.action.MAIN]
+  + Utf8 [android.intent.category.LAUNCHER]
+  + Utf8 [android/app/ProgressDialog]
+  + Utf8 [android/content/Intent]
+  + Utf8 [android/content/pm/ActivityInfo]
+  + Utf8 [android/content/pm/PackageManager]
+  + Utf8 [android/content/pm/ResolveInfo]
+  + Utf8 [android/content/res/Resources]
+  + Utf8 [android/os/AsyncTask]
+  + Utf8 [android/widget/GridView]
+  + Utf8 [b]
+  + Utf8 [dismiss]
+  + Utf8 [doInBackground]
+  + Utf8 [getApplicationContext]
+  + Utf8 [getPackageManager]
+  + Utf8 [getResources]
+  + Utf8 [getString]
+  + Utf8 [hasNext]
+  + Utf8 [iterator]
+  + Utf8 [java/util/ArrayList]
+  + Utf8 [java/util/Iterator]
+  + Utf8 [java/util/List]
+  + Utf8 [loadIcon]
+  + Utf8 [loadLabel]
+  + Utf8 [name]
+  + Utf8 [next]
+  + Utf8 [onPostExecute]
+  + Utf8 [onPreExecute]
+  + Utf8 [org/zakky/stickyshortcut/CreateShortcutActivity]
+  + Utf8 [org/zakky/stickyshortcut/a]
+  + Utf8 [org/zakky/stickyshortcut/b]
+  + Utf8 [org/zakky/stickyshortcut/d]
+  + Utf8 [packageName]
+  + Utf8 [queryIntentActivities]
+  + Utf8 [setAdapter]
+  + Utf8 [setCancelable]
+  + Utf8 [setMessage]
+  + Utf8 [show]
+  + Utf8 [size]
+
+Fields (count = 2):
+  + Field:        a Landroid/app/ProgressDialog;
+    Access flags: 0x12
+      = private final android.app.ProgressDialog a
+  + Field:        b Lorg/zakky/stickyshortcut/CreateShortcutActivity;
+    Access flags: 0x1002
+      = private org.zakky.stickyshortcut.CreateShortcutActivity b
+
+Methods (count = 4):
+  - Method:       <init>(Lorg/zakky/stickyshortcut/CreateShortcutActivity;)V
+    Access flags: 0x1
+      = public a(org.zakky.stickyshortcut.CreateShortcutActivity)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 22, locals = 2, stack = 4):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #23
+        - Fieldref [org/zakky/stickyshortcut/a.b Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+      [5] aload_0 v0
+      [6] invokespecial #35
+        - Methodref [android/os/AsyncTask.<init> ()V]
+      [9] aload_0 v0
+      [10] new #4
+        - Class [android/app/ProgressDialog]
+      [13] dup
+      [14] aload_1 v1
+      [15] invokespecial #24
+        - Methodref [android/app/ProgressDialog.<init> (Landroid/content/Context;)V]
+      [18] putfield #22
+        - Fieldref [org/zakky/stickyshortcut/a.a Landroid/app/ProgressDialog;]
+      [21] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onPreExecute()V
+    Access flags: 0x14
+      = protected final void onPreExecute()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 39, locals = 1, stack = 3):
+      [0] aload_0 v0
+      [1] invokespecial #36
+        - Methodref [android/os/AsyncTask.onPreExecute ()V]
+      [4] aload_0 v0
+      [5] getfield #22
+        - Fieldref [org/zakky/stickyshortcut/a.a Landroid/app/ProgressDialog;]
+      [8] aload_0 v0
+      [9] getfield #23
+        - Fieldref [org/zakky/stickyshortcut/a.b Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+      [12] invokevirtual #42
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.getResources ()Landroid/content/res/Resources;]
+      [15] ldc #1
+        - Integer [2131034114]
+      [17] invokevirtual #34
+        - Methodref [android/content/res/Resources.getString (I)Ljava/lang/String;]
+      [20] invokevirtual #27
+        - Methodref [android/app/ProgressDialog.setMessage (Ljava/lang/CharSequence;)V]
+      [23] aload_0 v0
+      [24] getfield #22
+        - Fieldref [org/zakky/stickyshortcut/a.a Landroid/app/ProgressDialog;]
+      [27] iconst_0
+      [28] invokevirtual #26
+        - Methodref [android/app/ProgressDialog.setCancelable (Z)V]
+      [31] aload_0 v0
+      [32] getfield #22
+        - Fieldref [org/zakky/stickyshortcut/a.a Landroid/app/ProgressDialog;]
+      [35] invokevirtual #28
+        - Methodref [android/app/ProgressDialog.show ()V]
+      [38] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onPostExecute(Ljava/lang/Object;)V
+    Access flags: 0x1054
+      = protected final void onPostExecute(java.lang.Object)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 38, locals = 3, stack = 4):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] checkcast #14
+        - Class [java/util/List]
+      [5] astore_2 v2
+      [6] astore_1 v1
+      [7] new #17
+        - Class [org/zakky/stickyshortcut/b]
+      [10] dup
+      [11] aload_1 v1
+      [12] getfield #23
+        - Fieldref [org/zakky/stickyshortcut/a.b Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+      [15] invokevirtual #40
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.getApplicationContext ()Landroid/content/Context;]
+      [18] aload_2 v2
+      [19] invokespecial #43
+        - Methodref [org/zakky/stickyshortcut/b.<init> (Landroid/content/Context;Ljava/util/List;)V]
+      [22] astore_2 v2
+      [23] invokestatic #39
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.a ()Landroid/widget/GridView;]
+      [26] aload_2 v2
+      [27] invokevirtual #37
+        - Methodref [android/widget/GridView.setAdapter (Landroid/widget/ListAdapter;)V]
+      [30] aload_1 v1
+      [31] getfield #22
+        - Fieldref [org/zakky/stickyshortcut/a.a Landroid/app/ProgressDialog;]
+      [34] invokevirtual #25
+        - Methodref [android/app/ProgressDialog.dismiss ()V]
+      [37] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
+    Access flags: 0x1054
+      = protected final java.lang.Object doInBackground(java.lang.Object[])
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 149, locals = 8, stack = 6):
+      [0] aload_0 v0
+      [1] astore_1 v1
+      [2] new #5
+        - Class [android/content/Intent]
+      [5] dup
+      [6] ldc #2
+        - String [android.intent.action.MAIN]
+      [8] aconst_null
+      [9] invokespecial #29
+        - Methodref [android/content/Intent.<init> (Ljava/lang/String;Landroid/net/Uri;)V]
+      [12] dup
+      [13] astore_2 v2
+      [14] ldc #3
+        - String [android.intent.category.LAUNCHER]
+      [16] invokevirtual #30
+        - Methodref [android/content/Intent.addCategory (Ljava/lang/String;)Landroid/content/Intent;]
+      [19] pop
+      [20] aload_1 v1
+      [21] getfield #23
+        - Fieldref [org/zakky/stickyshortcut/a.b Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+      [24] invokevirtual #41
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.getPackageManager ()Landroid/content/pm/PackageManager;]
+      [27] dup
+      [28] astore_1 v1
+      [29] aload_2 v2
+      [30] iconst_0
+      [31] invokevirtual #32
+        - Methodref [android/content/pm/PackageManager.queryIntentActivities (Landroid/content/Intent;I)Ljava/util/List;]
+      [34] astore_2 v2
+      [35] new #12
+        - Class [java/util/ArrayList]
+      [38] dup
+      [39] aload_2 v2
+      [40] invokeinterface #49
+        - InterfaceMethodref [java/util/List.size ()I]
+      [45] invokespecial #38
+        - Methodref [java/util/ArrayList.<init> (I)V]
+      [48] astore_3 v3
+      [49] aload_2 v2
+      [50] invokeinterface #48
+        - InterfaceMethodref [java/util/List.iterator ()Ljava/util/Iterator;]
+      [55] astore_2 v2
+      [56] aload_2 v2
+      [57] invokeinterface #45
+        - InterfaceMethodref [java/util/Iterator.hasNext ()Z]
+      [62] ifeq +85 (target=147)
+      [65] aload_2 v2
+      [66] invokeinterface #46
+        - InterfaceMethodref [java/util/Iterator.next ()Ljava/lang/Object;]
+      [71] checkcast #8
+        - Class [android/content/pm/ResolveInfo]
+      [74] dup
+      [75] astore v4
+      [77] getfield #21
+        - Fieldref [android/content/pm/ResolveInfo.activityInfo Landroid/content/pm/ActivityInfo;]
+      [80] getfield #20
+        - Fieldref [android/content/pm/ActivityInfo.packageName Ljava/lang/String;]
+      [83] dup
+      [84] astore v5
+      [86] ifnull -30 (target=56)
+      [89] aload v4
+      [91] getfield #21
+        - Fieldref [android/content/pm/ResolveInfo.activityInfo Landroid/content/pm/ActivityInfo;]
+      [94] getfield #19
+        - Fieldref [android/content/pm/ActivityInfo.name Ljava/lang/String;]
+      [97] astore v6
+      [99] aload v4
+      [101] aload_1 v1
+      [102] invokevirtual #33
+        - Methodref [android/content/pm/ResolveInfo.loadLabel (Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;]
+      [105] astore v7
+      [107] aload v4
+      [109] getfield #21
+        - Fieldref [android/content/pm/ResolveInfo.activityInfo Landroid/content/pm/ActivityInfo;]
+      [112] aload_1 v1
+      [113] invokevirtual #31
+        - Methodref [android/content/pm/ActivityInfo.loadIcon (Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;]
+      [116] astore v4
+      [118] new #18
+        - Class [org/zakky/stickyshortcut/d]
+      [121] dup
+      [122] aload v7
+      [124] aload v4
+      [126] aload v6
+      [128] aload v5
+      [130] invokespecial #44
+        - Methodref [org/zakky/stickyshortcut/d.<init> (Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Ljava/lang/String;Ljava/lang/String;)V]
+      [133] astore v4
+      [135] aload_3 v3
+      [136] aload v4
+      [138] invokeinterface #47
+        - InterfaceMethodref [java/util/List.add (Ljava/lang/Object;)Z]
+      [143] pop
+      [144] goto -88 (target=56)
+      [147] aload_3 v3
+      [148] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: a/a/a/a/a
+  Superclass:    java/lang/Object
+  Major version: 0x31
+  Minor version: 0x0
+  Access flags:  0x30
+    = final class a.a.a.a.a extends java.lang.Object
+
+Interfaces (count = 1):
+  - Class [android/view/View$OnTouchListener]
+
+Constant Pool (count = 38):
+  - Class [a/a/a/a/a]
+  - Class [a/a/a/a/b]
+  - Class [android/view/MotionEvent]
+  - Class [android/view/View]
+  - Class [android/view/View$OnTouchListener]
+  - Class [android/widget/PopupWindow]
+  - Class [java/lang/Object]
+  - Fieldref [a/a/a/a/a.a La/a/a/a/b;]
+  - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+  - Methodref [android/view/MotionEvent.getAction ()I]
+  - Methodref [android/widget/PopupWindow.dismiss ()V]
+  - Methodref [java/lang/Object.<init> ()V]
+  + NameAndType [<init> ()V]
+  + NameAndType [a La/a/a/a/b;]
+  + NameAndType [b Landroid/widget/PopupWindow;]
+  + NameAndType [dismiss ()V]
+  + NameAndType [getAction ()I]
+  + Utf8 [()I]
+  + Utf8 [()V]
+  + Utf8 [(La/a/a/a/b;)V]
+  + Utf8 [(Landroid/view/View;Landroid/view/MotionEvent;)Z]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [La/a/a/a/b;]
+  + Utf8 [Landroid/widget/PopupWindow;]
+  + Utf8 [a]
+  + Utf8 [a/a/a/a/a]
+  + Utf8 [a/a/a/a/b]
+  + Utf8 [android/view/MotionEvent]
+  + Utf8 [android/view/View]
+  + Utf8 [android/view/View$OnTouchListener]
+  + Utf8 [android/widget/PopupWindow]
+  + Utf8 [b]
+  + Utf8 [dismiss]
+  + Utf8 [getAction]
+  + Utf8 [java/lang/Object]
+  + Utf8 [onTouch]
+
+Fields (count = 1):
+  + Field:        a La/a/a/a/b;
+    Access flags: 0x1002
+      = private a.a.a.a.b a
+
+Methods (count = 2):
+  - Method:       <init>(La/a/a/a/b;)V
+    Access flags: 0x0
+      = a(a.a.a.a.b)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #8
+        - Fieldref [a/a/a/a/a.a La/a/a/a/b;]
+      [5] aload_0 v0
+      [6] invokespecial #12
+        - Methodref [java/lang/Object.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    Access flags: 0x11
+      = public final boolean onTouch(android.view.View,android.view.MotionEvent)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 22, locals = 3, stack = 2):
+      [0] aload_2 v2
+      [1] invokevirtual #10
+        - Methodref [android/view/MotionEvent.getAction ()I]
+      [4] iconst_4
+      [5] ificmpne +15 (target=20)
+      [8] aload_0 v0
+      [9] getfield #8
+        - Fieldref [a/a/a/a/a.a La/a/a/a/b;]
+      [12] getfield #9
+        - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+      [15] invokevirtual #11
+        - Methodref [android/widget/PopupWindow.dismiss ()V]
+      [18] iconst_1
+      [19] ireturn
+      [20] iconst_0
+      [21] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: org/zakky/stickyshortcut/b
+  Superclass:    android/widget/BaseAdapter
+  Major version: 0x31
+  Minor version: 0x0
+  Access flags:  0x31
+    = public final class org.zakky.stickyshortcut.b extends android.widget.BaseAdapter
+
+Interfaces (count = 0):
+
+Constant Pool (count = 124):
+  - Integer [2130903043]
+  - Integer [2131230723]
+  - Integer [2131230724]
+  - String [layout_inflater]
+  - Class [android/content/Context]
+  - Class [android/view/LayoutInflater]
+  - Class [android/view/View]
+  - Class [android/view/ViewGroup]
+  - Class [android/view/ViewGroup$LayoutParams]
+  - Class [android/widget/BaseAdapter]
+  - Class [android/widget/ImageView]
+  - Class [android/widget/LinearLayout]
+  - Class [android/widget/LinearLayout$LayoutParams]
+  - Class [android/widget/TextView]
+  - Class [java/util/List]
+  - Class [org/zakky/stickyshortcut/CreateShortcutActivity]
+  - Class [org/zakky/stickyshortcut/b]
+  - Class [org/zakky/stickyshortcut/c]
+  - Class [org/zakky/stickyshortcut/d]
+  - Fieldref [org/zakky/stickyshortcut/b.a Ljava/util/List;]
+  - Fieldref [org/zakky/stickyshortcut/b.b Landroid/view/LayoutInflater;]
+  - Fieldref [org/zakky/stickyshortcut/b.c Landroid/widget/LinearLayout$LayoutParams;]
+  - Methodref [android/content/Context.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+  - Methodref [android/content/Context.getWallpaperDesiredMinimumHeight ()I]
+  - Methodref [android/view/LayoutInflater.inflate (ILandroid/view/ViewGroup;)Landroid/view/View;]
+  - Methodref [android/view/View.findViewById (I)Landroid/view/View;]
+  - Methodref [android/view/View.getTag ()Ljava/lang/Object;]
+  - Methodref [android/view/View.setTag (Ljava/lang/Object;)V]
+  - Methodref [android/widget/BaseAdapter.<init> ()V]
+  - Methodref [android/widget/ImageView.setImageDrawable (Landroid/graphics/drawable/Drawable;)V]
+  - Methodref [android/widget/ImageView.setLayoutParams (Landroid/view/ViewGroup$LayoutParams;)V]
+  - Methodref [android/widget/LinearLayout$LayoutParams.<init> (II)V]
+  - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
+  - Methodref [org/zakky/stickyshortcut/b.a (I)Lorg/zakky/stickyshortcut/d;]
+  - Methodref [org/zakky/stickyshortcut/c.<init> (Landroid/widget/TextView;Landroid/widget/ImageView;)V]
+  - Methodref [org/zakky/stickyshortcut/c.a ()Landroid/widget/TextView;]
+  - Methodref [org/zakky/stickyshortcut/c.b ()Landroid/widget/ImageView;]
+  - Methodref [org/zakky/stickyshortcut/d.a ()Ljava/lang/CharSequence;]
+  - Methodref [org/zakky/stickyshortcut/d.b ()Landroid/graphics/drawable/Drawable;]
+  - InterfaceMethodref [java/util/List.get (I)Ljava/lang/Object;]
+  - InterfaceMethodref [java/util/List.size ()I]
+  + NameAndType [<init> ()V]
+  + NameAndType [<init> (II)V]
+  + NameAndType [<init> (Landroid/widget/TextView;Landroid/widget/ImageView;)V]
+  + NameAndType [a ()Landroid/widget/TextView;]
+  + NameAndType [a ()Ljava/lang/CharSequence;]
+  + NameAndType [a (I)Lorg/zakky/stickyshortcut/d;]
+  + NameAndType [a Ljava/util/List;]
+  + NameAndType [b ()Landroid/graphics/drawable/Drawable;]
+  + NameAndType [b ()Landroid/widget/ImageView;]
+  + NameAndType [b Landroid/view/LayoutInflater;]
+  + NameAndType [c Landroid/widget/LinearLayout$LayoutParams;]
+  + NameAndType [findViewById (I)Landroid/view/View;]
+  + NameAndType [get (I)Ljava/lang/Object;]
+  + NameAndType [getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+  + NameAndType [getTag ()Ljava/lang/Object;]
+  + NameAndType [getWallpaperDesiredMinimumHeight ()I]
+  + NameAndType [inflate (ILandroid/view/ViewGroup;)Landroid/view/View;]
+  + NameAndType [setImageDrawable (Landroid/graphics/drawable/Drawable;)V]
+  + NameAndType [setLayoutParams (Landroid/view/ViewGroup$LayoutParams;)V]
+  + NameAndType [setTag (Ljava/lang/Object;)V]
+  + NameAndType [setText (Ljava/lang/CharSequence;)V]
+  + NameAndType [size ()I]
+  + Utf8 [()I]
+  + Utf8 [()Landroid/graphics/drawable/Drawable;]
+  + Utf8 [()Landroid/widget/ImageView;]
+  + Utf8 [()Landroid/widget/TextView;]
+  + Utf8 [()Ljava/lang/CharSequence;]
+  + Utf8 [()Ljava/lang/Object;]
+  + Utf8 [()V]
+  + Utf8 [(I)J]
+  + Utf8 [(I)Landroid/view/View;]
+  + Utf8 [(I)Ljava/lang/Object;]
+  + Utf8 [(I)Lorg/zakky/stickyshortcut/d;]
+  + Utf8 [(II)V]
+  + Utf8 [(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;]
+  + Utf8 [(ILandroid/view/ViewGroup;)Landroid/view/View;]
+  + Utf8 [(Landroid/content/Context;Ljava/util/List;)V]
+  + Utf8 [(Landroid/graphics/drawable/Drawable;)V]
+  + Utf8 [(Landroid/view/ViewGroup$LayoutParams;)V]
+  + Utf8 [(Landroid/widget/TextView;Landroid/widget/ImageView;)V]
+  + Utf8 [(Ljava/lang/CharSequence;)V]
+  + Utf8 [(Ljava/lang/Object;)V]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/Object;]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Landroid/view/LayoutInflater;]
+  + Utf8 [Landroid/widget/LinearLayout$LayoutParams;]
+  + Utf8 [Ljava/util/List;]
+  + Utf8 [a]
+  + Utf8 [android/content/Context]
+  + Utf8 [android/view/LayoutInflater]
+  + Utf8 [android/view/View]
+  + Utf8 [android/view/ViewGroup]
+  + Utf8 [android/view/ViewGroup$LayoutParams]
+  + Utf8 [android/widget/BaseAdapter]
+  + Utf8 [android/widget/ImageView]
+  + Utf8 [android/widget/LinearLayout]
+  + Utf8 [android/widget/LinearLayout$LayoutParams]
+  + Utf8 [android/widget/TextView]
+  + Utf8 [b]
+  + Utf8 [c]
+  + Utf8 [findViewById]
+  + Utf8 [get]
+  + Utf8 [getCount]
+  + Utf8 [getItem]
+  + Utf8 [getItemId]
+  + Utf8 [getSystemService]
+  + Utf8 [getTag]
+  + Utf8 [getView]
+  + Utf8 [getWallpaperDesiredMinimumHeight]
+  + Utf8 [inflate]
+  + Utf8 [java/util/List]
+  + Utf8 [layout_inflater]
+  + Utf8 [org/zakky/stickyshortcut/CreateShortcutActivity]
+  + Utf8 [org/zakky/stickyshortcut/b]
+  + Utf8 [org/zakky/stickyshortcut/c]
+  + Utf8 [org/zakky/stickyshortcut/d]
+  + Utf8 [setImageDrawable]
+  + Utf8 [setLayoutParams]
+  + Utf8 [setTag]
+  + Utf8 [setText]
+  + Utf8 [size]
+
+Fields (count = 3):
+  + Field:        a Ljava/util/List;
+    Access flags: 0x12
+      = private final java.util.List a
+  + Field:        b Landroid/view/LayoutInflater;
+    Access flags: 0x12
+      = private final android.view.LayoutInflater b
+  + Field:        c Landroid/widget/LinearLayout$LayoutParams;
+    Access flags: 0x12
+      = private final android.widget.LinearLayout$LayoutParams c
+
+Methods (count = 6):
+  - Method:       <init>(Landroid/content/Context;Ljava/util/List;)V
+    Access flags: 0x1
+      = public b(android.content.Context,java.util.List)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 89, locals = 3, stack = 5):
+      [0] aload_0 v0
+      [1] invokespecial #29
+        - Methodref [android/widget/BaseAdapter.<init> ()V]
+      [4] aload_0 v0
+      [5] aload_2 v2
+      [6] putfield #20
+        - Fieldref [org/zakky/stickyshortcut/b.a Ljava/util/List;]
+      [9] aload_0 v0
+      [10] aload_1 v1
+      [11] ldc #4
+        - String [layout_inflater]
+      [13] invokevirtual #23
+        - Methodref [android/content/Context.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+      [16] checkcast #6
+        - Class [android/view/LayoutInflater]
+      [19] putfield #21
+        - Fieldref [org/zakky/stickyshortcut/b.b Landroid/view/LayoutInflater;]
+      [22] aload_1 v1
+      [23] invokevirtual #24
+        - Methodref [android/content/Context.getWallpaperDesiredMinimumHeight ()I]
+      [26] dup
+      [27] istore_1 v1
+      [28] sipush 800
+      [31] ificmplt +19 (target=50)
+      [34] aload_0 v0
+      [35] new #13
+        - Class [android/widget/LinearLayout$LayoutParams]
+      [38] dup
+      [39] bipush 60
+      [41] bipush 60
+      [43] invokespecial #32
+        - Methodref [android/widget/LinearLayout$LayoutParams.<init> (II)V]
+      [46] putfield #22
+        - Fieldref [org/zakky/stickyshortcut/b.c Landroid/widget/LinearLayout$LayoutParams;]
+      [49] return
+      [50] iload_1 v1
+      [51] sipush 480
+      [54] ificmplt +19 (target=73)
+      [57] aload_0 v0
+      [58] new #13
+        - Class [android/widget/LinearLayout$LayoutParams]
+      [61] dup
+      [62] bipush 44
+      [64] bipush 44
+      [66] invokespecial #32
+        - Methodref [android/widget/LinearLayout$LayoutParams.<init> (II)V]
+      [69] putfield #22
+        - Fieldref [org/zakky/stickyshortcut/b.c Landroid/widget/LinearLayout$LayoutParams;]
+      [72] return
+      [73] aload_0 v0
+      [74] new #13
+        - Class [android/widget/LinearLayout$LayoutParams]
+      [77] dup
+      [78] bipush 32
+      [80] bipush 32
+      [82] invokespecial #32
+        - Methodref [android/widget/LinearLayout$LayoutParams.<init> (II)V]
+      [85] putfield #22
+        - Fieldref [org/zakky/stickyshortcut/b.c Landroid/widget/LinearLayout$LayoutParams;]
+      [88] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    Access flags: 0x11
+      = public final android.view.View getView(int,android.view.View,android.view.ViewGroup)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 120, locals = 6, stack = 4):
+      [0] aload_2 v2
+      [1] ifnonnull +16 (target=17)
+      [4] aload_0 v0
+      [5] getfield #21
+        - Fieldref [org/zakky/stickyshortcut/b.b Landroid/view/LayoutInflater;]
+      [8] ldc #1
+        - Integer [2130903043]
+      [10] aconst_null
+      [11] invokevirtual #25
+        - Methodref [android/view/LayoutInflater.inflate (ILandroid/view/ViewGroup;)Landroid/view/View;]
+      [14] goto +4 (target=18)
+      [17] aload_2 v2
+      [18] dup
+      [19] astore_2 v2
+      [20] invokevirtual #27
+        - Methodref [android/view/View.getTag ()Ljava/lang/Object;]
+      [23] ifnonnull +54 (target=77)
+      [26] aload_0 v0
+      [27] aload_2 v2
+      [28] astore v4
+      [30] astore_3 v3
+      [31] aload v4
+      [33] ldc #3
+        - Integer [2131230724]
+      [35] invokevirtual #26
+        - Methodref [android/view/View.findViewById (I)Landroid/view/View;]
+      [38] checkcast #14
+        - Class [android/widget/TextView]
+      [41] astore v5
+      [43] aload v4
+      [45] ldc #2
+        - Integer [2131230723]
+      [47] invokevirtual #26
+        - Methodref [android/view/View.findViewById (I)Landroid/view/View;]
+      [50] checkcast #11
+        - Class [android/widget/ImageView]
+      [53] dup
+      [54] astore v4
+      [56] aload_3 v3
+      [57] getfield #22
+        - Fieldref [org/zakky/stickyshortcut/b.c Landroid/widget/LinearLayout$LayoutParams;]
+      [60] invokevirtual #31
+        - Methodref [android/widget/ImageView.setLayoutParams (Landroid/view/ViewGroup$LayoutParams;)V]
+      [63] new #18
+        - Class [org/zakky/stickyshortcut/c]
+      [66] dup
+      [67] aload v5
+      [69] aload v4
+      [71] invokespecial #35
+        - Methodref [org/zakky/stickyshortcut/c.<init> (Landroid/widget/TextView;Landroid/widget/ImageView;)V]
+      [74] goto +10 (target=84)
+      [77] aload_2 v2
+      [78] invokevirtual #27
+        - Methodref [android/view/View.getTag ()Ljava/lang/Object;]
+      [81] checkcast #18
+        - Class [org/zakky/stickyshortcut/c]
+      [84] astore_3 v3
+      [85] aload_0 v0
+      [86] iload_1 v1
+      [87] invokespecial #34
+        - Methodref [org/zakky/stickyshortcut/b.a (I)Lorg/zakky/stickyshortcut/d;]
+      [90] astore_1 v1
+      [91] aload_3 v3
+      [92] invokevirtual #36
+        - Methodref [org/zakky/stickyshortcut/c.a ()Landroid/widget/TextView;]
+      [95] aload_1 v1
+      [96] invokevirtual #38
+        - Methodref [org/zakky/stickyshortcut/d.a ()Ljava/lang/CharSequence;]
+      [99] invokevirtual #33
+        - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
+      [102] aload_3 v3
+      [103] invokevirtual #37
+        - Methodref [org/zakky/stickyshortcut/c.b ()Landroid/widget/ImageView;]
+      [106] aload_1 v1
+      [107] invokevirtual #39
+        - Methodref [org/zakky/stickyshortcut/d.b ()Landroid/graphics/drawable/Drawable;]
+      [110] invokevirtual #30
+        - Methodref [android/widget/ImageView.setImageDrawable (Landroid/graphics/drawable/Drawable;)V]
+      [113] aload_2 v2
+      [114] aload_3 v3
+      [115] invokevirtual #28
+        - Methodref [android/view/View.setTag (Ljava/lang/Object;)V]
+      [118] aload_2 v2
+      [119] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       getCount()I
+    Access flags: 0x11
+      = public final int getCount()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #20
+        - Fieldref [org/zakky/stickyshortcut/b.a Ljava/util/List;]
+      [4] invokeinterface #41
+        - InterfaceMethodref [java/util/List.size ()I]
+      [9] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(I)Lorg/zakky/stickyshortcut/d;
+    Access flags: 0x2
+      = private org.zakky.stickyshortcut.d a(int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 14, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] getfield #20
+        - Fieldref [org/zakky/stickyshortcut/b.a Ljava/util/List;]
+      [4] iload_1 v1
+      [5] invokeinterface #40
+        - InterfaceMethodref [java/util/List.get (I)Ljava/lang/Object;]
+      [10] checkcast #19
+        - Class [org/zakky/stickyshortcut/d]
+      [13] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       getItemId(I)J
+    Access flags: 0x11
+      = public final long getItemId(int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 3, locals = 2, stack = 2):
+      [0] iload_1 v1
+      [1] i2l
+      [2] lreturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       getItem(I)Ljava/lang/Object;
+    Access flags: 0x1051
+      = public final java.lang.Object getItem(int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 6, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] iload_1 v1
+      [2] invokespecial #34
+        - Methodref [org/zakky/stickyshortcut/b.a (I)Lorg/zakky/stickyshortcut/d;]
+      [5] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: a/a/a/a/b
+  Superclass:    java/lang/Object
+  Major version: 0x31
+  Minor version: 0x0
+  Access flags:  0x21
+    = public class a.a.a.a.b extends java.lang.Object
+
+Interfaces (count = 0):
+
+Constant Pool (count = 102):
+  - String [setContentView was not called with a view to display.]
+  - String [window]
+  - Class [a/a/a/a/a]
+  - Class [a/a/a/a/b]
+  - Class [android/content/Context]
+  - Class [android/graphics/drawable/BitmapDrawable]
+  - Class [android/view/View]
+  - Class [android/view/View$OnTouchListener]
+  - Class [android/view/ViewGroup]
+  - Class [android/view/ViewGroup$LayoutParams]
+  - Class [android/view/WindowManager]
+  - Class [android/widget/PopupWindow]
+  - Class [android/widget/PopupWindow$OnDismissListener]
+  - Class [java/lang/IllegalStateException]
+  - Class [java/lang/Object]
+  - Fieldref [a/a/a/a/b.a Landroid/view/View;]
+  - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+  - Fieldref [a/a/a/a/b.c Landroid/view/WindowManager;]
+  - Fieldref [a/a/a/a/b.d Landroid/view/View;]
+  - Fieldref [a/a/a/a/b.e Landroid/graphics/drawable/Drawable;]
+  - Methodref [a/a/a/a/a.<init> (La/a/a/a/b;)V]
+  - Methodref [android/content/Context.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+  - Methodref [android/graphics/drawable/BitmapDrawable.<init> ()V]
+  - Methodref [android/view/View.getContext ()Landroid/content/Context;]
+  - Methodref [android/widget/PopupWindow.<init> (Landroid/content/Context;)V]
+  - Methodref [android/widget/PopupWindow.setBackgroundDrawable (Landroid/graphics/drawable/Drawable;)V]
+  - Methodref [android/widget/PopupWindow.setContentView (Landroid/view/View;)V]
+  - Methodref [android/widget/PopupWindow.setFocusable (Z)V]
+  - Methodref [android/widget/PopupWindow.setHeight (I)V]
+  - Methodref [android/widget/PopupWindow.setOutsideTouchable (Z)V]
+  - Methodref [android/widget/PopupWindow.setTouchInterceptor (Landroid/view/View$OnTouchListener;)V]
+  - Methodref [android/widget/PopupWindow.setTouchable (Z)V]
+  - Methodref [android/widget/PopupWindow.setWidth (I)V]
+  - Methodref [java/lang/IllegalStateException.<init> (Ljava/lang/String;)V]
+  - Methodref [java/lang/Object.<init> ()V]
+  + NameAndType [<init> ()V]
+  + NameAndType [<init> (La/a/a/a/b;)V]
+  + NameAndType [<init> (Landroid/content/Context;)V]
+  + NameAndType [<init> (Ljava/lang/String;)V]
+  + NameAndType [a Landroid/view/View;]
+  + NameAndType [b Landroid/widget/PopupWindow;]
+  + NameAndType [c Landroid/view/WindowManager;]
+  + NameAndType [d Landroid/view/View;]
+  + NameAndType [e Landroid/graphics/drawable/Drawable;]
+  + NameAndType [getContext ()Landroid/content/Context;]
+  + NameAndType [getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+  + NameAndType [setBackgroundDrawable (Landroid/graphics/drawable/Drawable;)V]
+  + NameAndType [setContentView (Landroid/view/View;)V]
+  + NameAndType [setFocusable (Z)V]
+  + NameAndType [setHeight (I)V]
+  + NameAndType [setOutsideTouchable (Z)V]
+  + NameAndType [setTouchInterceptor (Landroid/view/View$OnTouchListener;)V]
+  + NameAndType [setTouchable (Z)V]
+  + NameAndType [setWidth (I)V]
+  + Utf8 [()Landroid/content/Context;]
+  + Utf8 [()V]
+  + Utf8 [(I)V]
+  + Utf8 [(La/a/a/a/b;)V]
+  + Utf8 [(Landroid/content/Context;)V]
+  + Utf8 [(Landroid/graphics/drawable/Drawable;)V]
+  + Utf8 [(Landroid/view/View$OnTouchListener;)V]
+  + Utf8 [(Landroid/view/View;)V]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/Object;]
+  + Utf8 [(Ljava/lang/String;)V]
+  + Utf8 [(Z)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Landroid/graphics/drawable/Drawable;]
+  + Utf8 [Landroid/view/View;]
+  + Utf8 [Landroid/view/WindowManager;]
+  + Utf8 [Landroid/widget/PopupWindow;]
+  + Utf8 [a]
+  + Utf8 [a/a/a/a/a]
+  + Utf8 [a/a/a/a/b]
+  + Utf8 [android/content/Context]
+  + Utf8 [android/graphics/drawable/BitmapDrawable]
+  + Utf8 [android/view/View]
+  + Utf8 [android/view/View$OnTouchListener]
+  + Utf8 [android/view/ViewGroup]
+  + Utf8 [android/view/ViewGroup$LayoutParams]
+  + Utf8 [android/view/WindowManager]
+  + Utf8 [android/widget/PopupWindow]
+  + Utf8 [android/widget/PopupWindow$OnDismissListener]
+  + Utf8 [b]
+  + Utf8 [c]
+  + Utf8 [d]
+  + Utf8 [e]
+  + Utf8 [getContext]
+  + Utf8 [getSystemService]
+  + Utf8 [java/lang/IllegalStateException]
+  + Utf8 [java/lang/Object]
+  + Utf8 [setBackgroundDrawable]
+  + Utf8 [setContentView]
+  + Utf8 [setContentView was not called with a view to display.]
+  + Utf8 [setFocusable]
+  + Utf8 [setHeight]
+  + Utf8 [setOutsideTouchable]
+  + Utf8 [setTouchInterceptor]
+  + Utf8 [setTouchable]
+  + Utf8 [setWidth]
+  + Utf8 [window]
+
+Fields (count = 5):
+  + Field:        a Landroid/view/View;
+    Access flags: 0x14
+      = protected final android.view.View a
+  + Field:        b Landroid/widget/PopupWindow;
+    Access flags: 0x14
+      = protected final android.widget.PopupWindow b
+  + Field:        d Landroid/view/View;
+    Access flags: 0x2
+      = private android.view.View d
+  + Field:        e Landroid/graphics/drawable/Drawable;
+    Access flags: 0x2
+      = private android.graphics.drawable.Drawable e
+  + Field:        c Landroid/view/WindowManager;
+    Access flags: 0x14
+      = protected final android.view.WindowManager c
+
+Methods (count = 3):
+  - Method:       <init>(Landroid/view/View;)V
+    Access flags: 0x1
+      = public b(android.view.View)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 61, locals = 2, stack = 4):
+      [0] aload_0 v0
+      [1] invokespecial #35
+        - Methodref [java/lang/Object.<init> ()V]
+      [4] aload_0 v0
+      [5] aconst_null
+      [6] putfield #20
+        - Fieldref [a/a/a/a/b.e Landroid/graphics/drawable/Drawable;]
+      [9] aload_0 v0
+      [10] aload_1 v1
+      [11] putfield #16
+        - Fieldref [a/a/a/a/b.a Landroid/view/View;]
+      [14] aload_0 v0
+      [15] new #12
+        - Class [android/widget/PopupWindow]
+      [18] dup
+      [19] aload_1 v1
+      [20] invokevirtual #24
+        - Methodref [android/view/View.getContext ()Landroid/content/Context;]
+      [23] invokespecial #25
+        - Methodref [android/widget/PopupWindow.<init> (Landroid/content/Context;)V]
+      [26] putfield #17
+        - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+      [29] aload_0 v0
+      [30] getfield #17
+        - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+      [33] new #3
+        - Class [a/a/a/a/a]
+      [36] dup
+      [37] aload_0 v0
+      [38] invokespecial #21
+        - Methodref [a/a/a/a/a.<init> (La/a/a/a/b;)V]
+      [41] invokevirtual #31
+        - Methodref [android/widget/PopupWindow.setTouchInterceptor (Landroid/view/View$OnTouchListener;)V]
+      [44] aload_0 v0
+      [45] aload_1 v1
+      [46] invokevirtual #24
+        - Methodref [android/view/View.getContext ()Landroid/content/Context;]
+      [49] ldc #2
+        - String [window]
+      [51] invokevirtual #22
+        - Methodref [android/content/Context.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+      [54] checkcast #11
+        - Class [android/view/WindowManager]
+      [57] putfield #18
+        - Fieldref [a/a/a/a/b.c Landroid/view/WindowManager;]
+      [60] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a()V
+    Access flags: 0x14
+      = protected final void a()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 106, locals = 1, stack = 3):
+      [0] aload_0 v0
+      [1] getfield #19
+        - Fieldref [a/a/a/a/b.d Landroid/view/View;]
+      [4] ifnonnull +13 (target=17)
+      [7] new #14
+        - Class [java/lang/IllegalStateException]
+      [10] dup
+      [11] ldc #1
+        - String [setContentView was not called with a view to display.]
+      [13] invokespecial #34
+        - Methodref [java/lang/IllegalStateException.<init> (Ljava/lang/String;)V]
+      [16] athrow
+      [17] aload_0 v0
+      [18] getfield #20
+        - Fieldref [a/a/a/a/b.e Landroid/graphics/drawable/Drawable;]
+      [21] ifnonnull +20 (target=41)
+      [24] aload_0 v0
+      [25] getfield #17
+        - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+      [28] new #6
+        - Class [android/graphics/drawable/BitmapDrawable]
+      [31] dup
+      [32] invokespecial #23
+        - Methodref [android/graphics/drawable/BitmapDrawable.<init> ()V]
+      [35] invokevirtual #26
+        - Methodref [android/widget/PopupWindow.setBackgroundDrawable (Landroid/graphics/drawable/Drawable;)V]
+      [38] goto +14 (target=52)
+      [41] aload_0 v0
+      [42] getfield #17
+        - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+      [45] aload_0 v0
+      [46] getfield #20
+        - Fieldref [a/a/a/a/b.e Landroid/graphics/drawable/Drawable;]
+      [49] invokevirtual #26
+        - Methodref [android/widget/PopupWindow.setBackgroundDrawable (Landroid/graphics/drawable/Drawable;)V]
+      [52] aload_0 v0
+      [53] getfield #17
+        - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+      [56] bipush -2
+      [58] invokevirtual #33
+        - Methodref [android/widget/PopupWindow.setWidth (I)V]
+      [61] aload_0 v0
+      [62] getfield #17
+        - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+      [65] bipush -2
+      [67] invokevirtual #29
+        - Methodref [android/widget/PopupWindow.setHeight (I)V]
+      [70] aload_0 v0
+      [71] getfield #17
+        - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+      [74] iconst_1
+      [75] invokevirtual #32
+        - Methodref [android/widget/PopupWindow.setTouchable (Z)V]
+      [78] aload_0 v0
+      [79] getfield #17
+        - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+      [82] iconst_1
+      [83] invokevirtual #28
+        - Methodref [android/widget/PopupWindow.setFocusable (Z)V]
+      [86] aload_0 v0
+      [87] getfield #17
+        - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+      [90] iconst_1
+      [91] invokevirtual #30
+        - Methodref [android/widget/PopupWindow.setOutsideTouchable (Z)V]
+      [94] aload_0 v0
+      [95] getfield #17
+        - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+      [98] aload_0 v0
+      [99] getfield #19
+        - Fieldref [a/a/a/a/b.d Landroid/view/View;]
+      [102] invokevirtual #27
+        - Methodref [android/widget/PopupWindow.setContentView (Landroid/view/View;)V]
+      [105] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Landroid/view/View;)V
+    Access flags: 0x11
+      = public final void a(android.view.View)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 14, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #19
+        - Fieldref [a/a/a/a/b.d Landroid/view/View;]
+      [5] aload_0 v0
+      [6] getfield #17
+        - Fieldref [a/a/a/a/b.b Landroid/widget/PopupWindow;]
+      [9] aload_1 v1
+      [10] invokevirtual #27
+        - Methodref [android/widget/PopupWindow.setContentView (Landroid/view/View;)V]
+      [13] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: a/a/a/a/c
+  Superclass:    a/a/a/a/b
+  Major version: 0x31
+  Minor version: 0x0
+  Access flags:  0x31
+    = public final class a.a.a.a.c extends a.a.a.a.b
+
+Interfaces (count = 0):
+
+Constant Pool (count = 302):
+  - Integer [2130903040]
+  - Integer [2130903047]
+  - Integer [2130968585]
+  - Integer [2131099650]
+  - Integer [2131099651]
+  - Integer [2131099652]
+  - Integer [2131099655]
+  - Integer [2131099656]
+  - Integer [2131099657]
+  - Integer [2131230720]
+  - Integer [2131230721]
+  - Integer [2131230728]
+  - Integer [2131230729]
+  - Integer [2131230730]
+  - Integer [2131230731]
+  - String [layout_inflater]
+  - Class [a/a/a/a/b]
+  - Class [a/a/a/a/c]
+  - Class [a/a/a/a/d]
+  - Class [a/a/a/a/e]
+  - Class [android/content/Context]
+  - Class [android/graphics/Rect]
+  - Class [android/view/Display]
+  - Class [android/view/LayoutInflater]
+  - Class [android/view/View]
+  - Class [android/view/View$OnClickListener]
+  - Class [android/view/ViewGroup]
+  - Class [android/view/ViewGroup$LayoutParams]
+  - Class [android/view/ViewGroup$MarginLayoutParams]
+  - Class [android/view/WindowManager]
+  - Class [android/view/animation/Animation]
+  - Class [android/view/animation/AnimationUtils]
+  - Class [android/widget/ImageView]
+  - Class [android/widget/LinearLayout]
+  - Class [android/widget/PopupWindow]
+  - Class [android/widget/ScrollView]
+  - Class [android/widget/TextView]
+  - Class [java/util/ArrayList]
+  - Class [java/util/Iterator]
+  - Fieldref [a/a/a/a/c.a Landroid/view/View;]
+  - Fieldref [a/a/a/a/c.b Landroid/widget/PopupWindow;]
+  - Fieldref [a/a/a/a/c.c Landroid/view/WindowManager;]
+  - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+  - Fieldref [a/a/a/a/c.e Landroid/widget/ImageView;]
+  - Fieldref [a/a/a/a/c.f Landroid/widget/ImageView;]
+  - Fieldref [a/a/a/a/c.g Landroid/view/animation/Animation;]
+  - Fieldref [a/a/a/a/c.h Landroid/view/LayoutInflater;]
+  - Fieldref [a/a/a/a/c.i Landroid/content/Context;]
+  - Fieldref [a/a/a/a/c.j I]
+  - Fieldref [a/a/a/a/c.k I]
+  - Fieldref [a/a/a/a/c.l I]
+  - Fieldref [a/a/a/a/c.m Z]
+  - Fieldref [a/a/a/a/c.n Landroid/view/ViewGroup;]
+  - Fieldref [a/a/a/a/c.o Landroid/widget/ScrollView;]
+  - Fieldref [a/a/a/a/c.p Ljava/util/ArrayList;]
+  - Fieldref [android/graphics/Rect.bottom I]
+  - Fieldref [android/graphics/Rect.left I]
+  - Fieldref [android/graphics/Rect.top I]
+  - Fieldref [android/view/ViewGroup$LayoutParams.height I]
+  - Fieldref [android/view/ViewGroup$MarginLayoutParams.leftMargin I]
+  - Methodref [a/a/a/a/b.<init> (Landroid/view/View;)V]
+  - Methodref [a/a/a/a/c.<init> (Landroid/view/View;B)V]
+  - Methodref [a/a/a/a/c.a ()V]
+  - Methodref [a/a/a/a/c.a (II)V]
+  - Methodref [a/a/a/a/c.a (IIZ)V]
+  - Methodref [a/a/a/a/c.a (Landroid/view/View;)V]
+  - Methodref [a/a/a/a/c.c ()V]
+  - Methodref [a/a/a/a/d.a ()Ljava/lang/String;]
+  - Methodref [a/a/a/a/d.b ()Landroid/graphics/drawable/Drawable;]
+  - Methodref [a/a/a/a/d.c ()Landroid/view/View$OnClickListener;]
+  - Methodref [a/a/a/a/e.<init> (La/a/a/a/c;)V]
+  - Methodref [android/content/Context.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+  - Methodref [android/graphics/Rect.<init> (IIII)V]
+  - Methodref [android/graphics/Rect.centerX ()I]
+  - Methodref [android/view/Display.getHeight ()I]
+  - Methodref [android/view/Display.getWidth ()I]
+  - Methodref [android/view/LayoutInflater.inflate (ILandroid/view/ViewGroup;)Landroid/view/View;]
+  - Methodref [android/view/View.findViewById (I)Landroid/view/View;]
+  - Methodref [android/view/View.getContext ()Landroid/content/Context;]
+  - Methodref [android/view/View.getHeight ()I]
+  - Methodref [android/view/View.getLayoutParams ()Landroid/view/ViewGroup$LayoutParams;]
+  - Methodref [android/view/View.getLocationOnScreen ([I)V]
+  - Methodref [android/view/View.getMeasuredHeight ()I]
+  - Methodref [android/view/View.getMeasuredWidth ()I]
+  - Methodref [android/view/View.getWidth ()I]
+  - Methodref [android/view/View.measure (II)V]
+  - Methodref [android/view/View.setClickable (Z)V]
+  - Methodref [android/view/View.setFocusable (Z)V]
+  - Methodref [android/view/View.setLayoutParams (Landroid/view/ViewGroup$LayoutParams;)V]
+  - Methodref [android/view/View.setVisibility (I)V]
+  - Methodref [android/view/ViewGroup.addView (Landroid/view/View;)V]
+  - Methodref [android/view/ViewGroup.addView (Landroid/view/View;I)V]
+  - Methodref [android/view/ViewGroup.startAnimation (Landroid/view/animation/Animation;)V]
+  - Methodref [android/view/ViewGroup$LayoutParams.<init> (II)V]
+  - Methodref [android/view/animation/Animation.setInterpolator (Landroid/view/animation/Interpolator;)V]
+  - Methodref [android/view/animation/AnimationUtils.loadAnimation (Landroid/content/Context;I)Landroid/view/animation/Animation;]
+  - Methodref [android/widget/ImageView.getMeasuredWidth ()I]
+  - Methodref [android/widget/ImageView.setImageDrawable (Landroid/graphics/drawable/Drawable;)V]
+  - Methodref [android/widget/ImageView.setVisibility (I)V]
+  - Methodref [android/widget/LinearLayout.findViewById (I)Landroid/view/View;]
+  - Methodref [android/widget/LinearLayout.setOnClickListener (Landroid/view/View$OnClickListener;)V]
+  - Methodref [android/widget/PopupWindow.setAnimationStyle (I)V]
+  - Methodref [android/widget/PopupWindow.showAtLocation (Landroid/view/View;III)V]
+  - Methodref [android/widget/ScrollView.getLayoutParams ()Landroid/view/ViewGroup$LayoutParams;]
+  - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
+  - Methodref [android/widget/TextView.setVisibility (I)V]
+  - Methodref [java/util/ArrayList.<init> ()V]
+  - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
+  - Methodref [java/util/ArrayList.iterator ()Ljava/util/Iterator;]
+  - InterfaceMethodref [android/view/WindowManager.getDefaultDisplay ()Landroid/view/Display;]
+  - InterfaceMethodref [java/util/Iterator.hasNext ()Z]
+  - InterfaceMethodref [java/util/Iterator.next ()Ljava/lang/Object;]
+  + NameAndType [<init> ()V]
+  + NameAndType [<init> (II)V]
+  + NameAndType [<init> (IIII)V]
+  + NameAndType [<init> (La/a/a/a/c;)V]
+  + NameAndType [<init> (Landroid/view/View;)V]
+  + NameAndType [<init> (Landroid/view/View;B)V]
+  + NameAndType [a ()Ljava/lang/String;]
+  + NameAndType [a ()V]
+  + NameAndType [a (II)V]
+  + NameAndType [a (IIZ)V]
+  + NameAndType [a (Landroid/view/View;)V]
+  + NameAndType [a Landroid/view/View;]
+  + NameAndType [add (Ljava/lang/Object;)Z]
+  + NameAndType [addView (Landroid/view/View;)V]
+  + NameAndType [addView (Landroid/view/View;I)V]
+  + NameAndType [b ()Landroid/graphics/drawable/Drawable;]
+  + NameAndType [b Landroid/widget/PopupWindow;]
+  + NameAndType [bottom I]
+  + NameAndType [c ()Landroid/view/View$OnClickListener;]
+  + NameAndType [c ()V]
+  + NameAndType [c Landroid/view/WindowManager;]
+  + NameAndType [centerX ()I]
+  + NameAndType [d Landroid/view/View;]
+  + NameAndType [e Landroid/widget/ImageView;]
+  + NameAndType [f Landroid/widget/ImageView;]
+  + NameAndType [findViewById (I)Landroid/view/View;]
+  + NameAndType [g Landroid/view/animation/Animation;]
+  + NameAndType [getContext ()Landroid/content/Context;]
+  + NameAndType [getDefaultDisplay ()Landroid/view/Display;]
+  + NameAndType [getHeight ()I]
+  + NameAndType [getLayoutParams ()Landroid/view/ViewGroup$LayoutParams;]
+  + NameAndType [getLocationOnScreen ([I)V]
+  + NameAndType [getMeasuredHeight ()I]
+  + NameAndType [getMeasuredWidth ()I]
+  + NameAndType [getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+  + NameAndType [getWidth ()I]
+  + NameAndType [h Landroid/view/LayoutInflater;]
+  + NameAndType [hasNext ()Z]
+  + NameAndType [height I]
+  + NameAndType [i Landroid/content/Context;]
+  + NameAndType [inflate (ILandroid/view/ViewGroup;)Landroid/view/View;]
+  + NameAndType [iterator ()Ljava/util/Iterator;]
+  + NameAndType [j I]
+  + NameAndType [k I]
+  + NameAndType [l I]
+  + NameAndType [left I]
+  + NameAndType [leftMargin I]
+  + NameAndType [loadAnimation (Landroid/content/Context;I)Landroid/view/animation/Animation;]
+  + NameAndType [m Z]
+  + NameAndType [measure (II)V]
+  + NameAndType [n Landroid/view/ViewGroup;]
+  + NameAndType [next ()Ljava/lang/Object;]
+  + NameAndType [o Landroid/widget/ScrollView;]
+  + NameAndType [p Ljava/util/ArrayList;]
+  + NameAndType [setAnimationStyle (I)V]
+  + NameAndType [setClickable (Z)V]
+  + NameAndType [setFocusable (Z)V]
+  + NameAndType [setImageDrawable (Landroid/graphics/drawable/Drawable;)V]
+  + NameAndType [setInterpolator (Landroid/view/animation/Interpolator;)V]
+  + NameAndType [setLayoutParams (Landroid/view/ViewGroup$LayoutParams;)V]
+  + NameAndType [setOnClickListener (Landroid/view/View$OnClickListener;)V]
+  + NameAndType [setText (Ljava/lang/CharSequence;)V]
+  + NameAndType [setVisibility (I)V]
+  + NameAndType [showAtLocation (Landroid/view/View;III)V]
+  + NameAndType [startAnimation (Landroid/view/animation/Animation;)V]
+  + NameAndType [top I]
+  + Utf8 [()I]
+  + Utf8 [()Landroid/content/Context;]
+  + Utf8 [()Landroid/graphics/drawable/Drawable;]
+  + Utf8 [()Landroid/view/Display;]
+  + Utf8 [()Landroid/view/View$OnClickListener;]
+  + Utf8 [()Landroid/view/ViewGroup$LayoutParams;]
+  + Utf8 [()Ljava/lang/Object;]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()Ljava/util/Iterator;]
+  + Utf8 [()V]
+  + Utf8 [()Z]
+  + Utf8 [(I)Landroid/view/View;]
+  + Utf8 [(I)V]
+  + Utf8 [(II)V]
+  + Utf8 [(IIII)V]
+  + Utf8 [(IIZ)V]
+  + Utf8 [(ILandroid/view/ViewGroup;)Landroid/view/View;]
+  + Utf8 [(La/a/a/a/c;)V]
+  + Utf8 [(La/a/a/a/d;)V]
+  + Utf8 [(Landroid/content/Context;I)Landroid/view/animation/Animation;]
+  + Utf8 [(Landroid/graphics/drawable/Drawable;)V]
+  + Utf8 [(Landroid/view/View$OnClickListener;)V]
+  + Utf8 [(Landroid/view/View;)V]
+  + Utf8 [(Landroid/view/View;B)V]
+  + Utf8 [(Landroid/view/View;I)V]
+  + Utf8 [(Landroid/view/View;III)V]
+  + Utf8 [(Landroid/view/ViewGroup$LayoutParams;)V]
+  + Utf8 [(Landroid/view/animation/Animation;)V]
+  + Utf8 [(Landroid/view/animation/Interpolator;)V]
+  + Utf8 [(Ljava/lang/CharSequence;)V]
+  + Utf8 [(Ljava/lang/Object;)Z]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/Object;]
+  + Utf8 [(Z)V]
+  + Utf8 [([I)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [I]
+  + Utf8 [Landroid/content/Context;]
+  + Utf8 [Landroid/view/LayoutInflater;]
+  + Utf8 [Landroid/view/View;]
+  + Utf8 [Landroid/view/ViewGroup;]
+  + Utf8 [Landroid/view/WindowManager;]
+  + Utf8 [Landroid/view/animation/Animation;]
+  + Utf8 [Landroid/widget/ImageView;]
+  + Utf8 [Landroid/widget/PopupWindow;]
+  + Utf8 [Landroid/widget/ScrollView;]
+  + Utf8 [Ljava/util/ArrayList;]
+  + Utf8 [Z]
+  + Utf8 [a]
+  + Utf8 [a/a/a/a/b]
+  + Utf8 [a/a/a/a/c]
+  + Utf8 [a/a/a/a/d]
+  + Utf8 [a/a/a/a/e]
+  + Utf8 [add]
+  + Utf8 [addView]
+  + Utf8 [android/content/Context]
+  + Utf8 [android/graphics/Rect]
+  + Utf8 [android/view/Display]
+  + Utf8 [android/view/LayoutInflater]
+  + Utf8 [android/view/View]
+  + Utf8 [android/view/View$OnClickListener]
+  + Utf8 [android/view/ViewGroup]
+  + Utf8 [android/view/ViewGroup$LayoutParams]
+  + Utf8 [android/view/ViewGroup$MarginLayoutParams]
+  + Utf8 [android/view/WindowManager]
+  + Utf8 [android/view/animation/Animation]
+  + Utf8 [android/view/animation/AnimationUtils]
+  + Utf8 [android/widget/ImageView]
+  + Utf8 [android/widget/LinearLayout]
+  + Utf8 [android/widget/PopupWindow]
+  + Utf8 [android/widget/ScrollView]
+  + Utf8 [android/widget/TextView]
+  + Utf8 [b]
+  + Utf8 [bottom]
+  + Utf8 [c]
+  + Utf8 [centerX]
+  + Utf8 [d]
+  + Utf8 [e]
+  + Utf8 [f]
+  + Utf8 [findViewById]
+  + Utf8 [g]
+  + Utf8 [getContext]
+  + Utf8 [getDefaultDisplay]
+  + Utf8 [getHeight]
+  + Utf8 [getLayoutParams]
+  + Utf8 [getLocationOnScreen]
+  + Utf8 [getMeasuredHeight]
+  + Utf8 [getMeasuredWidth]
+  + Utf8 [getSystemService]
+  + Utf8 [getWidth]
+  + Utf8 [h]
+  + Utf8 [hasNext]
+  + Utf8 [height]
+  + Utf8 [i]
+  + Utf8 [inflate]
+  + Utf8 [iterator]
+  + Utf8 [j]
+  + Utf8 [java/util/ArrayList]
+  + Utf8 [java/util/Iterator]
+  + Utf8 [k]
+  + Utf8 [l]
+  + Utf8 [layout_inflater]
+  + Utf8 [left]
+  + Utf8 [leftMargin]
+  + Utf8 [loadAnimation]
+  + Utf8 [m]
+  + Utf8 [measure]
+  + Utf8 [n]
+  + Utf8 [next]
+  + Utf8 [o]
+  + Utf8 [p]
+  + Utf8 [setAnimationStyle]
+  + Utf8 [setClickable]
+  + Utf8 [setFocusable]
+  + Utf8 [setImageDrawable]
+  + Utf8 [setInterpolator]
+  + Utf8 [setLayoutParams]
+  + Utf8 [setOnClickListener]
+  + Utf8 [setText]
+  + Utf8 [setVisibility]
+  + Utf8 [showAtLocation]
+  + Utf8 [startAnimation]
+  + Utf8 [top]
+
+Fields (count = 13):
+  + Field:        d Landroid/view/View;
+    Access flags: 0x2
+      = private android.view.View d
+  + Field:        e Landroid/widget/ImageView;
+    Access flags: 0x2
+      = private android.widget.ImageView e
+  + Field:        f Landroid/widget/ImageView;
+    Access flags: 0x2
+      = private android.widget.ImageView f
+  + Field:        g Landroid/view/animation/Animation;
+    Access flags: 0x2
+      = private android.view.animation.Animation g
+  + Field:        h Landroid/view/LayoutInflater;
+    Access flags: 0x12
+      = private final android.view.LayoutInflater h
+  + Field:        i Landroid/content/Context;
+    Access flags: 0x12
+      = private final android.content.Context i
+  + Field:        j I
+    Access flags: 0x2
+      = private int j
+  + Field:        k I
+    Access flags: 0x2
+      = private int k
+  + Field:        l I
+    Access flags: 0x2
+      = private int l
+  + Field:        m Z
+    Access flags: 0x2
+      = private boolean m
+  + Field:        n Landroid/view/ViewGroup;
+    Access flags: 0x2
+      = private android.view.ViewGroup n
+  + Field:        o Landroid/widget/ScrollView;
+    Access flags: 0x2
+      = private android.widget.ScrollView o
+  + Field:        p Ljava/util/ArrayList;
+    Access flags: 0x2
+      = private java.util.ArrayList p
+
+Methods (count = 7):
+  - Method:       <init>(Landroid/view/View;B)V
+    Access flags: 0x2
+      = private c(android.view.View,byte)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 188, locals = 3, stack = 4):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] invokespecial #61
+        - Methodref [a/a/a/a/b.<init> (Landroid/view/View;)V]
+      [5] aload_0 v0
+      [6] new #38
+        - Class [java/util/ArrayList]
+      [9] dup
+      [10] invokespecial #107
+        - Methodref [java/util/ArrayList.<init> ()V]
+      [13] putfield #55
+        - Fieldref [a/a/a/a/c.p Ljava/util/ArrayList;]
+      [16] aload_0 v0
+      [17] aload_1 v1
+      [18] invokevirtual #79
+        - Methodref [android/view/View.getContext ()Landroid/content/Context;]
+      [21] putfield #48
+        - Fieldref [a/a/a/a/c.i Landroid/content/Context;]
+      [24] aload_0 v0
+      [25] aload_0 v0
+      [26] getfield #48
+        - Fieldref [a/a/a/a/c.i Landroid/content/Context;]
+      [29] ldc #16
+        - String [layout_inflater]
+      [31] invokevirtual #72
+        - Methodref [android/content/Context.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+      [34] checkcast #24
+        - Class [android/view/LayoutInflater]
+      [37] putfield #47
+        - Fieldref [a/a/a/a/c.h Landroid/view/LayoutInflater;]
+      [40] aload_0 v0
+      [41] ldc #1
+        - Integer [2130903040]
+      [43] putfield #49
+        - Fieldref [a/a/a/a/c.j I]
+      [46] aload_0 v0
+      [47] dup
+      [48] astore_1 v1
+      [49] iconst_1
+      [50] putfield #50
+        - Fieldref [a/a/a/a/c.k I]
+      [53] aload_1 v1
+      [54] aload_1 v1
+      [55] getfield #47
+        - Fieldref [a/a/a/a/c.h Landroid/view/LayoutInflater;]
+      [58] ldc #2
+        - Integer [2130903047]
+      [60] aconst_null
+      [61] invokevirtual #77
+        - Methodref [android/view/LayoutInflater.inflate (ILandroid/view/ViewGroup;)Landroid/view/View;]
+      [64] checkcast #27
+        - Class [android/view/ViewGroup]
+      [67] putfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [70] aload_1 v1
+      [71] aload_1 v1
+      [72] getfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [75] ldc #15
+        - Integer [2131230731]
+      [77] invokevirtual #78
+        - Methodref [android/view/View.findViewById (I)Landroid/view/View;]
+      [80] checkcast #33
+        - Class [android/widget/ImageView]
+      [83] putfield #45
+        - Fieldref [a/a/a/a/c.f Landroid/widget/ImageView;]
+      [86] aload_1 v1
+      [87] aload_1 v1
+      [88] getfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [91] ldc #14
+        - Integer [2131230730]
+      [93] invokevirtual #78
+        - Methodref [android/view/View.findViewById (I)Landroid/view/View;]
+      [96] checkcast #33
+        - Class [android/widget/ImageView]
+      [99] putfield #44
+        - Fieldref [a/a/a/a/c.e Landroid/widget/ImageView;]
+      [102] aload_1 v1
+      [103] aload_1 v1
+      [104] getfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [107] invokevirtual #66
+        - Methodref [a/a/a/a/c.a (Landroid/view/View;)V]
+      [110] aload_1 v1
+      [111] aload_1 v1
+      [112] getfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [115] ldc #13
+        - Integer [2131230729]
+      [117] invokevirtual #78
+        - Methodref [android/view/View.findViewById (I)Landroid/view/View;]
+      [120] checkcast #27
+        - Class [android/view/ViewGroup]
+      [123] putfield #53
+        - Fieldref [a/a/a/a/c.n Landroid/view/ViewGroup;]
+      [126] aload_1 v1
+      [127] aload_1 v1
+      [128] getfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [131] ldc #12
+        - Integer [2131230728]
+      [133] invokevirtual #78
+        - Methodref [android/view/View.findViewById (I)Landroid/view/View;]
+      [136] checkcast #36
+        - Class [android/widget/ScrollView]
+      [139] putfield #54
+        - Fieldref [a/a/a/a/c.o Landroid/widget/ScrollView;]
+      [142] aload_1 v1
+      [143] iconst_1
+      [144] putfield #52
+        - Fieldref [a/a/a/a/c.m Z]
+      [147] aload_0 v0
+      [148] iconst_5
+      [149] putfield #51
+        - Fieldref [a/a/a/a/c.l I]
+      [152] aload_0 v0
+      [153] new #20
+        - Class [a/a/a/a/e]
+      [156] dup
+      [157] aload_0 v0
+      [158] invokespecial #71
+        - Methodref [a/a/a/a/e.<init> (La/a/a/a/c;)V]
+      [161] astore_2 v2
+      [162] dup
+      [163] dup
+      [164] astore_1 v1
+      [165] getfield #40
+        - Fieldref [a/a/a/a/c.a Landroid/view/View;]
+      [168] invokevirtual #79
+        - Methodref [android/view/View.getContext ()Landroid/content/Context;]
+      [171] ldc #3
+        - Integer [2130968585]
+      [173] invokestatic #96
+        - Methodref [android/view/animation/AnimationUtils.loadAnimation (Landroid/content/Context;I)Landroid/view/animation/Animation;]
+      [176] putfield #46
+        - Fieldref [a/a/a/a/c.g Landroid/view/animation/Animation;]
+      [179] aload_1 v1
+      [180] getfield #46
+        - Fieldref [a/a/a/a/c.g Landroid/view/animation/Animation;]
+      [183] aload_2 v2
+      [184] invokevirtual #95
+        - Methodref [android/view/animation/Animation.setInterpolator (Landroid/view/animation/Interpolator;)V]
+      [187] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  - Method:       <init>(Landroid/view/View;)V
+    Access flags: 0x1
+      = public c(android.view.View)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 7, locals = 2, stack = 3):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] iconst_0
+      [3] invokespecial #62
+        - Methodref [a/a/a/a/c.<init> (Landroid/view/View;B)V]
+      [6] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(La/a/a/a/d;)V
+    Access flags: 0x11
+      = public final void a(a.a.a.a.d)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] getfield #55
+        - Fieldref [a/a/a/a/c.p Ljava/util/ArrayList;]
+      [4] aload_1 v1
+      [5] invokevirtual #108
+        - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
+      [8] pop
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       b()V
+    Access flags: 0x11
+      = public final void b()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 594, locals = 10, stack = 7):
+      [0] aload_0 v0
+      [1] getfield #50
+        - Fieldref [a/a/a/a/c.k I]
+      [4] lookupswitch (1 offsets, default=370) (target=374)
+        2: offset = 20, target = 24
+        default: offset = 370, target = 374
+      [24] aload_0 v0
+      [25] dup
+      [26] astore_1 v1
+      [27] invokevirtual #63
+        - Methodref [a/a/a/a/c.a ()V]
+      [30] iconst_2
+      [31] newarray 10
+      [33] astore_2 v2
+      [34] aload_1 v1
+      [35] getfield #40
+        - Fieldref [a/a/a/a/c.a Landroid/view/View;]
+      [38] aload_2 v2
+      [39] invokevirtual #82
+        - Methodref [android/view/View.getLocationOnScreen ([I)V]
+      [42] new #22
+        - Class [android/graphics/Rect]
+      [45] dup
+      [46] aload_2 v2
+      [47] iconst_0
+      [48] iaload
+      [49] aload_2 v2
+      [50] iconst_1
+      [51] iaload
+      [52] aload_2 v2
+      [53] iconst_0
+      [54] iaload
+      [55] aload_1 v1
+      [56] getfield #40
+        - Fieldref [a/a/a/a/c.a Landroid/view/View;]
+      [59] invokevirtual #85
+        - Methodref [android/view/View.getWidth ()I]
+      [62] iadd
+      [63] aload_2 v2
+      [64] iconst_1
+      [65] iaload
+      [66] aload_1 v1
+      [67] getfield #40
+        - Fieldref [a/a/a/a/c.a Landroid/view/View;]
+      [70] invokevirtual #80
+        - Methodref [android/view/View.getHeight ()I]
+      [73] iadd
+      [74] invokespecial #73
+        - Methodref [android/graphics/Rect.<init> (IIII)V]
+      [77] astore v4
+      [79] aload_1 v1
+      [80] invokespecial #67
+        - Methodref [a/a/a/a/c.c ()V]
+      [83] aload_1 v1
+      [84] getfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [87] new #28
+        - Class [android/view/ViewGroup$LayoutParams]
+      [90] dup
+      [91] bipush -2
+      [93] bipush -2
+      [95] invokespecial #94
+        - Methodref [android/view/ViewGroup$LayoutParams.<init> (II)V]
+      [98] invokevirtual #89
+        - Methodref [android/view/View.setLayoutParams (Landroid/view/ViewGroup$LayoutParams;)V]
+      [101] aload_1 v1
+      [102] getfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [105] bipush -2
+      [107] bipush -2
+      [109] invokevirtual #86
+        - Methodref [android/view/View.measure (II)V]
+      [112] aload_1 v1
+      [113] getfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [116] invokevirtual #83
+        - Methodref [android/view/View.getMeasuredHeight ()I]
+      [119] istore v5
+      [121] aload_1 v1
+      [122] getfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [125] invokevirtual #84
+        - Methodref [android/view/View.getMeasuredWidth ()I]
+      [128] istore_2 v2
+      [129] aload_1 v1
+      [130] getfield #42
+        - Fieldref [a/a/a/a/c.c Landroid/view/WindowManager;]
+      [133] invokeinterface #110
+        - InterfaceMethodref [android/view/WindowManager.getDefaultDisplay ()Landroid/view/Display;]
+      [138] invokevirtual #76
+        - Methodref [android/view/Display.getWidth ()I]
+      [141] istore v6
+      [143] aload_1 v1
+      [144] getfield #42
+        - Fieldref [a/a/a/a/c.c Landroid/view/WindowManager;]
+      [147] invokeinterface #110
+        - InterfaceMethodref [android/view/WindowManager.getDefaultDisplay ()Landroid/view/Display;]
+      [152] invokevirtual #75
+        - Methodref [android/view/Display.getHeight ()I]
+      [155] istore v7
+      [157] aload v4
+      [159] getfield #57
+        - Fieldref [android/graphics/Rect.left I]
+      [162] iload_2 v2
+      [163] iadd
+      [164] iload v6
+      [166] ificmple +22 (target=188)
+      [169] aload v4
+      [171] getfield #57
+        - Fieldref [android/graphics/Rect.left I]
+      [174] iload_2 v2
+      [175] aload_1 v1
+      [176] getfield #40
+        - Fieldref [a/a/a/a/c.a Landroid/view/View;]
+      [179] invokevirtual #85
+        - Methodref [android/view/View.getWidth ()I]
+      [182] isub
+      [183] isub
+      [184] istore_2 v2
+      [185] goto +33 (target=218)
+      [188] aload_1 v1
+      [189] getfield #40
+        - Fieldref [a/a/a/a/c.a Landroid/view/View;]
+      [192] invokevirtual #85
+        - Methodref [android/view/View.getWidth ()I]
+      [195] iload_2 v2
+      [196] ificmple +16 (target=212)
+      [199] aload v4
+      [201] invokevirtual #74
+        - Methodref [android/graphics/Rect.centerX ()I]
+      [204] iload_2 v2
+      [205] iconst_2
+      [206] idiv
+      [207] isub
+      [208] istore_2 v2
+      [209] goto +9 (target=218)
+      [212] aload v4
+      [214] getfield #57
+        - Fieldref [android/graphics/Rect.left I]
+      [217] istore_2 v2
+      [218] aload v4
+      [220] getfield #58
+        - Fieldref [android/graphics/Rect.top I]
+      [223] istore v8
+      [225] iload v7
+      [227] aload v4
+      [229] getfield #56
+        - Fieldref [android/graphics/Rect.bottom I]
+      [232] isub
+      [233] istore v7
+      [235] iload v8
+      [237] iload v7
+      [239] ificmple +7 (target=246)
+      [242] iconst_1
+      [243] goto +4 (target=247)
+      [246] iconst_0
+      [247] dup
+      [248] istore v9
+      [250] ifeq +48 (target=298)
+      [253] iload v5
+      [255] iload v8
+      [257] ificmple +29 (target=286)
+      [260] bipush 15
+      [262] istore_3 v3
+      [263] aload_1 v1
+      [264] getfield #54
+        - Fieldref [a/a/a/a/c.o Landroid/widget/ScrollView;]
+      [267] invokevirtual #104
+        - Methodref [android/widget/ScrollView.getLayoutParams ()Landroid/view/ViewGroup$LayoutParams;]
+      [270] iload v8
+      [272] aload_1 v1
+      [273] getfield #40
+        - Fieldref [a/a/a/a/c.a Landroid/view/View;]
+      [276] invokevirtual #80
+        - Methodref [android/view/View.getHeight ()I]
+      [279] isub
+      [280] putfield #59
+        - Fieldref [android/view/ViewGroup$LayoutParams.height I]
+      [283] goto +40 (target=323)
+      [286] aload v4
+      [288] getfield #58
+        - Fieldref [android/graphics/Rect.top I]
+      [291] iload v5
+      [293] isub
+      [294] istore_3 v3
+      [295] goto +28 (target=323)
+      [298] aload v4
+      [300] getfield #56
+        - Fieldref [android/graphics/Rect.bottom I]
+      [303] istore_3 v3
+      [304] iload v5
+      [306] iload v7
+      [308] ificmple +15 (target=323)
+      [311] aload_1 v1
+      [312] getfield #54
+        - Fieldref [a/a/a/a/c.o Landroid/widget/ScrollView;]
+      [315] invokevirtual #104
+        - Methodref [android/widget/ScrollView.getLayoutParams ()Landroid/view/ViewGroup$LayoutParams;]
+      [318] iload v7
+      [320] putfield #59
+        - Fieldref [android/view/ViewGroup$LayoutParams.height I]
+      [323] aload_1 v1
+      [324] iload v9
+      [326] ifeq +8 (target=334)
+      [329] ldc #15
+        - Integer [2131230731]
+      [331] goto +5 (target=336)
+      [334] ldc #14
+        - Integer [2131230730]
+      [336] aload v4
+      [338] invokevirtual #74
+        - Methodref [android/graphics/Rect.centerX ()I]
+      [341] iload_2 v2
+      [342] isub
+      [343] invokespecial #64
+        - Methodref [a/a/a/a/c.a (II)V]
+      [346] aload_1 v1
+      [347] iload v6
+      [349] aload v4
+      [351] invokevirtual #74
+        - Methodref [android/graphics/Rect.centerX ()I]
+      [354] iload v9
+      [356] invokespecial #65
+        - Methodref [a/a/a/a/c.a (IIZ)V]
+      [359] aload_1 v1
+      [360] getfield #41
+        - Fieldref [a/a/a/a/c.b Landroid/widget/PopupWindow;]
+      [363] aload_1 v1
+      [364] getfield #40
+        - Fieldref [a/a/a/a/c.a Landroid/view/View;]
+      [367] iconst_0
+      [368] iload_2 v2
+      [369] iload_3 v3
+      [370] invokevirtual #103
+        - Methodref [android/widget/PopupWindow.showAtLocation (Landroid/view/View;III)V]
+      [373] return
+      [374] aload_0 v0
+      [375] dup
+      [376] astore_1 v1
+      [377] invokevirtual #63
+        - Methodref [a/a/a/a/c.a ()V]
+      [380] iconst_2
+      [381] newarray 10
+      [383] astore_2 v2
+      [384] aload_1 v1
+      [385] getfield #40
+        - Fieldref [a/a/a/a/c.a Landroid/view/View;]
+      [388] aload_2 v2
+      [389] invokevirtual #82
+        - Methodref [android/view/View.getLocationOnScreen ([I)V]
+      [392] new #22
+        - Class [android/graphics/Rect]
+      [395] dup
+      [396] aload_2 v2
+      [397] iconst_0
+      [398] iaload
+      [399] aload_2 v2
+      [400] iconst_1
+      [401] iaload
+      [402] aload_2 v2
+      [403] iconst_0
+      [404] iaload
+      [405] aload_1 v1
+      [406] getfield #40
+        - Fieldref [a/a/a/a/c.a Landroid/view/View;]
+      [409] invokevirtual #85
+        - Methodref [android/view/View.getWidth ()I]
+      [412] iadd
+      [413] aload_2 v2
+      [414] iconst_1
+      [415] iaload
+      [416] aload_1 v1
+      [417] getfield #40
+        - Fieldref [a/a/a/a/c.a Landroid/view/View;]
+      [420] invokevirtual #80
+        - Methodref [android/view/View.getHeight ()I]
+      [423] iadd
+      [424] invokespecial #73
+        - Methodref [android/graphics/Rect.<init> (IIII)V]
+      [427] astore_3 v3
+      [428] aload_1 v1
+      [429] getfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [432] new #28
+        - Class [android/view/ViewGroup$LayoutParams]
+      [435] dup
+      [436] bipush -2
+      [438] bipush -2
+      [440] invokespecial #94
+        - Methodref [android/view/ViewGroup$LayoutParams.<init> (II)V]
+      [443] invokevirtual #89
+        - Methodref [android/view/View.setLayoutParams (Landroid/view/ViewGroup$LayoutParams;)V]
+      [446] aload_1 v1
+      [447] getfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [450] bipush -2
+      [452] bipush -2
+      [454] invokevirtual #86
+        - Methodref [android/view/View.measure (II)V]
+      [457] aload_1 v1
+      [458] getfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [461] invokevirtual #84
+        - Methodref [android/view/View.getMeasuredWidth ()I]
+      [464] istore_2 v2
+      [465] aload_1 v1
+      [466] getfield #43
+        - Fieldref [a/a/a/a/c.d Landroid/view/View;]
+      [469] invokevirtual #83
+        - Methodref [android/view/View.getMeasuredHeight ()I]
+      [472] istore v4
+      [474] aload_1 v1
+      [475] getfield #42
+        - Fieldref [a/a/a/a/c.c Landroid/view/WindowManager;]
+      [478] invokeinterface #110
+        - InterfaceMethodref [android/view/WindowManager.getDefaultDisplay ()Landroid/view/Display;]
+      [483] invokevirtual #76
+        - Methodref [android/view/Display.getWidth ()I]
+      [486] dup
+      [487] istore v5
+      [489] iload_2 v2
+      [490] isub
+      [491] iconst_2
+      [492] idiv
+      [493] istore_2 v2
+      [494] aload_3 v3
+      [495] getfield #58
+        - Fieldref [android/graphics/Rect.top I]
+      [498] iload v4
+      [500] isub
+      [501] istore v6
+      [503] iconst_1
+      [504] istore v7
+      [506] iload v4
+      [508] aload_3 v3
+      [509] getfield #58
+        - Fieldref [android/graphics/Rect.top I]
+      [512] ificmple +12 (target=524)
+      [515] aload_3 v3
+      [516] getfield #56
+        - Fieldref [android/graphics/Rect.bottom I]
+      [519] istore v6
+      [521] iconst_0
+      [522] istore v7
+      [524] aload_1 v1
+      [525] iload v7
+      [527] ifeq +8 (target=535)
+      [530] ldc #15
+        - Integer [2131230731]
+      [532] goto +5 (target=537)
+      [535] ldc #14
+        - Integer [2131230730]
+      [537] aload_3 v3
+      [538] invokevirtual #74
+        - Methodref [android/graphics/Rect.centerX ()I]
+      [541] invokespecial #64
+        - Methodref [a/a/a/a/c.a (II)V]
+      [544] aload_1 v1
+      [545] iload v5
+      [547] aload_3 v3
+      [548] invokevirtual #74
+        - Methodref [android/graphics/Rect.centerX ()I]
+      [551] iload v7
+      [553] invokespecial #65
+        - Methodref [a/a/a/a/c.a (IIZ)V]
+      [556] aload_1 v1
+      [557] invokespecial #67
+        - Methodref [a/a/a/a/c.c ()V]
+      [560] aload_1 v1
+      [561] getfield #41
+        - Fieldref [a/a/a/a/c.b Landroid/widget/PopupWindow;]
+      [564] aload_1 v1
+      [565] getfield #40
+        - Fieldref [a/a/a/a/c.a Landroid/view/View;]
+      [568] iconst_0
+      [569] iload_2 v2
+      [570] iload v6
+      [572] invokevirtual #103
+        - Methodref [android/widget/PopupWindow.showAtLocation (Landroid/view/View;III)V]
+      [575] aload_1 v1
+      [576] getfield #52
+        - Fieldref [a/a/a/a/c.m Z]
+      [579] ifeq +14 (target=593)
+      [582] aload_1 v1
+      [583] getfield #53
+        - Fieldref [a/a/a/a/c.n Landroid/view/ViewGroup;]
+      [586] aload_1 v1
+      [587] getfield #46
+        - Fieldref [a/a/a/a/c.g Landroid/view/animation/Animation;]
+      [590] invokevirtual #93
+        - Methodref [android/view/ViewGroup.startAnimation (Landroid/view/animation/Animation;)V]
+      [593] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(IIZ)V
+    Access flags: 0x2
+      = private void a(int,int,boolean)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 180, locals = 4, stack = 4):
+      [0] iload_2 v2
+      [1] aload_0 v0
+      [2] getfield #44
+        - Fieldref [a/a/a/a/c.e Landroid/widget/ImageView;]
+      [5] invokevirtual #97
+        - Methodref [android/widget/ImageView.getMeasuredWidth ()I]
+      [8] iconst_2
+      [9] idiv
+      [10] isub
+      [11] istore_2 v2
+      [12] aload_0 v0
+      [13] getfield #51
+        - Fieldref [a/a/a/a/c.l I]
+      [16] tableswitch (5 offsets, default=163) (target=179)
+        1: offset = 36, target = 52
+        2: offset = 55, target = 71
+        3: offset = 74, target = 90
+        4: offset = 163, target = 179
+        5: offset = 93, target = 109
+        default: offset = 163, target = 179
+      [52] aload_0 v0
+      [53] getfield #41
+        - Fieldref [a/a/a/a/c.b Landroid/widget/PopupWindow;]
+      [56] iload_3 v3
+      [57] ifeq +8 (target=65)
+      [60] ldc #8
+        - Integer [2131099656]
+      [62] goto +5 (target=67)
+      [65] ldc #5
+        - Integer [2131099651]
+      [67] invokevirtual #102
+        - Methodref [android/widget/PopupWindow.setAnimationStyle (I)V]
+      [70] return
+      [71] aload_0 v0
+      [72] getfield #41
+        - Fieldref [a/a/a/a/c.b Landroid/widget/PopupWindow;]
+      [75] iload_3 v3
+      [76] ifeq +8 (target=84)
+      [79] ldc #9
+        - Integer [2131099657]
+      [81] goto +5 (target=86)
+      [84] ldc #6
+        - Integer [2131099652]
+      [86] invokevirtual #102
+        - Methodref [android/widget/PopupWindow.setAnimationStyle (I)V]
+      [89] return
+      [90] aload_0 v0
+      [91] getfield #41
+        - Fieldref [a/a/a/a/c.b Landroid/widget/PopupWindow;]
+      [94] iload_3 v3
+      [95] ifeq +8 (target=103)
+      [98] ldc #7
+        - Integer [2131099655]
+      [100] goto +5 (target=105)
+      [103] ldc #4
+        - Integer [2131099650]
+      [105] invokevirtual #102
+        - Methodref [android/widget/PopupWindow.setAnimationStyle (I)V]
+      [108] return
+      [109] iload_2 v2
+      [110] iload_1 v1
+      [111] iconst_4
+      [112] idiv
+      [113] ificmpgt +22 (target=135)
+      [116] aload_0 v0
+      [117] getfield #41
+        - Fieldref [a/a/a/a/c.b Landroid/widget/PopupWindow;]
+      [120] iload_3 v3
+      [121] ifeq +8 (target=129)
+      [124] ldc #8
+        - Integer [2131099656]
+      [126] goto +5 (target=131)
+      [129] ldc #5
+        - Integer [2131099651]
+      [131] invokevirtual #102
+        - Methodref [android/widget/PopupWindow.setAnimationStyle (I)V]
+      [134] return
+      [135] iload_2 v2
+      [136] iload_1 v1
+      [137] iconst_4
+      [138] idiv
+      [139] ificmple +31 (target=170)
+      [142] iload_2 v2
+      [143] iconst_3
+      [144] iload_1 v1
+      [145] iconst_4
+      [146] idiv
+      [147] imul
+      [148] ificmpge +22 (target=170)
+      [151] aload_0 v0
+      [152] getfield #41
+        - Fieldref [a/a/a/a/c.b Landroid/widget/PopupWindow;]
+      [155] iload_3 v3
+      [156] ifeq +8 (target=164)
+      [159] ldc #7
+        - Integer [2131099655]
+      [161] goto +5 (target=166)
+      [164] ldc #4
+        - Integer [2131099650]
+      [166] invokevirtual #102
+        - Methodref [android/widget/PopupWindow.setAnimationStyle (I)V]
+      [169] return
+      [170] aload_0 v0
+      [171] getfield #41
+        - Fieldref [a/a/a/a/c.b Landroid/widget/PopupWindow;]
+      [174] ldc #6
+        - Integer [2131099652]
+      [176] invokevirtual #102
+        - Methodref [android/widget/PopupWindow.setAnimationStyle (I)V]
+      [179] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       c()V
+    Access flags: 0x2
+      = private void c()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 208, locals = 9, stack = 4):
+      [0] iconst_1
+      [1] istore v4
+      [3] aload_0 v0
+      [4] getfield #55
+        - Fieldref [a/a/a/a/c.p Ljava/util/ArrayList;]
+      [7] invokevirtual #109
+        - Methodref [java/util/ArrayList.iterator ()Ljava/util/Iterator;]
+      [10] astore v5
+      [12] aload v5
+      [14] invokeinterface #111
+        - InterfaceMethodref [java/util/Iterator.hasNext ()Z]
+      [19] ifeq +188 (target=207)
+      [22] aload v5
+      [24] invokeinterface #112
+        - InterfaceMethodref [java/util/Iterator.next ()Ljava/lang/Object;]
+      [29] checkcast #19
+        - Class [a/a/a/a/d]
+      [32] dup
+      [33] astore_3 v3
+      [34] invokevirtual #68
+        - Methodref [a/a/a/a/d.a ()Ljava/lang/String;]
+      [37] astore_1 v1
+      [38] aload_3 v3
+      [39] invokevirtual #69
+        - Methodref [a/a/a/a/d.b ()Landroid/graphics/drawable/Drawable;]
+      [42] astore_2 v2
+      [43] aload_3 v3
+      [44] invokevirtual #70
+        - Methodref [a/a/a/a/d.c ()Landroid/view/View$OnClickListener;]
+      [47] astore_3 v3
+      [48] aload_0 v0
+      [49] aload_1 v1
+      [50] aload_2 v2
+      [51] aload_3 v3
+      [52] astore v6
+      [54] astore_3 v3
+      [55] astore_2 v2
+      [56] dup
+      [57] astore_1 v1
+      [58] getfield #47
+        - Fieldref [a/a/a/a/c.h Landroid/view/LayoutInflater;]
+      [61] aload_1 v1
+      [62] getfield #49
+        - Fieldref [a/a/a/a/c.j I]
+      [65] aconst_null
+      [66] invokevirtual #77
+        - Methodref [android/view/LayoutInflater.inflate (ILandroid/view/ViewGroup;)Landroid/view/View;]
+      [69] checkcast #34
+        - Class [android/widget/LinearLayout]
+      [72] dup
+      [73] astore_1 v1
+      [74] ldc #10
+        - Integer [2131230720]
+      [76] invokevirtual #100
+        - Methodref [android/widget/LinearLayout.findViewById (I)Landroid/view/View;]
+      [79] checkcast #33
+        - Class [android/widget/ImageView]
+      [82] astore v7
+      [84] aload_1 v1
+      [85] ldc #11
+        - Integer [2131230721]
+      [87] invokevirtual #100
+        - Methodref [android/widget/LinearLayout.findViewById (I)Landroid/view/View;]
+      [90] checkcast #37
+        - Class [android/widget/TextView]
+      [93] astore v8
+      [95] aload_3 v3
+      [96] ifnull +12 (target=108)
+      [99] aload v7
+      [101] aload_3 v3
+      [102] invokevirtual #98
+        - Methodref [android/widget/ImageView.setImageDrawable (Landroid/graphics/drawable/Drawable;)V]
+      [105] goto +10 (target=115)
+      [108] aload v7
+      [110] bipush 8
+      [112] invokevirtual #99
+        - Methodref [android/widget/ImageView.setVisibility (I)V]
+      [115] aload_2 v2
+      [116] ifnull +12 (target=128)
+      [119] aload v8
+      [121] aload_2 v2
+      [122] invokevirtual #105
+        - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
+      [125] goto +10 (target=135)
+      [128] aload v8
+      [130] bipush 8
+      [132] invokevirtual #106
+        - Methodref [android/widget/TextView.setVisibility (I)V]
+      [135] aload v6
+      [137] ifnull +9 (target=146)
+      [140] aload_1 v1
+      [141] aload v6
+      [143] invokevirtual #101
+        - Methodref [android/widget/LinearLayout.setOnClickListener (Landroid/view/View$OnClickListener;)V]
+      [146] aload_1 v1
+      [147] dup
+      [148] astore_1 v1
+      [149] iconst_1
+      [150] invokevirtual #88
+        - Methodref [android/view/View.setFocusable (Z)V]
+      [153] aload_1 v1
+      [154] iconst_1
+      [155] invokevirtual #87
+        - Methodref [android/view/View.setClickable (Z)V]
+      [158] aload_0 v0
+      [159] getfield #50
+        - Fieldref [a/a/a/a/c.k I]
+      [162] lookupswitch (1 offsets, default=29) (target=191)
+        2: offset = 18, target = 180
+        default: offset = 29, target = 191
+      [180] aload_0 v0
+      [181] getfield #53
+        - Fieldref [a/a/a/a/c.n Landroid/view/ViewGroup;]
+      [184] aload_1 v1
+      [185] invokevirtual #91
+        - Methodref [android/view/ViewGroup.addView (Landroid/view/View;)V]
+      [188] goto -176 (target=12)
+      [191] aload_0 v0
+      [192] getfield #53
+        - Fieldref [a/a/a/a/c.n Landroid/view/ViewGroup;]
+      [195] aload_1 v1
+      [196] iload v4
+      [198] invokevirtual #92
+        - Methodref [android/view/ViewGroup.addView (Landroid/view/View;I)V]
+      [201] iinc v4, 1
+      [204] goto -192 (target=12)
+      [207] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(II)V
+    Access flags: 0x2
+      = private void a(int,int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 72, locals = 5, stack = 4):
+      [0] iload_1 v1
+      [1] ldc #14
+        - Integer [2131230730]
+      [3] ificmpne +10 (target=13)
+      [6] aload_0 v0
+      [7] getfield #44
+        - Fieldref [a/a/a/a/c.e Landroid/widget/ImageView;]
+      [10] goto +7 (target=17)
+      [13] aload_0 v0
+      [14] getfield #45
+        - Fieldref [a/a/a/a/c.f Landroid/widget/ImageView;]
+      [17] astore_3 v3
+      [18] iload_1 v1
+      [19] ldc #14
+        - Integer [2131230730]
+      [21] ificmpne +10 (target=31)
+      [24] aload_0 v0
+      [25] getfield #45
+        - Fieldref [a/a/a/a/c.f Landroid/widget/ImageView;]
+      [28] goto +7 (target=35)
+      [31] aload_0 v0
+      [32] getfield #44
+        - Fieldref [a/a/a/a/c.e Landroid/widget/ImageView;]
+      [35] astore_1 v1
+      [36] aload_0 v0
+      [37] getfield #44
+        - Fieldref [a/a/a/a/c.e Landroid/widget/ImageView;]
+      [40] invokevirtual #97
+        - Methodref [android/widget/ImageView.getMeasuredWidth ()I]
+      [43] istore v4
+      [45] aload_3 v3
+      [46] iconst_0
+      [47] invokevirtual #90
+        - Methodref [android/view/View.setVisibility (I)V]
+      [50] aload_3 v3
+      [51] invokevirtual #81
+        - Methodref [android/view/View.getLayoutParams ()Landroid/view/ViewGroup$LayoutParams;]
+      [54] checkcast #29
+        - Class [android/view/ViewGroup$MarginLayoutParams]
+      [57] iload_2 v2
+      [58] iload v4
+      [60] iconst_2
+      [61] idiv
+      [62] isub
+      [63] putfield #60
+        - Fieldref [android/view/ViewGroup$MarginLayoutParams.leftMargin I]
+      [66] aload_1 v1
+      [67] iconst_4
+      [68] invokevirtual #90
+        - Methodref [android/view/View.setVisibility (I)V]
+      [71] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: org/zakky/stickyshortcut/CreateShortcutActivity
+  Superclass:    android/app/Activity
+  Major version: 0x31
+  Minor version: 0x0
+  Access flags:  0x31
+    = public final class org.zakky.stickyshortcut.CreateShortcutActivity extends android.app.Activity
+
+Interfaces (count = 1):
+  - Class [android/widget/AdapterView$OnItemClickListener]
+
+Constant Pool (count = 323):
+  - Integer [2130837508]
+  - Integer [2130837509]
+  - Integer [2130837510]
+  - Integer [2130837511]
+  - Integer [2130837512]
+  - Integer [2130837513]
+  - Integer [2130903042]
+  - Integer [2131230722]
+  - String [EXTRA_TARGET_FQCN]
+  - String [EXTRA_TARGET_LABEL]
+  - String [EXTRA_TARGET_PACKAGE]
+  - String [android.intent.category.LAUNCHER]
+  - String [android.intent.extra.shortcut.ICON]
+  - String [android.intent.extra.shortcut.INTENT]
+  - String [android.intent.extra.shortcut.NAME]
+  - String [failed to set icon list gravity. ignored.]
+  - String [mTrack]
+  - String [org.zakky.stickyshortcut.LAUNCH]
+  - Class [a/a/a/a/c]
+  - Class [a/a/a/a/d]
+  - Class [android/app/Activity]
+  - Class [android/content/Context]
+  - Class [android/content/Intent]
+  - Class [android/graphics/Bitmap]
+  - Class [android/graphics/Bitmap$Config]
+  - Class [android/graphics/BitmapFactory]
+  - Class [android/graphics/Canvas]
+  - Class [android/graphics/Matrix]
+  - Class [android/graphics/drawable/BitmapDrawable]
+  - Class [android/os/Build]
+  - Class [android/os/Build$VERSION]
+  - Class [android/util/Log]
+  - Class [android/view/View]
+  - Class [android/view/View$OnClickListener]
+  - Class [android/view/ViewGroup]
+  - Class [android/view/ViewGroup$LayoutParams]
+  - Class [android/widget/AdapterView]
+  - Class [android/widget/AdapterView$OnItemClickListener]
+  - Class [android/widget/FrameLayout]
+  - Class [android/widget/FrameLayout$LayoutParams]
+  - Class [android/widget/GridView]
+  - Class [android/widget/LinearLayout]
+  - Class [java/lang/Class]
+  - Class [java/lang/IllegalAccessException]
+  - Class [java/lang/IllegalArgumentException]
+  - Class [java/lang/Integer]
+  - Class [java/lang/Math]
+  - Class [java/lang/NoSuchFieldException]
+  - Class [java/lang/Object]
+  - Class [java/lang/SecurityException]
+  - Class [java/lang/Void]
+  - Class [java/lang/reflect/Field]
+  - Class [org/zakky/stickyshortcut/CreateShortcutActivity]
+  - Class [org/zakky/stickyshortcut/LauncherActivity]
+  - Class [org/zakky/stickyshortcut/a]
+  - Class [org/zakky/stickyshortcut/b]
+  - Class [org/zakky/stickyshortcut/d]
+  - Class [org/zakky/stickyshortcut/e]
+  - Fieldref [android/graphics/Bitmap$Config.ARGB_8888 Landroid/graphics/Bitmap$Config;]
+  - Fieldref [android/os/Build$VERSION.SDK Ljava/lang/String;]
+  - Fieldref [android/widget/FrameLayout$LayoutParams.gravity I]
+  - Fieldref [org/zakky/stickyshortcut/CreateShortcutActivity.a Ljava/lang/String;]
+  - Fieldref [org/zakky/stickyshortcut/CreateShortcutActivity.b [I]
+  - Fieldref [org/zakky/stickyshortcut/CreateShortcutActivity.c Landroid/widget/GridView;]
+  - Methodref [a/a/a/a/c.<init> (Landroid/view/View;)V]
+  - Methodref [a/a/a/a/c.a (La/a/a/a/d;)V]
+  - Methodref [a/a/a/a/c.b ()V]
+  - Methodref [a/a/a/a/d.<init> ()V]
+  - Methodref [a/a/a/a/d.a (Landroid/graphics/drawable/Drawable;)V]
+  - Methodref [a/a/a/a/d.a (Landroid/view/View$OnClickListener;)V]
+  - Methodref [android/app/Activity.<init> ()V]
+  - Methodref [android/app/Activity.onCreate (Landroid/os/Bundle;)V]
+  - Methodref [android/app/Activity.onStart ()V]
+  - Methodref [android/content/Context.getPackageName ()Ljava/lang/String;]
+  - Methodref [android/content/Intent.<init> ()V]
+  - Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
+  - Methodref [android/content/Intent.addCategory (Ljava/lang/String;)Landroid/content/Intent;]
+  - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;]
+  - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;]
+  - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  - Methodref [android/content/Intent.setClassName (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  - Methodref [android/graphics/Bitmap.createBitmap (IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;]
+  - Methodref [android/graphics/Bitmap.getHeight ()I]
+  - Methodref [android/graphics/Bitmap.getWidth ()I]
+  - Methodref [android/graphics/Bitmap.recycle ()V]
+  - Methodref [android/graphics/BitmapFactory.decodeResource (Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;]
+  - Methodref [android/graphics/Canvas.<init> (Landroid/graphics/Bitmap;)V]
+  - Methodref [android/graphics/Canvas.drawBitmap (Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V]
+  - Methodref [android/graphics/Canvas.drawBitmap (Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V]
+  - Methodref [android/graphics/Matrix.<init> ()V]
+  - Methodref [android/graphics/Matrix.postScale (FF)Z]
+  - Methodref [android/graphics/drawable/BitmapDrawable.<init> (Landroid/graphics/Bitmap;)V]
+  - Methodref [android/graphics/drawable/BitmapDrawable.getBitmap ()Landroid/graphics/Bitmap;]
+  - Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I]
+  - Methodref [android/widget/AdapterView.getItemAtPosition (I)Ljava/lang/Object;]
+  - Methodref [android/widget/GridView.setOnItemClickListener (Landroid/widget/AdapterView$OnItemClickListener;)V]
+  - Methodref [android/widget/LinearLayout.getLayoutParams ()Landroid/view/ViewGroup$LayoutParams;]
+  - Methodref [java/lang/Class.getCanonicalName ()Ljava/lang/String;]
+  - Methodref [java/lang/Class.getDeclaredField (Ljava/lang/String;)Ljava/lang/reflect/Field;]
+  - Methodref [java/lang/Class.getSimpleName ()Ljava/lang/String;]
+  - Methodref [java/lang/Integer.parseInt (Ljava/lang/String;)I]
+  - Methodref [java/lang/Math.min (FF)F]
+  - Methodref [java/lang/Object.getClass ()Ljava/lang/Class;]
+  - Methodref [java/lang/reflect/Field.get (Ljava/lang/Object;)Ljava/lang/Object;]
+  - Methodref [java/lang/reflect/Field.setAccessible (Z)V]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.a (Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.a (Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)Landroid/content/Intent;]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.findViewById (I)Landroid/view/View;]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.finish ()V]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.getApplicationContext ()Landroid/content/Context;]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.getResources ()Landroid/content/res/Resources;]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.setContentView (I)V]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.setResult (ILandroid/content/Intent;)V]
+  - Methodref [org/zakky/stickyshortcut/a.<init> (Lorg/zakky/stickyshortcut/CreateShortcutActivity;)V]
+  - Methodref [org/zakky/stickyshortcut/a.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
+  - Methodref [org/zakky/stickyshortcut/d.a ()Ljava/lang/CharSequence;]
+  - Methodref [org/zakky/stickyshortcut/d.b ()Landroid/graphics/drawable/Drawable;]
+  - Methodref [org/zakky/stickyshortcut/d.c ()Ljava/lang/String;]
+  - Methodref [org/zakky/stickyshortcut/d.d ()Ljava/lang/String;]
+  - Methodref [org/zakky/stickyshortcut/e.<init> (Lorg/zakky/stickyshortcut/CreateShortcutActivity;Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)V]
+  + NameAndType [<init> ()V]
+  + NameAndType [<init> (Landroid/graphics/Bitmap;)V]
+  + NameAndType [<init> (Landroid/view/View;)V]
+  + NameAndType [<init> (Ljava/lang/String;)V]
+  + NameAndType [<init> (Lorg/zakky/stickyshortcut/CreateShortcutActivity;)V]
+  + NameAndType [<init> (Lorg/zakky/stickyshortcut/CreateShortcutActivity;Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)V]
+  + NameAndType [ARGB_8888 Landroid/graphics/Bitmap$Config;]
+  + NameAndType [SDK Ljava/lang/String;]
+  + NameAndType [a ()Ljava/lang/CharSequence;]
+  + NameAndType [a (La/a/a/a/d;)V]
+  + NameAndType [a (Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;]
+  + NameAndType [a (Landroid/graphics/drawable/Drawable;)V]
+  + NameAndType [a (Landroid/view/View$OnClickListener;)V]
+  + NameAndType [a (Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)Landroid/content/Intent;]
+  + NameAndType [a Ljava/lang/String;]
+  + NameAndType [addCategory (Ljava/lang/String;)Landroid/content/Intent;]
+  + NameAndType [b ()Landroid/graphics/drawable/Drawable;]
+  + NameAndType [b ()V]
+  + NameAndType [b [I]
+  + NameAndType [c ()Ljava/lang/String;]
+  + NameAndType [c Landroid/widget/GridView;]
+  + NameAndType [createBitmap (IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;]
+  + NameAndType [d ()Ljava/lang/String;]
+  + NameAndType [decodeResource (Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;]
+  + NameAndType [drawBitmap (Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V]
+  + NameAndType [drawBitmap (Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V]
+  + NameAndType [e (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I]
+  + NameAndType [execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
+  + NameAndType [findViewById (I)Landroid/view/View;]
+  + NameAndType [finish ()V]
+  + NameAndType [get (Ljava/lang/Object;)Ljava/lang/Object;]
+  + NameAndType [getApplicationContext ()Landroid/content/Context;]
+  + NameAndType [getBitmap ()Landroid/graphics/Bitmap;]
+  + NameAndType [getCanonicalName ()Ljava/lang/String;]
+  + NameAndType [getClass ()Ljava/lang/Class;]
+  + NameAndType [getDeclaredField (Ljava/lang/String;)Ljava/lang/reflect/Field;]
+  + NameAndType [getHeight ()I]
+  + NameAndType [getItemAtPosition (I)Ljava/lang/Object;]
+  + NameAndType [getLayoutParams ()Landroid/view/ViewGroup$LayoutParams;]
+  + NameAndType [getPackageName ()Ljava/lang/String;]
+  + NameAndType [getResources ()Landroid/content/res/Resources;]
+  + NameAndType [getSimpleName ()Ljava/lang/String;]
+  + NameAndType [getWidth ()I]
+  + NameAndType [gravity I]
+  + NameAndType [min (FF)F]
+  + NameAndType [onCreate (Landroid/os/Bundle;)V]
+  + NameAndType [onStart ()V]
+  + NameAndType [parseInt (Ljava/lang/String;)I]
+  + NameAndType [postScale (FF)Z]
+  + NameAndType [putExtra (Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;]
+  + NameAndType [putExtra (Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;]
+  + NameAndType [putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  + NameAndType [recycle ()V]
+  + NameAndType [setAccessible (Z)V]
+  + NameAndType [setClassName (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  + NameAndType [setContentView (I)V]
+  + NameAndType [setOnItemClickListener (Landroid/widget/AdapterView$OnItemClickListener;)V]
+  + NameAndType [setResult (ILandroid/content/Intent;)V]
+  + Utf8 [()I]
+  + Utf8 [()Landroid/content/Context;]
+  + Utf8 [()Landroid/content/res/Resources;]
+  + Utf8 [()Landroid/graphics/Bitmap;]
+  + Utf8 [()Landroid/graphics/drawable/Drawable;]
+  + Utf8 [()Landroid/view/ViewGroup$LayoutParams;]
+  + Utf8 [()Landroid/widget/GridView;]
+  + Utf8 [()Ljava/lang/CharSequence;]
+  + Utf8 [()Ljava/lang/Class;]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()V]
+  + Utf8 [(FF)F]
+  + Utf8 [(FF)Z]
+  + Utf8 [(I)Landroid/view/View;]
+  + Utf8 [(I)Ljava/lang/Object;]
+  + Utf8 [(I)V]
+  + Utf8 [(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;]
+  + Utf8 [(ILandroid/content/Intent;)V]
+  + Utf8 [(La/a/a/a/d;)V]
+  + Utf8 [(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;]
+  + Utf8 [(Landroid/graphics/Bitmap;)V]
+  + Utf8 [(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V]
+  + Utf8 [(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;]
+  + Utf8 [(Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V]
+  + Utf8 [(Landroid/graphics/drawable/Drawable;)V]
+  + Utf8 [(Landroid/os/Bundle;)V]
+  + Utf8 [(Landroid/view/View$OnClickListener;)V]
+  + Utf8 [(Landroid/view/View;)V]
+  + Utf8 [(Landroid/widget/AdapterView$OnItemClickListener;)V]
+  + Utf8 [(Landroid/widget/AdapterView;Landroid/view/View;IJ)V]
+  + Utf8 [(Ljava/lang/Object;)Ljava/lang/Object;]
+  + Utf8 [(Ljava/lang/String;)I]
+  + Utf8 [(Ljava/lang/String;)Landroid/content/Intent;]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/reflect/Field;]
+  + Utf8 [(Ljava/lang/String;)V]
+  + Utf8 [(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;]
+  + Utf8 [(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;]
+  + Utf8 [(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  + Utf8 [(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I]
+  + Utf8 [(Lorg/zakky/stickyshortcut/CreateShortcutActivity;)V]
+  + Utf8 [(Lorg/zakky/stickyshortcut/CreateShortcutActivity;Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)Landroid/content/Intent;]
+  + Utf8 [(Lorg/zakky/stickyshortcut/CreateShortcutActivity;Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)V]
+  + Utf8 [(Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)Landroid/content/Intent;]
+  + Utf8 [(Z)V]
+  + Utf8 [([Ljava/lang/Object;)Landroid/os/AsyncTask;]
+  + Utf8 [<clinit>]
+  + Utf8 [<init>]
+  + Utf8 [ARGB_8888]
+  + Utf8 [Code]
+  + Utf8 [EXTRA_TARGET_FQCN]
+  + Utf8 [EXTRA_TARGET_LABEL]
+  + Utf8 [EXTRA_TARGET_PACKAGE]
+  + Utf8 [I]
+  + Utf8 [Landroid/graphics/Bitmap$Config;]
+  + Utf8 [Landroid/widget/GridView;]
+  + Utf8 [Ljava/lang/String;]
+  + Utf8 [SDK]
+  + Utf8 [[I]
+  + Utf8 [a]
+  + Utf8 [a/a/a/a/c]
+  + Utf8 [a/a/a/a/d]
+  + Utf8 [addCategory]
+  + Utf8 [android.intent.category.LAUNCHER]
+  + Utf8 [android.intent.extra.shortcut.ICON]
+  + Utf8 [android.intent.extra.shortcut.INTENT]
+  + Utf8 [android.intent.extra.shortcut.NAME]
+  + Utf8 [android/app/Activity]
+  + Utf8 [android/content/Context]
+  + Utf8 [android/content/Intent]
+  + Utf8 [android/graphics/Bitmap]
+  + Utf8 [android/graphics/Bitmap$Config]
+  + Utf8 [android/graphics/BitmapFactory]
+  + Utf8 [android/graphics/Canvas]
+  + Utf8 [android/graphics/Matrix]
+  + Utf8 [android/graphics/drawable/BitmapDrawable]
+  + Utf8 [android/os/Build]
+  + Utf8 [android/os/Build$VERSION]
+  + Utf8 [android/util/Log]
+  + Utf8 [android/view/View]
+  + Utf8 [android/view/View$OnClickListener]
+  + Utf8 [android/view/ViewGroup]
+  + Utf8 [android/view/ViewGroup$LayoutParams]
+  + Utf8 [android/widget/AdapterView]
+  + Utf8 [android/widget/AdapterView$OnItemClickListener]
+  + Utf8 [android/widget/FrameLayout]
+  + Utf8 [android/widget/FrameLayout$LayoutParams]
+  + Utf8 [android/widget/GridView]
+  + Utf8 [android/widget/LinearLayout]
+  + Utf8 [b]
+  + Utf8 [c]
+  + Utf8 [createBitmap]
+  + Utf8 [d]
+  + Utf8 [decodeResource]
+  + Utf8 [drawBitmap]
+  + Utf8 [e]
+  + Utf8 [execute]
+  + Utf8 [failed to set icon list gravity. ignored.]
+  + Utf8 [findViewById]
+  + Utf8 [finish]
+  + Utf8 [get]
+  + Utf8 [getApplicationContext]
+  + Utf8 [getBitmap]
+  + Utf8 [getCanonicalName]
+  + Utf8 [getClass]
+  + Utf8 [getDeclaredField]
+  + Utf8 [getHeight]
+  + Utf8 [getItemAtPosition]
+  + Utf8 [getLayoutParams]
+  + Utf8 [getPackageName]
+  + Utf8 [getResources]
+  + Utf8 [getSimpleName]
+  + Utf8 [getWidth]
+  + Utf8 [gravity]
+  + Utf8 [java/lang/Class]
+  + Utf8 [java/lang/IllegalAccessException]
+  + Utf8 [java/lang/IllegalArgumentException]
+  + Utf8 [java/lang/Integer]
+  + Utf8 [java/lang/Math]
+  + Utf8 [java/lang/NoSuchFieldException]
+  + Utf8 [java/lang/Object]
+  + Utf8 [java/lang/SecurityException]
+  + Utf8 [java/lang/Void]
+  + Utf8 [java/lang/reflect/Field]
+  + Utf8 [mTrack]
+  + Utf8 [min]
+  + Utf8 [onCreate]
+  + Utf8 [onItemClick]
+  + Utf8 [onStart]
+  + Utf8 [org.zakky.stickyshortcut.LAUNCH]
+  + Utf8 [org/zakky/stickyshortcut/CreateShortcutActivity]
+  + Utf8 [org/zakky/stickyshortcut/LauncherActivity]
+  + Utf8 [org/zakky/stickyshortcut/a]
+  + Utf8 [org/zakky/stickyshortcut/b]
+  + Utf8 [org/zakky/stickyshortcut/d]
+  + Utf8 [org/zakky/stickyshortcut/e]
+  + Utf8 [parseInt]
+  + Utf8 [postScale]
+  + Utf8 [putExtra]
+  + Utf8 [recycle]
+  + Utf8 [setAccessible]
+  + Utf8 [setClassName]
+  + Utf8 [setContentView]
+  + Utf8 [setOnItemClickListener]
+  + Utf8 [setResult]
+
+Fields (count = 3):
+  + Field:        a Ljava/lang/String;
+    Access flags: 0x1a
+      = private static final java.lang.String a
+  + Field:        b [I
+    Access flags: 0x1a
+      = private static final int[] b
+  + Field:        c Landroid/widget/GridView;
+    Access flags: 0xa
+      = private static android.widget.GridView c
+
+Methods (count = 9):
+  - Method:       <init>()V
+    Access flags: 0x1
+      = public CreateShortcutActivity()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] invokespecial #71
+        - Methodref [android/app/Activity.<init> ()V]
+      [4] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onCreate(Landroid/os/Bundle;)V
+    Access flags: 0x11
+      = public final void onCreate(android.os.Bundle)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 29, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] invokespecial #72
+        - Methodref [android/app/Activity.onCreate (Landroid/os/Bundle;)V]
+      [5] aload_0 v0
+      [6] ldc #7
+        - Integer [2130903042]
+      [8] invokevirtual #112
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.setContentView (I)V]
+      [11] aload_0 v0
+      [12] ldc #8
+        - Integer [2131230722]
+      [14] invokevirtual #108
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.findViewById (I)Landroid/view/View;]
+      [17] checkcast #41
+        - Class [android/widget/GridView]
+      [20] dup
+      [21] putstatic #64
+        - Fieldref [org/zakky/stickyshortcut/CreateShortcutActivity.c Landroid/widget/GridView;]
+      [24] aload_0 v0
+      [25] invokevirtual #96
+        - Methodref [android/widget/GridView.setOnItemClickListener (Landroid/widget/AdapterView$OnItemClickListener;)V]
+      [28] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onStart()V
+    Access flags: 0x14
+      = protected final void onStart()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 21, locals = 1, stack = 3):
+      [0] aload_0 v0
+      [1] invokespecial #73
+        - Methodref [android/app/Activity.onStart ()V]
+      [4] new #55
+        - Class [org/zakky/stickyshortcut/a]
+      [7] dup
+      [8] aload_0 v0
+      [9] invokespecial #114
+        - Methodref [org/zakky/stickyshortcut/a.<init> (Lorg/zakky/stickyshortcut/CreateShortcutActivity;)V]
+      [12] iconst_0
+      [13] anewarray #51
+        - Class [java/lang/Void]
+      [16] invokevirtual #115
+        - Methodref [org/zakky/stickyshortcut/a.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
+      [19] pop
+      [20] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+    Access flags: 0x11
+      = public final void onItemClick(android.widget.AdapterView,android.view.View,int,long)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 293, locals = 10, stack = 6):
+      [0] aload_1 v1
+      [1] iload_3 v3
+      [2] invokevirtual #95
+        - Methodref [android/widget/AdapterView.getItemAtPosition (I)Ljava/lang/Object;]
+      [5] checkcast #57
+        - Class [org/zakky/stickyshortcut/d]
+      [8] astore_1 v1
+      [9] getstatic #60
+        - Fieldref [android/os/Build$VERSION.SDK Ljava/lang/String;]
+      [12] invokestatic #101
+        - Methodref [java/lang/Integer.parseInt (Ljava/lang/String;)I]
+      [15] iconst_3
+      [16] ificmpgt +44 (target=60)
+      [19] aload_1 v1
+      [20] invokevirtual #117
+        - Methodref [org/zakky/stickyshortcut/d.b ()Landroid/graphics/drawable/Drawable;]
+      [23] checkcast #29
+        - Class [android/graphics/drawable/BitmapDrawable]
+      [26] invokevirtual #93
+        - Methodref [android/graphics/drawable/BitmapDrawable.getBitmap ()Landroid/graphics/Bitmap;]
+      [29] astore_3 v3
+      [30] aload_0 v0
+      [31] aload_3 v3
+      [32] ldc #4
+        - Integer [2130837511]
+      [34] invokespecial #106
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.a (Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;]
+      [37] astore v4
+      [39] aload_0 v0
+      [40] aload_1 v1
+      [41] aload v4
+      [43] invokespecial #107
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.a (Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)Landroid/content/Intent;]
+      [46] astore v5
+      [48] aload_0 v0
+      [49] iconst_m1
+      [50] aload v5
+      [52] invokevirtual #113
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.setResult (ILandroid/content/Intent;)V]
+      [55] aload_0 v0
+      [56] invokevirtual #109
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.finish ()V]
+      [59] return
+      [60] new #19
+        - Class [a/a/a/a/c]
+      [63] dup
+      [64] aload_2 v2
+      [65] invokespecial #65
+        - Methodref [a/a/a/a/c.<init> (Landroid/view/View;)V]
+      [68] astore_2 v2
+      [69] getstatic #63
+        - Fieldref [org/zakky/stickyshortcut/CreateShortcutActivity.b [I]
+      [72] dup
+      [73] astore_3 v3
+      [74] arraylength
+      [75] istore v4
+      [77] iconst_0
+      [78] istore v5
+      [80] iload v5
+      [82] iload v4
+      [84] ificmpge +99 (target=183)
+      [87] aload_3 v3
+      [88] iload v5
+      [90] iaload
+      [91] istore v6
+      [93] aload_0 v0
+      [94] aload_1 v1
+      [95] iload v6
+      [97] istore v8
+      [99] astore v7
+      [101] astore v6
+      [103] aload v7
+      [105] invokevirtual #117
+        - Methodref [org/zakky/stickyshortcut/d.b ()Landroid/graphics/drawable/Drawable;]
+      [108] checkcast #29
+        - Class [android/graphics/drawable/BitmapDrawable]
+      [111] invokevirtual #93
+        - Methodref [android/graphics/drawable/BitmapDrawable.getBitmap ()Landroid/graphics/Bitmap;]
+      [114] astore v9
+      [116] aload v6
+      [118] aload v9
+      [120] iload v8
+      [122] invokespecial #106
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.a (Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;]
+      [125] astore v8
+      [127] new #20
+        - Class [a/a/a/a/d]
+      [130] dup
+      [131] invokespecial #68
+        - Methodref [a/a/a/a/d.<init> ()V]
+      [134] dup
+      [135] astore v9
+      [137] new #29
+        - Class [android/graphics/drawable/BitmapDrawable]
+      [140] dup
+      [141] aload v8
+      [143] invokespecial #92
+        - Methodref [android/graphics/drawable/BitmapDrawable.<init> (Landroid/graphics/Bitmap;)V]
+      [146] invokevirtual #69
+        - Methodref [a/a/a/a/d.a (Landroid/graphics/drawable/Drawable;)V]
+      [149] aload v9
+      [151] new #58
+        - Class [org/zakky/stickyshortcut/e]
+      [154] dup
+      [155] aload v6
+      [157] aload v7
+      [159] aload v8
+      [161] invokespecial #120
+        - Methodref [org/zakky/stickyshortcut/e.<init> (Lorg/zakky/stickyshortcut/CreateShortcutActivity;Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)V]
+      [164] invokevirtual #70
+        - Methodref [a/a/a/a/d.a (Landroid/view/View$OnClickListener;)V]
+      [167] aload v9
+      [169] astore v6
+      [171] aload_2 v2
+      [172] aload v6
+      [174] invokevirtual #66
+        - Methodref [a/a/a/a/c.a (La/a/a/a/d;)V]
+      [177] iinc v5, 1
+      [180] goto -100 (target=80)
+      [183] aload_2 v2
+      [184] astore v6
+      [186] aload v6
+      [188] invokevirtual #103
+        - Methodref [java/lang/Object.getClass ()Ljava/lang/Class;]
+      [191] ldc #17
+        - String [mTrack]
+      [193] invokevirtual #99
+        - Methodref [java/lang/Class.getDeclaredField (Ljava/lang/String;)Ljava/lang/reflect/Field;]
+      [196] dup
+      [197] astore v9
+      [199] iconst_1
+      [200] invokevirtual #105
+        - Methodref [java/lang/reflect/Field.setAccessible (Z)V]
+      [203] aload v9
+      [205] aload v6
+      [207] invokevirtual #104
+        - Methodref [java/lang/reflect/Field.get (Ljava/lang/Object;)Ljava/lang/Object;]
+      [210] checkcast #42
+        - Class [android/widget/LinearLayout]
+      [213] invokevirtual #97
+        - Methodref [android/widget/LinearLayout.getLayoutParams ()Landroid/view/ViewGroup$LayoutParams;]
+      [216] checkcast #40
+        - Class [android/widget/FrameLayout$LayoutParams]
+      [219] bipush 17
+      [221] putfield #61
+        - Fieldref [android/widget/FrameLayout$LayoutParams.gravity I]
+      [224] goto +64 (target=288)
+      [227] astore v9
+      [229] getstatic #62
+        - Fieldref [org/zakky/stickyshortcut/CreateShortcutActivity.a Ljava/lang/String;]
+      [232] ldc #16
+        - String [failed to set icon list gravity. ignored.]
+      [234] aload v9
+      [236] invokestatic #94
+        - Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I]
+      [239] pop
+      [240] goto +48 (target=288)
+      [243] astore v9
+      [245] getstatic #62
+        - Fieldref [org/zakky/stickyshortcut/CreateShortcutActivity.a Ljava/lang/String;]
+      [248] ldc #16
+        - String [failed to set icon list gravity. ignored.]
+      [250] aload v9
+      [252] invokestatic #94
+        - Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I]
+      [255] pop
+      [256] goto +32 (target=288)
+      [259] astore v9
+      [261] getstatic #62
+        - Fieldref [org/zakky/stickyshortcut/CreateShortcutActivity.a Ljava/lang/String;]
+      [264] ldc #16
+        - String [failed to set icon list gravity. ignored.]
+      [266] aload v9
+      [268] invokestatic #94
+        - Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I]
+      [271] pop
+      [272] goto +16 (target=288)
+      [275] astore v9
+      [277] getstatic #62
+        - Fieldref [org/zakky/stickyshortcut/CreateShortcutActivity.a Ljava/lang/String;]
+      [280] ldc #16
+        - String [failed to set icon list gravity. ignored.]
+      [282] aload v9
+      [284] invokestatic #94
+        - Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I]
+      [287] pop
+      [288] aload_2 v2
+      [289] invokevirtual #67
+        - Methodref [a/a/a/a/c.b ()V]
+      [292] return
+      Code attribute exceptions (count = 4):
+      - ExceptionInfo (186 -> 224: 227):
+      - Class [java/lang/IllegalArgumentException]
+      - ExceptionInfo (186 -> 224: 243):
+      - Class [java/lang/IllegalAccessException]
+      - ExceptionInfo (186 -> 224: 259):
+      - Class [java/lang/SecurityException]
+      - ExceptionInfo (186 -> 224: 275):
+      - Class [java/lang/NoSuchFieldException]
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
+    Access flags: 0x2
+      = private android.graphics.Bitmap a(android.graphics.Bitmap,int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 137, locals = 8, stack = 5):
+      [0] aload_1 v1
+      [1] invokevirtual #84
+        - Methodref [android/graphics/Bitmap.getWidth ()I]
+      [4] aload_1 v1
+      [5] invokevirtual #83
+        - Methodref [android/graphics/Bitmap.getHeight ()I]
+      [8] getstatic #59
+        - Fieldref [android/graphics/Bitmap$Config.ARGB_8888 Landroid/graphics/Bitmap$Config;]
+      [11] invokestatic #82
+        - Methodref [android/graphics/Bitmap.createBitmap (IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;]
+      [14] astore_3 v3
+      [15] new #27
+        - Class [android/graphics/Canvas]
+      [18] dup
+      [19] aload_3 v3
+      [20] invokespecial #87
+        - Methodref [android/graphics/Canvas.<init> (Landroid/graphics/Bitmap;)V]
+      [23] dup
+      [24] astore v4
+      [26] aload_1 v1
+      [27] fconst_0
+      [28] fconst_0
+      [29] aconst_null
+      [30] invokevirtual #88
+        - Methodref [android/graphics/Canvas.drawBitmap (Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V]
+      [33] iload_2 v2
+      [34] iconst_m1
+      [35] ificmpne +5 (target=40)
+      [38] aload_3 v3
+      [39] areturn
+      [40] aload_0 v0
+      [41] invokevirtual #111
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.getResources ()Landroid/content/res/Resources;]
+      [44] iload_2 v2
+      [45] invokestatic #86
+        - Methodref [android/graphics/BitmapFactory.decodeResource (Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;]
+      [48] astore_2 v2
+      [49] new #28
+        - Class [android/graphics/Matrix]
+      [52] dup
+      [53] invokespecial #90
+        - Methodref [android/graphics/Matrix.<init> ()V]
+      [56] astore v5
+      [58] aload_1 v1
+      [59] invokevirtual #84
+        - Methodref [android/graphics/Bitmap.getWidth ()I]
+      [62] i2f
+      [63] fstore v6
+      [65] aload_2 v2
+      [66] invokevirtual #84
+        - Methodref [android/graphics/Bitmap.getWidth ()I]
+      [69] i2f
+      [70] fstore v7
+      [72] fload v6
+      [74] fload v7
+      [76] fdiv
+      [77] fstore v6
+      [79] aload_1 v1
+      [80] invokevirtual #83
+        - Methodref [android/graphics/Bitmap.getHeight ()I]
+      [83] i2f
+      [84] fstore_1 v1
+      [85] aload_2 v2
+      [86] invokevirtual #83
+        - Methodref [android/graphics/Bitmap.getHeight ()I]
+      [89] i2f
+      [90] fstore v7
+      [92] fload_1 v1
+      [93] fload v7
+      [95] fdiv
+      [96] fstore_1 v1
+      [97] fload v6
+      [99] fload_1 v1
+      [100] invokestatic #102
+        - Methodref [java/lang/Math.min (FF)F]
+      [103] fstore_1 v1
+      [104] aload v5
+      [106] fload_1 v1
+      [107] fload_1 v1
+      [108] invokevirtual #91
+        - Methodref [android/graphics/Matrix.postScale (FF)Z]
+      [111] pop
+      [112] aload v4
+      [114] aload_2 v2
+      [115] aload v5
+      [117] aconst_null
+      [118] invokevirtual #89
+        - Methodref [android/graphics/Canvas.drawBitmap (Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V]
+      [121] aload_2 v2
+      [122] invokevirtual #85
+        - Methodref [android/graphics/Bitmap.recycle ()V]
+      [125] goto +10 (target=135)
+      [128] astore_1 v1
+      [129] aload_2 v2
+      [130] invokevirtual #85
+        - Methodref [android/graphics/Bitmap.recycle ()V]
+      [133] aload_1 v1
+      [134] athrow
+      [135] aload_3 v3
+      [136] areturn
+      Code attribute exceptions (count = 1):
+      - ExceptionInfo (49 -> 121: 128):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)Landroid/content/Intent;
+    Access flags: 0x2
+      = private android.content.Intent a(org.zakky.stickyshortcut.d,android.graphics.Bitmap)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 108, locals = 5, stack = 3):
+      [0] new #23
+        - Class [android/content/Intent]
+      [3] dup
+      [4] ldc #18
+        - String [org.zakky.stickyshortcut.LAUNCH]
+      [6] invokespecial #76
+        - Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
+      [9] dup
+      [10] astore_3 v3
+      [11] ldc #12
+        - String [android.intent.category.LAUNCHER]
+      [13] invokevirtual #77
+        - Methodref [android/content/Intent.addCategory (Ljava/lang/String;)Landroid/content/Intent;]
+      [16] pop
+      [17] aload_3 v3
+      [18] aload_0 v0
+      [19] invokevirtual #110
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.getApplicationContext ()Landroid/content/Context;]
+      [22] invokevirtual #74
+        - Methodref [android/content/Context.getPackageName ()Ljava/lang/String;]
+      [25] ldc #54
+        - Class [org/zakky/stickyshortcut/LauncherActivity]
+      [27] invokevirtual #98
+        - Methodref [java/lang/Class.getCanonicalName ()Ljava/lang/String;]
+      [30] invokevirtual #81
+        - Methodref [android/content/Intent.setClassName (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+      [33] pop
+      [34] aload_3 v3
+      [35] ldc #11
+        - String [EXTRA_TARGET_PACKAGE]
+      [37] aload_1 v1
+      [38] invokevirtual #119
+        - Methodref [org/zakky/stickyshortcut/d.d ()Ljava/lang/String;]
+      [41] invokevirtual #80
+        - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+      [44] pop
+      [45] aload_3 v3
+      [46] ldc #9
+        - String [EXTRA_TARGET_FQCN]
+      [48] aload_1 v1
+      [49] invokevirtual #118
+        - Methodref [org/zakky/stickyshortcut/d.c ()Ljava/lang/String;]
+      [52] invokevirtual #80
+        - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+      [55] pop
+      [56] aload_3 v3
+      [57] ldc #10
+        - String [EXTRA_TARGET_LABEL]
+      [59] aload_1 v1
+      [60] invokevirtual #116
+        - Methodref [org/zakky/stickyshortcut/d.a ()Ljava/lang/CharSequence;]
+      [63] invokevirtual #79
+        - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;]
+      [66] pop
+      [67] new #23
+        - Class [android/content/Intent]
+      [70] dup
+      [71] invokespecial #75
+        - Methodref [android/content/Intent.<init> ()V]
+      [74] dup
+      [75] astore v4
+      [77] ldc #14
+        - String [android.intent.extra.shortcut.INTENT]
+      [79] aload_3 v3
+      [80] invokevirtual #78
+        - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;]
+      [83] pop
+      [84] aload v4
+      [86] ldc #13
+        - String [android.intent.extra.shortcut.ICON]
+      [88] aload_2 v2
+      [89] invokevirtual #78
+        - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;]
+      [92] pop
+      [93] aload v4
+      [95] ldc #15
+        - String [android.intent.extra.shortcut.NAME]
+      [97] aload_1 v1
+      [98] invokevirtual #116
+        - Methodref [org/zakky/stickyshortcut/d.a ()Ljava/lang/CharSequence;]
+      [101] invokevirtual #79
+        - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;]
+      [104] pop
+      [105] aload v4
+      [107] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Lorg/zakky/stickyshortcut/CreateShortcutActivity;Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)Landroid/content/Intent;
+    Access flags: 0x1008
+      = static android.content.Intent a(org.zakky.stickyshortcut.CreateShortcutActivity,org.zakky.stickyshortcut.d,android.graphics.Bitmap)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 7, locals = 3, stack = 3):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] aload_2 v2
+      [3] invokespecial #107
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.a (Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)Landroid/content/Intent;]
+      [6] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a()Landroid/widget/GridView;
+    Access flags: 0x1008
+      = static android.widget.GridView a()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 4, locals = 0, stack = 1):
+      [0] getstatic #64
+        - Fieldref [org/zakky/stickyshortcut/CreateShortcutActivity.c Landroid/widget/GridView;]
+      [3] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  - Method:       <clinit>()V
+    Access flags: 0x8
+      = static void <clinit>()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 51, locals = 0, stack = 4):
+      [0] ldc #53
+        - Class [org/zakky/stickyshortcut/CreateShortcutActivity]
+      [2] invokevirtual #100
+        - Methodref [java/lang/Class.getSimpleName ()Ljava/lang/String;]
+      [5] putstatic #62
+        - Fieldref [org/zakky/stickyshortcut/CreateShortcutActivity.a Ljava/lang/String;]
+      [8] bipush 7
+      [10] newarray 10
+      [12] dup
+      [13] iconst_0
+      [14] iconst_m1
+      [15] iastore
+      [16] dup
+      [17] iconst_1
+      [18] ldc #1
+        - Integer [2130837508]
+      [20] iastore
+      [21] dup
+      [22] iconst_2
+      [23] ldc #2
+        - Integer [2130837509]
+      [25] iastore
+      [26] dup
+      [27] iconst_3
+      [28] ldc #3
+        - Integer [2130837510]
+      [30] iastore
+      [31] dup
+      [32] iconst_4
+      [33] ldc #4
+        - Integer [2130837511]
+      [35] iastore
+      [36] dup
+      [37] iconst_5
+      [38] ldc #5
+        - Integer [2130837512]
+      [40] iastore
+      [41] dup
+      [42] bipush 6
+      [44] ldc #6
+        - Integer [2130837513]
+      [46] iastore
+      [47] putstatic #63
+        - Fieldref [org/zakky/stickyshortcut/CreateShortcutActivity.b [I]
+      [50] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: org/zakky/stickyshortcut/LauncherActivity
+  Superclass:    android/app/Activity
+  Major version: 0x31
+  Minor version: 0x0
+  Access flags:  0x21
+    = public class org.zakky.stickyshortcut.LauncherActivity extends android.app.Activity
+
+Interfaces (count = 0):
+
+Constant Pool (count = 135):
+  - Integer [65536]
+  - Integer [268435456]
+  - Integer [2130903045]
+  - Integer [2131034115]
+  - String [EXTRA_TARGET_FQCN]
+  - String [EXTRA_TARGET_LABEL]
+  - String [EXTRA_TARGET_PACKAGE]
+  - String [android.intent.action.MAIN]
+  - String [android.intent.action.VIEW]
+  - String [android.intent.category.LAUNCHER]
+  - String [market://details?id=]
+  - Class [android/app/Activity]
+  - Class [android/content/Intent]
+  - Class [android/content/pm/PackageManager]
+  - Class [android/net/Uri]
+  - Class [android/widget/Toast]
+  - Class [java/lang/Object]
+  - Class [java/lang/StringBuilder]
+  - Class [java/util/List]
+  - Class [org/zakky/stickyshortcut/LauncherActivity]
+  - Fieldref [org/zakky/stickyshortcut/LauncherActivity.a Ljava/lang/String;]
+  - Fieldref [org/zakky/stickyshortcut/LauncherActivity.b Ljava/lang/String;]
+  - Fieldref [org/zakky/stickyshortcut/LauncherActivity.c Ljava/lang/String;]
+  - Methodref [android/app/Activity.<init> ()V]
+  - Methodref [android/app/Activity.onCreate (Landroid/os/Bundle;)V]
+  - Methodref [android/app/Activity.onResume ()V]
+  - Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
+  - Methodref [android/content/Intent.<init> (Ljava/lang/String;Landroid/net/Uri;)V]
+  - Methodref [android/content/Intent.addCategory (Ljava/lang/String;)Landroid/content/Intent;]
+  - Methodref [android/content/Intent.addFlags (I)Landroid/content/Intent;]
+  - Methodref [android/content/Intent.getStringExtra (Ljava/lang/String;)Ljava/lang/String;]
+  - Methodref [android/content/Intent.setClassName (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  - Methodref [android/content/Intent.setFlags (I)Landroid/content/Intent;]
+  - Methodref [android/content/pm/PackageManager.queryIntentActivities (Landroid/content/Intent;I)Ljava/util/List;]
+  - Methodref [android/net/Uri.parse (Ljava/lang/String;)Landroid/net/Uri;]
+  - Methodref [android/widget/Toast.makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
+  - Methodref [android/widget/Toast.show ()V]
+  - Methodref [java/lang/StringBuilder.<init> ()V]
+  - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+  - Methodref [org/zakky/stickyshortcut/LauncherActivity.finish ()V]
+  - Methodref [org/zakky/stickyshortcut/LauncherActivity.getIntent ()Landroid/content/Intent;]
+  - Methodref [org/zakky/stickyshortcut/LauncherActivity.getPackageManager ()Landroid/content/pm/PackageManager;]
+  - Methodref [org/zakky/stickyshortcut/LauncherActivity.getString (I[Ljava/lang/Object;)Ljava/lang/String;]
+  - Methodref [org/zakky/stickyshortcut/LauncherActivity.setContentView (I)V]
+  - Methodref [org/zakky/stickyshortcut/LauncherActivity.startActivity (Landroid/content/Intent;)V]
+  - InterfaceMethodref [java/util/List.isEmpty ()Z]
+  + NameAndType [<init> ()V]
+  + NameAndType [<init> (Ljava/lang/String;)V]
+  + NameAndType [<init> (Ljava/lang/String;Landroid/net/Uri;)V]
+  + NameAndType [a Ljava/lang/String;]
+  + NameAndType [addCategory (Ljava/lang/String;)Landroid/content/Intent;]
+  + NameAndType [addFlags (I)Landroid/content/Intent;]
+  + NameAndType [append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  + NameAndType [b Ljava/lang/String;]
+  + NameAndType [c Ljava/lang/String;]
+  + NameAndType [finish ()V]
+  + NameAndType [getIntent ()Landroid/content/Intent;]
+  + NameAndType [getPackageManager ()Landroid/content/pm/PackageManager;]
+  + NameAndType [getString (I[Ljava/lang/Object;)Ljava/lang/String;]
+  + NameAndType [getStringExtra (Ljava/lang/String;)Ljava/lang/String;]
+  + NameAndType [isEmpty ()Z]
+  + NameAndType [makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
+  + NameAndType [onCreate (Landroid/os/Bundle;)V]
+  + NameAndType [onResume ()V]
+  + NameAndType [parse (Ljava/lang/String;)Landroid/net/Uri;]
+  + NameAndType [queryIntentActivities (Landroid/content/Intent;I)Ljava/util/List;]
+  + NameAndType [setClassName (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  + NameAndType [setContentView (I)V]
+  + NameAndType [setFlags (I)Landroid/content/Intent;]
+  + NameAndType [show ()V]
+  + NameAndType [startActivity (Landroid/content/Intent;)V]
+  + NameAndType [toString ()Ljava/lang/String;]
+  + Utf8 [()Landroid/content/Intent;]
+  + Utf8 [()Landroid/content/pm/PackageManager;]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()V]
+  + Utf8 [()Z]
+  + Utf8 [(I)Landroid/content/Intent;]
+  + Utf8 [(I)V]
+  + Utf8 [(I[Ljava/lang/Object;)Ljava/lang/String;]
+  + Utf8 [(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
+  + Utf8 [(Landroid/content/Intent;)V]
+  + Utf8 [(Landroid/content/Intent;I)Ljava/util/List;]
+  + Utf8 [(Landroid/os/Bundle;)V]
+  + Utf8 [(Ljava/lang/String;)Landroid/content/Intent;]
+  + Utf8 [(Ljava/lang/String;)Landroid/net/Uri;]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/String;]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  + Utf8 [(Ljava/lang/String;)V]
+  + Utf8 [(Ljava/lang/String;Landroid/net/Uri;)V]
+  + Utf8 [(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [EXTRA_TARGET_FQCN]
+  + Utf8 [EXTRA_TARGET_LABEL]
+  + Utf8 [EXTRA_TARGET_PACKAGE]
+  + Utf8 [Ljava/lang/String;]
+  + Utf8 [a]
+  + Utf8 [addCategory]
+  + Utf8 [addFlags]
+  + Utf8 [android.intent.action.MAIN]
+  + Utf8 [android.intent.action.VIEW]
+  + Utf8 [android.intent.category.LAUNCHER]
+  + Utf8 [android/app/Activity]
+  + Utf8 [android/content/Intent]
+  + Utf8 [android/content/pm/PackageManager]
+  + Utf8 [android/net/Uri]
+  + Utf8 [android/widget/Toast]
+  + Utf8 [append]
+  + Utf8 [b]
+  + Utf8 [c]
+  + Utf8 [finish]
+  + Utf8 [getIntent]
+  + Utf8 [getPackageManager]
+  + Utf8 [getString]
+  + Utf8 [getStringExtra]
+  + Utf8 [isEmpty]
+  + Utf8 [java/lang/Object]
+  + Utf8 [java/lang/StringBuilder]
+  + Utf8 [java/util/List]
+  + Utf8 [makeText]
+  + Utf8 [market://details?id=]
+  + Utf8 [onCreate]
+  + Utf8 [onResume]
+  + Utf8 [org/zakky/stickyshortcut/LauncherActivity]
+  + Utf8 [parse]
+  + Utf8 [queryIntentActivities]
+  + Utf8 [setClassName]
+  + Utf8 [setContentView]
+  + Utf8 [setFlags]
+  + Utf8 [show]
+  + Utf8 [startActivity]
+  + Utf8 [toString]
+
+Fields (count = 3):
+  + Field:        a Ljava/lang/String;
+    Access flags: 0x2
+      = private java.lang.String a
+  + Field:        b Ljava/lang/String;
+    Access flags: 0x2
+      = private java.lang.String b
+  + Field:        c Ljava/lang/String;
+    Access flags: 0x2
+      = private java.lang.String c
+
+Methods (count = 3):
+  - Method:       <init>()V
+    Access flags: 0x1
+      = public LauncherActivity()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] invokespecial #24
+        - Methodref [android/app/Activity.<init> ()V]
+      [4] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onCreate(Landroid/os/Bundle;)V
+    Access flags: 0x1
+      = public void onCreate(android.os.Bundle)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 81, locals = 2, stack = 3):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] invokespecial #25
+        - Methodref [android/app/Activity.onCreate (Landroid/os/Bundle;)V]
+      [5] aload_0 v0
+      [6] aload_0 v0
+      [7] invokevirtual #42
+        - Methodref [org/zakky/stickyshortcut/LauncherActivity.getIntent ()Landroid/content/Intent;]
+      [10] dup
+      [11] astore_1 v1
+      [12] ifnonnull +7 (target=19)
+      [15] aconst_null
+      [16] goto +9 (target=25)
+      [19] aload_1 v1
+      [20] ldc #7
+        - String [EXTRA_TARGET_PACKAGE]
+      [22] invokevirtual #31
+        - Methodref [android/content/Intent.getStringExtra (Ljava/lang/String;)Ljava/lang/String;]
+      [25] putfield #21
+        - Fieldref [org/zakky/stickyshortcut/LauncherActivity.a Ljava/lang/String;]
+      [28] aload_0 v0
+      [29] aload_0 v0
+      [30] invokevirtual #42
+        - Methodref [org/zakky/stickyshortcut/LauncherActivity.getIntent ()Landroid/content/Intent;]
+      [33] dup
+      [34] astore_1 v1
+      [35] ifnonnull +7 (target=42)
+      [38] aconst_null
+      [39] goto +9 (target=48)
+      [42] aload_1 v1
+      [43] ldc #5
+        - String [EXTRA_TARGET_FQCN]
+      [45] invokevirtual #31
+        - Methodref [android/content/Intent.getStringExtra (Ljava/lang/String;)Ljava/lang/String;]
+      [48] putfield #22
+        - Fieldref [org/zakky/stickyshortcut/LauncherActivity.b Ljava/lang/String;]
+      [51] aload_0 v0
+      [52] aload_0 v0
+      [53] invokevirtual #42
+        - Methodref [org/zakky/stickyshortcut/LauncherActivity.getIntent ()Landroid/content/Intent;]
+      [56] dup
+      [57] astore_1 v1
+      [58] ifnonnull +7 (target=65)
+      [61] aconst_null
+      [62] goto +9 (target=71)
+      [65] aload_1 v1
+      [66] ldc #6
+        - String [EXTRA_TARGET_LABEL]
+      [68] invokevirtual #31
+        - Methodref [android/content/Intent.getStringExtra (Ljava/lang/String;)Ljava/lang/String;]
+      [71] putfield #23
+        - Fieldref [org/zakky/stickyshortcut/LauncherActivity.c Ljava/lang/String;]
+      [74] aload_0 v0
+      [75] ldc #3
+        - Integer [2130903045]
+      [77] invokevirtual #45
+        - Methodref [org/zakky/stickyshortcut/LauncherActivity.setContentView (I)V]
+      [80] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onResume()V
+    Access flags: 0x4
+      = protected void onResume()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 180, locals = 3, stack = 6):
+      [0] aload_0 v0
+      [1] invokespecial #26
+        - Methodref [android/app/Activity.onResume ()V]
+      [4] aload_0 v0
+      [5] getfield #21
+        - Fieldref [org/zakky/stickyshortcut/LauncherActivity.a Ljava/lang/String;]
+      [8] ifnonnull +8 (target=16)
+      [11] aload_0 v0
+      [12] invokevirtual #41
+        - Methodref [org/zakky/stickyshortcut/LauncherActivity.finish ()V]
+      [15] return
+      [16] aload_0 v0
+      [17] astore_1 v1
+      [18] new #13
+        - Class [android/content/Intent]
+      [21] dup
+      [22] ldc #8
+        - String [android.intent.action.MAIN]
+      [24] invokespecial #27
+        - Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
+      [27] dup
+      [28] astore_2 v2
+      [29] ldc #10
+        - String [android.intent.category.LAUNCHER]
+      [31] invokevirtual #29
+        - Methodref [android/content/Intent.addCategory (Ljava/lang/String;)Landroid/content/Intent;]
+      [34] pop
+      [35] aload_2 v2
+      [36] aload_1 v1
+      [37] getfield #21
+        - Fieldref [org/zakky/stickyshortcut/LauncherActivity.a Ljava/lang/String;]
+      [40] aload_1 v1
+      [41] getfield #22
+        - Fieldref [org/zakky/stickyshortcut/LauncherActivity.b Ljava/lang/String;]
+      [44] invokevirtual #32
+        - Methodref [android/content/Intent.setClassName (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+      [47] pop
+      [48] aload_2 v2
+      [49] ldc #2
+        - Integer [268435456]
+      [51] invokevirtual #33
+        - Methodref [android/content/Intent.setFlags (I)Landroid/content/Intent;]
+      [54] pop
+      [55] aload_2 v2
+      [56] astore_1 v1
+      [57] aload_0 v0
+      [58] aload_1 v1
+      [59] astore_2 v2
+      [60] invokevirtual #43
+        - Methodref [org/zakky/stickyshortcut/LauncherActivity.getPackageManager ()Landroid/content/pm/PackageManager;]
+      [63] aload_2 v2
+      [64] ldc #1
+        - Integer [65536]
+      [66] invokevirtual #34
+        - Methodref [android/content/pm/PackageManager.queryIntentActivities (Landroid/content/Intent;I)Ljava/util/List;]
+      [69] invokeinterface #47
+        - InterfaceMethodref [java/util/List.isEmpty ()Z]
+      [74] ifne +7 (target=81)
+      [77] iconst_1
+      [78] goto +4 (target=82)
+      [81] iconst_0
+      [82] ifne +88 (target=170)
+      [85] aload_0 v0
+      [86] ldc #4
+        - Integer [2131034115]
+      [88] iconst_1
+      [89] anewarray #17
+        - Class [java/lang/Object]
+      [92] dup
+      [93] iconst_0
+      [94] aload_0 v0
+      [95] getfield #23
+        - Fieldref [org/zakky/stickyshortcut/LauncherActivity.c Ljava/lang/String;]
+      [98] aastore
+      [99] invokevirtual #44
+        - Methodref [org/zakky/stickyshortcut/LauncherActivity.getString (I[Ljava/lang/Object;)Ljava/lang/String;]
+      [102] astore_1 v1
+      [103] aload_0 v0
+      [104] aload_1 v1
+      [105] iconst_1
+      [106] invokestatic #36
+        - Methodref [android/widget/Toast.makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
+      [109] invokevirtual #37
+        - Methodref [android/widget/Toast.show ()V]
+      [112] aload_0 v0
+      [113] astore_1 v1
+      [114] new #18
+        - Class [java/lang/StringBuilder]
+      [117] dup
+      [118] invokespecial #38
+        - Methodref [java/lang/StringBuilder.<init> ()V]
+      [121] ldc #11
+        - String [market://details?id=]
+      [123] invokevirtual #39
+        - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [126] aload_1 v1
+      [127] getfield #21
+        - Fieldref [org/zakky/stickyshortcut/LauncherActivity.a Ljava/lang/String;]
+      [130] invokevirtual #39
+        - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [133] invokevirtual #40
+        - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+      [136] invokestatic #35
+        - Methodref [android/net/Uri.parse (Ljava/lang/String;)Landroid/net/Uri;]
+      [139] astore_2 v2
+      [140] new #13
+        - Class [android/content/Intent]
+      [143] dup
+      [144] ldc #9
+        - String [android.intent.action.VIEW]
+      [146] aload_2 v2
+      [147] invokespecial #28
+        - Methodref [android/content/Intent.<init> (Ljava/lang/String;Landroid/net/Uri;)V]
+      [150] dup
+      [151] astore_1 v1
+      [152] ldc #2
+        - Integer [268435456]
+      [154] invokevirtual #30
+        - Methodref [android/content/Intent.addFlags (I)Landroid/content/Intent;]
+      [157] pop
+      [158] aload_1 v1
+      [159] astore_1 v1
+      [160] aload_0 v0
+      [161] aload_1 v1
+      [162] invokevirtual #46
+        - Methodref [org/zakky/stickyshortcut/LauncherActivity.startActivity (Landroid/content/Intent;)V]
+      [165] aload_0 v0
+      [166] invokevirtual #41
+        - Methodref [org/zakky/stickyshortcut/LauncherActivity.finish ()V]
+      [169] return
+      [170] aload_0 v0
+      [171] aload_1 v1
+      [172] invokevirtual #46
+        - Methodref [org/zakky/stickyshortcut/LauncherActivity.startActivity (Landroid/content/Intent;)V]
+      [175] aload_0 v0
+      [176] invokevirtual #41
+        - Methodref [org/zakky/stickyshortcut/LauncherActivity.finish ()V]
+      [179] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: a/a/a/a/d
+  Superclass:    java/lang/Object
+  Major version: 0x31
+  Minor version: 0x0
+  Access flags:  0x31
+    = public final class a.a.a.a.d extends java.lang.Object
+
+Interfaces (count = 0):
+
+Constant Pool (count = 31):
+  - Class [a/a/a/a/d]
+  - Class [android/view/View]
+  - Class [android/view/View$OnClickListener]
+  - Class [java/lang/Object]
+  - Fieldref [a/a/a/a/d.a Landroid/graphics/drawable/Drawable;]
+  - Fieldref [a/a/a/a/d.b Ljava/lang/String;]
+  - Fieldref [a/a/a/a/d.c Landroid/view/View$OnClickListener;]
+  - Methodref [java/lang/Object.<init> ()V]
+  + NameAndType [<init> ()V]
+  + NameAndType [a Landroid/graphics/drawable/Drawable;]
+  + NameAndType [b Ljava/lang/String;]
+  + NameAndType [c Landroid/view/View$OnClickListener;]
+  + Utf8 [()Landroid/graphics/drawable/Drawable;]
+  + Utf8 [()Landroid/view/View$OnClickListener;]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()V]
+  + Utf8 [(Landroid/graphics/drawable/Drawable;)V]
+  + Utf8 [(Landroid/view/View$OnClickListener;)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Landroid/graphics/drawable/Drawable;]
+  + Utf8 [Landroid/view/View$OnClickListener;]
+  + Utf8 [Ljava/lang/String;]
+  + Utf8 [a]
+  + Utf8 [a/a/a/a/d]
+  + Utf8 [android/view/View]
+  + Utf8 [android/view/View$OnClickListener]
+  + Utf8 [b]
+  + Utf8 [c]
+  + Utf8 [java/lang/Object]
+
+Fields (count = 3):
+  + Field:        a Landroid/graphics/drawable/Drawable;
+    Access flags: 0x2
+      = private android.graphics.drawable.Drawable a
+  + Field:        b Ljava/lang/String;
+    Access flags: 0x2
+      = private java.lang.String b
+  + Field:        c Landroid/view/View$OnClickListener;
+    Access flags: 0x2
+      = private android.view.View$OnClickListener c
+
+Methods (count = 6):
+  - Method:       <init>()V
+    Access flags: 0x1
+      = public d()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] invokespecial #8
+        - Methodref [java/lang/Object.<init> ()V]
+      [4] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a()Ljava/lang/String;
+    Access flags: 0x11
+      = public final java.lang.String a()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #6
+        - Fieldref [a/a/a/a/d.b Ljava/lang/String;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Landroid/graphics/drawable/Drawable;)V
+    Access flags: 0x11
+      = public final void a(android.graphics.drawable.Drawable)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 6, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #5
+        - Fieldref [a/a/a/a/d.a Landroid/graphics/drawable/Drawable;]
+      [5] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       b()Landroid/graphics/drawable/Drawable;
+    Access flags: 0x11
+      = public final android.graphics.drawable.Drawable b()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #5
+        - Fieldref [a/a/a/a/d.a Landroid/graphics/drawable/Drawable;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Landroid/view/View$OnClickListener;)V
+    Access flags: 0x11
+      = public final void a(android.view.View$OnClickListener)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 6, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #7
+        - Fieldref [a/a/a/a/d.c Landroid/view/View$OnClickListener;]
+      [5] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       c()Landroid/view/View$OnClickListener;
+    Access flags: 0x11
+      = public final android.view.View$OnClickListener c()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #7
+        - Fieldref [a/a/a/a/d.c Landroid/view/View$OnClickListener;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: org/zakky/stickyshortcut/c
+  Superclass:    java/lang/Object
+  Major version: 0x31
+  Minor version: 0x0
+  Access flags:  0x30
+    = final class org.zakky.stickyshortcut.c extends java.lang.Object
+
+Interfaces (count = 0):
+
+Constant Pool (count = 25):
+  - Class [java/lang/Object]
+  - Class [org/zakky/stickyshortcut/CreateShortcutActivity]
+  - Class [org/zakky/stickyshortcut/b]
+  - Class [org/zakky/stickyshortcut/c]
+  - Fieldref [org/zakky/stickyshortcut/c.a Landroid/widget/TextView;]
+  - Fieldref [org/zakky/stickyshortcut/c.b Landroid/widget/ImageView;]
+  - Methodref [java/lang/Object.<init> ()V]
+  + NameAndType [<init> ()V]
+  + NameAndType [a Landroid/widget/TextView;]
+  + NameAndType [b Landroid/widget/ImageView;]
+  + Utf8 [()Landroid/widget/ImageView;]
+  + Utf8 [()Landroid/widget/TextView;]
+  + Utf8 [()V]
+  + Utf8 [(Landroid/widget/TextView;Landroid/widget/ImageView;)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Landroid/widget/ImageView;]
+  + Utf8 [Landroid/widget/TextView;]
+  + Utf8 [a]
+  + Utf8 [b]
+  + Utf8 [java/lang/Object]
+  + Utf8 [org/zakky/stickyshortcut/CreateShortcutActivity]
+  + Utf8 [org/zakky/stickyshortcut/b]
+  + Utf8 [org/zakky/stickyshortcut/c]
+
+Fields (count = 2):
+  + Field:        a Landroid/widget/TextView;
+    Access flags: 0x12
+      = private final android.widget.TextView a
+  + Field:        b Landroid/widget/ImageView;
+    Access flags: 0x12
+      = private final android.widget.ImageView b
+
+Methods (count = 3):
+  - Method:       <init>(Landroid/widget/TextView;Landroid/widget/ImageView;)V
+    Access flags: 0x1
+      = public c(android.widget.TextView,android.widget.ImageView)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 15, locals = 3, stack = 2):
+      [0] aload_0 v0
+      [1] invokespecial #7
+        - Methodref [java/lang/Object.<init> ()V]
+      [4] aload_0 v0
+      [5] aload_1 v1
+      [6] putfield #5
+        - Fieldref [org/zakky/stickyshortcut/c.a Landroid/widget/TextView;]
+      [9] aload_0 v0
+      [10] aload_2 v2
+      [11] putfield #6
+        - Fieldref [org/zakky/stickyshortcut/c.b Landroid/widget/ImageView;]
+      [14] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a()Landroid/widget/TextView;
+    Access flags: 0x11
+      = public final android.widget.TextView a()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #5
+        - Fieldref [org/zakky/stickyshortcut/c.a Landroid/widget/TextView;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       b()Landroid/widget/ImageView;
+    Access flags: 0x11
+      = public final android.widget.ImageView b()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #6
+        - Fieldref [org/zakky/stickyshortcut/c.b Landroid/widget/ImageView;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: org/zakky/stickyshortcut/d
+  Superclass:    java/lang/Object
+  Major version: 0x31
+  Minor version: 0x0
+  Access flags:  0x30
+    = final class org.zakky.stickyshortcut.d extends java.lang.Object
+
+Interfaces (count = 0):
+
+Constant Pool (count = 31):
+  - Class [java/lang/Object]
+  - Class [org/zakky/stickyshortcut/CreateShortcutActivity]
+  - Class [org/zakky/stickyshortcut/d]
+  - Fieldref [org/zakky/stickyshortcut/d.a Ljava/lang/CharSequence;]
+  - Fieldref [org/zakky/stickyshortcut/d.b Landroid/graphics/drawable/Drawable;]
+  - Fieldref [org/zakky/stickyshortcut/d.c Ljava/lang/String;]
+  - Fieldref [org/zakky/stickyshortcut/d.d Ljava/lang/String;]
+  - Methodref [java/lang/Object.<init> ()V]
+  + NameAndType [<init> ()V]
+  + NameAndType [a Ljava/lang/CharSequence;]
+  + NameAndType [b Landroid/graphics/drawable/Drawable;]
+  + NameAndType [c Ljava/lang/String;]
+  + NameAndType [d Ljava/lang/String;]
+  + Utf8 [()Landroid/graphics/drawable/Drawable;]
+  + Utf8 [()Ljava/lang/CharSequence;]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()V]
+  + Utf8 [(Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Ljava/lang/String;Ljava/lang/String;)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Landroid/graphics/drawable/Drawable;]
+  + Utf8 [Ljava/lang/CharSequence;]
+  + Utf8 [Ljava/lang/String;]
+  + Utf8 [a]
+  + Utf8 [b]
+  + Utf8 [c]
+  + Utf8 [d]
+  + Utf8 [java/lang/Object]
+  + Utf8 [org/zakky/stickyshortcut/CreateShortcutActivity]
+  + Utf8 [org/zakky/stickyshortcut/d]
+
+Fields (count = 4):
+  + Field:        a Ljava/lang/CharSequence;
+    Access flags: 0x12
+      = private final java.lang.CharSequence a
+  + Field:        b Landroid/graphics/drawable/Drawable;
+    Access flags: 0x12
+      = private final android.graphics.drawable.Drawable b
+  + Field:        c Ljava/lang/String;
+    Access flags: 0x12
+      = private final java.lang.String c
+  + Field:        d Ljava/lang/String;
+    Access flags: 0x12
+      = private final java.lang.String d
+
+Methods (count = 5):
+  - Method:       <init>(Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Ljava/lang/String;Ljava/lang/String;)V
+    Access flags: 0x1
+      = public d(java.lang.CharSequence,android.graphics.drawable.Drawable,java.lang.String,java.lang.String)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 26, locals = 5, stack = 2):
+      [0] aload_0 v0
+      [1] invokespecial #8
+        - Methodref [java/lang/Object.<init> ()V]
+      [4] aload_0 v0
+      [5] aload_1 v1
+      [6] putfield #4
+        - Fieldref [org/zakky/stickyshortcut/d.a Ljava/lang/CharSequence;]
+      [9] aload_0 v0
+      [10] aload_2 v2
+      [11] putfield #5
+        - Fieldref [org/zakky/stickyshortcut/d.b Landroid/graphics/drawable/Drawable;]
+      [14] aload_0 v0
+      [15] aload_3 v3
+      [16] putfield #6
+        - Fieldref [org/zakky/stickyshortcut/d.c Ljava/lang/String;]
+      [19] aload_0 v0
+      [20] aload v4
+      [22] putfield #7
+        - Fieldref [org/zakky/stickyshortcut/d.d Ljava/lang/String;]
+      [25] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a()Ljava/lang/CharSequence;
+    Access flags: 0x11
+      = public final java.lang.CharSequence a()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #4
+        - Fieldref [org/zakky/stickyshortcut/d.a Ljava/lang/CharSequence;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       b()Landroid/graphics/drawable/Drawable;
+    Access flags: 0x11
+      = public final android.graphics.drawable.Drawable b()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #5
+        - Fieldref [org/zakky/stickyshortcut/d.b Landroid/graphics/drawable/Drawable;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       c()Ljava/lang/String;
+    Access flags: 0x11
+      = public final java.lang.String c()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #6
+        - Fieldref [org/zakky/stickyshortcut/d.c Ljava/lang/String;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       d()Ljava/lang/String;
+    Access flags: 0x11
+      = public final java.lang.String d()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #7
+        - Fieldref [org/zakky/stickyshortcut/d.d Ljava/lang/String;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: org/zakky/stickyshortcut/e
+  Superclass:    java/lang/Object
+  Major version: 0x31
+  Minor version: 0x0
+  Access flags:  0x30
+    = final class org.zakky.stickyshortcut.e extends java.lang.Object
+
+Interfaces (count = 1):
+  - Class [android/view/View$OnClickListener]
+
+Constant Pool (count = 43):
+  - Class [android/view/View]
+  - Class [android/view/View$OnClickListener]
+  - Class [java/lang/Object]
+  - Class [org/zakky/stickyshortcut/CreateShortcutActivity]
+  - Class [org/zakky/stickyshortcut/d]
+  - Class [org/zakky/stickyshortcut/e]
+  - Fieldref [org/zakky/stickyshortcut/e.a Lorg/zakky/stickyshortcut/d;]
+  - Fieldref [org/zakky/stickyshortcut/e.b Landroid/graphics/Bitmap;]
+  - Fieldref [org/zakky/stickyshortcut/e.c Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+  - Methodref [java/lang/Object.<init> ()V]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.a (Lorg/zakky/stickyshortcut/CreateShortcutActivity;Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)Landroid/content/Intent;]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.finish ()V]
+  - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.setResult (ILandroid/content/Intent;)V]
+  + NameAndType [<init> ()V]
+  + NameAndType [a (Lorg/zakky/stickyshortcut/CreateShortcutActivity;Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)Landroid/content/Intent;]
+  + NameAndType [a Lorg/zakky/stickyshortcut/d;]
+  + NameAndType [b Landroid/graphics/Bitmap;]
+  + NameAndType [c Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+  + NameAndType [finish ()V]
+  + NameAndType [setResult (ILandroid/content/Intent;)V]
+  + Utf8 [()V]
+  + Utf8 [(ILandroid/content/Intent;)V]
+  + Utf8 [(Landroid/view/View;)V]
+  + Utf8 [(Lorg/zakky/stickyshortcut/CreateShortcutActivity;Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)Landroid/content/Intent;]
+  + Utf8 [(Lorg/zakky/stickyshortcut/CreateShortcutActivity;Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Landroid/graphics/Bitmap;]
+  + Utf8 [Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+  + Utf8 [Lorg/zakky/stickyshortcut/d;]
+  + Utf8 [a]
+  + Utf8 [android/view/View]
+  + Utf8 [android/view/View$OnClickListener]
+  + Utf8 [b]
+  + Utf8 [c]
+  + Utf8 [finish]
+  + Utf8 [java/lang/Object]
+  + Utf8 [onClick]
+  + Utf8 [org/zakky/stickyshortcut/CreateShortcutActivity]
+  + Utf8 [org/zakky/stickyshortcut/d]
+  + Utf8 [org/zakky/stickyshortcut/e]
+  + Utf8 [setResult]
+
+Fields (count = 3):
+  + Field:        a Lorg/zakky/stickyshortcut/d;
+    Access flags: 0x1002
+      = private org.zakky.stickyshortcut.d a
+  + Field:        b Landroid/graphics/Bitmap;
+    Access flags: 0x1002
+      = private android.graphics.Bitmap b
+  + Field:        c Lorg/zakky/stickyshortcut/CreateShortcutActivity;
+    Access flags: 0x1002
+      = private org.zakky.stickyshortcut.CreateShortcutActivity c
+
+Methods (count = 2):
+  - Method:       <init>(Lorg/zakky/stickyshortcut/CreateShortcutActivity;Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)V
+    Access flags: 0x0
+      = e(org.zakky.stickyshortcut.CreateShortcutActivity,org.zakky.stickyshortcut.d,android.graphics.Bitmap)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 20, locals = 4, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #9
+        - Fieldref [org/zakky/stickyshortcut/e.c Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+      [5] aload_0 v0
+      [6] aload_2 v2
+      [7] putfield #7
+        - Fieldref [org/zakky/stickyshortcut/e.a Lorg/zakky/stickyshortcut/d;]
+      [10] aload_0 v0
+      [11] aload_3 v3
+      [12] putfield #8
+        - Fieldref [org/zakky/stickyshortcut/e.b Landroid/graphics/Bitmap;]
+      [15] aload_0 v0
+      [16] invokespecial #10
+        - Methodref [java/lang/Object.<init> ()V]
+      [19] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onClick(Landroid/view/View;)V
+    Access flags: 0x11
+      = public final void onClick(android.view.View)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 33, locals = 2, stack = 3):
+      [0] aload_0 v0
+      [1] getfield #9
+        - Fieldref [org/zakky/stickyshortcut/e.c Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+      [4] aload_0 v0
+      [5] getfield #7
+        - Fieldref [org/zakky/stickyshortcut/e.a Lorg/zakky/stickyshortcut/d;]
+      [8] aload_0 v0
+      [9] getfield #8
+        - Fieldref [org/zakky/stickyshortcut/e.b Landroid/graphics/Bitmap;]
+      [12] invokestatic #11
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.a (Lorg/zakky/stickyshortcut/CreateShortcutActivity;Lorg/zakky/stickyshortcut/d;Landroid/graphics/Bitmap;)Landroid/content/Intent;]
+      [15] astore_1 v1
+      [16] aload_0 v0
+      [17] getfield #9
+        - Fieldref [org/zakky/stickyshortcut/e.c Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+      [20] iconst_m1
+      [21] aload_1 v1
+      [22] invokevirtual #13
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.setResult (ILandroid/content/Intent;)V]
+      [25] aload_0 v0
+      [26] getfield #9
+        - Fieldref [org/zakky/stickyshortcut/e.c Lorg/zakky/stickyshortcut/CreateShortcutActivity;]
+      [29] invokevirtual #12
+        - Methodref [org/zakky/stickyshortcut/CreateShortcutActivity.finish ()V]
+      [32] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: a/a/a/a/e
+  Superclass:    java/lang/Object
+  Major version: 0x31
+  Minor version: 0x0
+  Access flags:  0x30
+    = final class a.a.a.a.e extends java.lang.Object
+
+Interfaces (count = 1):
+  - Class [android/view/animation/Interpolator]
+
+Constant Pool (count = 24):
+  - Float [1.1]
+  - Float [1.2]
+  - Float [1.55]
+  - Class [a/a/a/a/c]
+  - Class [a/a/a/a/e]
+  - Class [android/view/animation/Interpolator]
+  - Class [java/lang/Object]
+  - Fieldref [a/a/a/a/e.a La/a/a/a/c;]
+  - Methodref [java/lang/Object.<init> ()V]
+  + NameAndType [<init> ()V]
+  + NameAndType [a La/a/a/a/c;]
+  + Utf8 [()V]
+  + Utf8 [(F)F]
+  + Utf8 [(La/a/a/a/c;)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [La/a/a/a/c;]
+  + Utf8 [a]
+  + Utf8 [a/a/a/a/c]
+  + Utf8 [a/a/a/a/e]
+  + Utf8 [android/view/animation/Interpolator]
+  + Utf8 [getInterpolation]
+  + Utf8 [java/lang/Object]
+
+Fields (count = 1):
+  + Field:        a La/a/a/a/c;
+    Access flags: 0x1002
+      = private a.a.a.a.c a
+
+Methods (count = 2):
+  - Method:       <init>(La/a/a/a/c;)V
+    Access flags: 0x0
+      = e(a.a.a.a.c)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #8
+        - Fieldref [a/a/a/a/e.a La/a/a/a/c;]
+      [5] aload_0 v0
+      [6] invokespecial #9
+        - Methodref [java/lang/Object.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       getInterpolation(F)F
+    Access flags: 0x11
+      = public final float getInterpolation(float)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 15, locals = 2, stack = 3):
+      [0] fload_1 v1
+      [1] ldc #3
+        - Float [1.55]
+      [3] fmul
+      [4] ldc #1
+        - Float [1.1]
+      [6] fsub
+      [7] fstore_1 v1
+      [8] ldc #2
+        - Float [1.2]
+      [10] fload_1 v1
+      [11] fload_1 v1
+      [12] fmul
+      [13] fsub
+      [14] freturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: org/zakky/stickyshortcut/InfoActivity
+  Superclass:    android/app/Activity
+  Major version: 0x31
+  Minor version: 0x0
+  Access flags:  0x21
+    = public class org.zakky.stickyshortcut.InfoActivity extends android.app.Activity
+
+Interfaces (count = 0):
+
+Constant Pool (count = 108):
+  - Integer [2130903044]
+  - Integer [2131230725]
+  - Integer [2131230726]
+  - Integer [2131230727]
+  - String [<body bgcolor="#FFFFFF"><hr/></body>]
+  - String [file:///android_asset/index.html]
+  - String [file:///android_asset/index_ja.html]
+  - String [text/html]
+  - String [unknown]
+  - String [utf-8]
+  - String [ver ]
+  - Class [android/app/Activity]
+  - Class [android/content/pm/PackageInfo]
+  - Class [android/content/pm/PackageManager]
+  - Class [android/content/pm/PackageManager$NameNotFoundException]
+  - Class [android/webkit/WebView]
+  - Class [android/widget/TextView]
+  - Class [java/lang/StringBuilder]
+  - Class [java/util/Locale]
+  - Class [org/zakky/stickyshortcut/InfoActivity]
+  - Fieldref [android/content/pm/PackageInfo.versionName Ljava/lang/String;]
+  - Fieldref [java/util/Locale.JAPAN Ljava/util/Locale;]
+  - Methodref [android/app/Activity.<init> ()V]
+  - Methodref [android/app/Activity.onCreate (Landroid/os/Bundle;)V]
+  - Methodref [android/app/Activity.onResume ()V]
+  - Methodref [android/content/pm/PackageManager.getPackageInfo (Ljava/lang/String;I)Landroid/content/pm/PackageInfo;]
+  - Methodref [android/webkit/WebView.loadData (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V]
+  - Methodref [android/webkit/WebView.loadUrl (Ljava/lang/String;)V]
+  - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
+  - Methodref [java/lang/StringBuilder.<init> ()V]
+  - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+  - Methodref [java/util/Locale.equals (Ljava/lang/Object;)Z]
+  - Methodref [java/util/Locale.getDefault ()Ljava/util/Locale;]
+  - Methodref [org/zakky/stickyshortcut/InfoActivity.a ()Ljava/lang/String;]
+  - Methodref [org/zakky/stickyshortcut/InfoActivity.findViewById (I)Landroid/view/View;]
+  - Methodref [org/zakky/stickyshortcut/InfoActivity.getPackageManager ()Landroid/content/pm/PackageManager;]
+  - Methodref [org/zakky/stickyshortcut/InfoActivity.getPackageName ()Ljava/lang/String;]
+  - Methodref [org/zakky/stickyshortcut/InfoActivity.setContentView (I)V]
+  + NameAndType [<init> ()V]
+  + NameAndType [JAPAN Ljava/util/Locale;]
+  + NameAndType [a ()Ljava/lang/String;]
+  + NameAndType [append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  + NameAndType [equals (Ljava/lang/Object;)Z]
+  + NameAndType [findViewById (I)Landroid/view/View;]
+  + NameAndType [getDefault ()Ljava/util/Locale;]
+  + NameAndType [getPackageInfo (Ljava/lang/String;I)Landroid/content/pm/PackageInfo;]
+  + NameAndType [getPackageManager ()Landroid/content/pm/PackageManager;]
+  + NameAndType [getPackageName ()Ljava/lang/String;]
+  + NameAndType [loadData (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V]
+  + NameAndType [loadUrl (Ljava/lang/String;)V]
+  + NameAndType [onCreate (Landroid/os/Bundle;)V]
+  + NameAndType [onResume ()V]
+  + NameAndType [setContentView (I)V]
+  + NameAndType [setText (Ljava/lang/CharSequence;)V]
+  + NameAndType [toString ()Ljava/lang/String;]
+  + NameAndType [versionName Ljava/lang/String;]
+  + Utf8 [()Landroid/content/pm/PackageManager;]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()Ljava/util/Locale;]
+  + Utf8 [()V]
+  + Utf8 [(I)Landroid/view/View;]
+  + Utf8 [(I)V]
+  + Utf8 [(Landroid/os/Bundle;)V]
+  + Utf8 [(Ljava/lang/CharSequence;)V]
+  + Utf8 [(Ljava/lang/Object;)Z]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  + Utf8 [(Ljava/lang/String;)V]
+  + Utf8 [(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;]
+  + Utf8 [(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V]
+  + Utf8 [<body bgcolor="#FFFFFF"><hr/></body>]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [JAPAN]
+  + Utf8 [Ljava/lang/String;]
+  + Utf8 [Ljava/util/Locale;]
+  + Utf8 [a]
+  + Utf8 [android/app/Activity]
+  + Utf8 [android/content/pm/PackageInfo]
+  + Utf8 [android/content/pm/PackageManager]
+  + Utf8 [android/content/pm/PackageManager$NameNotFoundException]
+  + Utf8 [android/webkit/WebView]
+  + Utf8 [android/widget/TextView]
+  + Utf8 [append]
+  + Utf8 [equals]
+  + Utf8 [file:///android_asset/index.html]
+  + Utf8 [file:///android_asset/index_ja.html]
+  + Utf8 [findViewById]
+  + Utf8 [getDefault]
+  + Utf8 [getPackageInfo]
+  + Utf8 [getPackageManager]
+  + Utf8 [getPackageName]
+  + Utf8 [java/lang/StringBuilder]
+  + Utf8 [java/util/Locale]
+  + Utf8 [loadData]
+  + Utf8 [loadUrl]
+  + Utf8 [onCreate]
+  + Utf8 [onResume]
+  + Utf8 [org/zakky/stickyshortcut/InfoActivity]
+  + Utf8 [setContentView]
+  + Utf8 [setText]
+  + Utf8 [text/html]
+  + Utf8 [toString]
+  + Utf8 [unknown]
+  + Utf8 [utf-8]
+  + Utf8 [ver ]
+  + Utf8 [versionName]
+
+Fields (count = 0):
+
+Methods (count = 4):
+  - Method:       <init>()V
+    Access flags: 0x1
+      = public InfoActivity()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] invokespecial #23
+        - Methodref [android/app/Activity.<init> ()V]
+      [4] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onCreate(Landroid/os/Bundle;)V
+    Access flags: 0x1
+      = public void onCreate(android.os.Bundle)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 99, locals = 2, stack = 4):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] invokespecial #24
+        - Methodref [android/app/Activity.onCreate (Landroid/os/Bundle;)V]
+      [5] aload_0 v0
+      [6] ldc #1
+        - Integer [2130903044]
+      [8] invokevirtual #39
+        - Methodref [org/zakky/stickyshortcut/InfoActivity.setContentView (I)V]
+      [11] aload_0 v0
+      [12] ldc #2
+        - Integer [2131230725]
+      [14] invokevirtual #36
+        - Methodref [org/zakky/stickyshortcut/InfoActivity.findViewById (I)Landroid/view/View;]
+      [17] checkcast #17
+        - Class [android/widget/TextView]
+      [20] new #18
+        - Class [java/lang/StringBuilder]
+      [23] dup
+      [24] invokespecial #30
+        - Methodref [java/lang/StringBuilder.<init> ()V]
+      [27] ldc #11
+        - String [ver ]
+      [29] invokevirtual #31
+        - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [32] aload_0 v0
+      [33] invokespecial #35
+        - Methodref [org/zakky/stickyshortcut/InfoActivity.a ()Ljava/lang/String;]
+      [36] invokevirtual #31
+        - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [39] invokevirtual #32
+        - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+      [42] invokevirtual #29
+        - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
+      [45] aload_0 v0
+      [46] ldc #3
+        - Integer [2131230726]
+      [48] invokevirtual #36
+        - Methodref [org/zakky/stickyshortcut/InfoActivity.findViewById (I)Landroid/view/View;]
+      [51] checkcast #16
+        - Class [android/webkit/WebView]
+      [54] ldc #5
+        - String [<body bgcolor="#FFFFFF"><hr/></body>]
+      [56] ldc #8
+        - String [text/html]
+      [58] ldc #10
+        - String [utf-8]
+      [60] invokevirtual #27
+        - Methodref [android/webkit/WebView.loadData (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V]
+      [63] aload_0 v0
+      [64] ldc #4
+        - Integer [2131230727]
+      [66] invokevirtual #36
+        - Methodref [org/zakky/stickyshortcut/InfoActivity.findViewById (I)Landroid/view/View;]
+      [69] checkcast #16
+        - Class [android/webkit/WebView]
+      [72] astore_1 v1
+      [73] invokestatic #34
+        - Methodref [java/util/Locale.getDefault ()Ljava/util/Locale;]
+      [76] getstatic #22
+        - Fieldref [java/util/Locale.JAPAN Ljava/util/Locale;]
+      [79] invokevirtual #33
+        - Methodref [java/util/Locale.equals (Ljava/lang/Object;)Z]
+      [82] ifeq +10 (target=92)
+      [85] aload_1 v1
+      [86] ldc #7
+        - String [file:///android_asset/index_ja.html]
+      [88] invokevirtual #28
+        - Methodref [android/webkit/WebView.loadUrl (Ljava/lang/String;)V]
+      [91] return
+      [92] aload_1 v1
+      [93] ldc #6
+        - String [file:///android_asset/index.html]
+      [95] invokevirtual #28
+        - Methodref [android/webkit/WebView.loadUrl (Ljava/lang/String;)V]
+      [98] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onResume()V
+    Access flags: 0x4
+      = protected void onResume()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] invokespecial #25
+        - Methodref [android/app/Activity.onResume ()V]
+      [4] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a()Ljava/lang/String;
+    Access flags: 0x2
+      = private java.lang.String a()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 20, locals = 1, stack = 3):
+      [0] aload_0 v0
+      [1] invokevirtual #37
+        - Methodref [org/zakky/stickyshortcut/InfoActivity.getPackageManager ()Landroid/content/pm/PackageManager;]
+      [4] aload_0 v0
+      [5] invokevirtual #38
+        - Methodref [org/zakky/stickyshortcut/InfoActivity.getPackageName ()Ljava/lang/String;]
+      [8] iconst_0
+      [9] invokevirtual #26
+        - Methodref [android/content/pm/PackageManager.getPackageInfo (Ljava/lang/String;I)Landroid/content/pm/PackageInfo;]
+      [12] getfield #21
+        - Fieldref [android/content/pm/PackageInfo.versionName Ljava/lang/String;]
+      [15] areturn
+      [16] pop
+      [17] ldc #9
+        - String [unknown]
+      [19] areturn
+      Code attribute exceptions (count = 1):
+      - ExceptionInfo (0 -> 15: 16):
+      - Class [android/content/pm/PackageManager$NameNotFoundException]
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
