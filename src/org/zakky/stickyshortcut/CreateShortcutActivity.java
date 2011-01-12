@@ -38,7 +38,6 @@ import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -111,21 +110,7 @@ public final class CreateShortcutActivity extends Activity implements
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
             long id) {
-
         final AppInfo appInfo = (AppInfo) parent.getItemAtPosition(position);
-
-        if (Integer.parseInt(Build.VERSION.SDK) <= 3) {
-            // 1.5 以下は、drawable-* を見てくれないので QuickActionLib を使わない
-            final BitmapDrawable bd = (BitmapDrawable) appInfo.getIcon();
-            final Bitmap originalIcon = bd.getBitmap();
-            final Bitmap shortcutIcon = createShortcutIcon(originalIcon,
-                    R.drawable.badge4);
-
-            final Intent result = buildResultIntent(appInfo, shortcutIcon);
-            setResult(RESULT_OK, result);
-            finish();
-            return;
-        }
 
         // QuickAction を表示し、ユーザにアイコンを選択してもらう。
         final QuickAction qa = new QuickAction(view);
