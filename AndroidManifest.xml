@@ -6,7 +6,7 @@
     <application
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:debuggable="true">
+        android:debuggable="false">
         
         <!-- 通常起動の際に呼び出されるアクティビティ -->
         <activity android:name=".InfoActivity"
