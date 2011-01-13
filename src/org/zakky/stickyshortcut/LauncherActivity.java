@@ -18,6 +18,10 @@ package org.zakky.stickyshortcut;
 
 import java.util.List;
 
+import edu.umd.cs.findbugs.annotations.CheckForNull;
+import edu.umd.cs.findbugs.annotations.DefaultAnnotation;
+import edu.umd.cs.findbugs.annotations.NonNull;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -31,6 +35,7 @@ import android.widget.Toast;
  * 
  * @author zaki
  */
+@DefaultAnnotation(NonNull.class)
 public class LauncherActivity extends Activity {
 
     /*
@@ -47,21 +52,27 @@ public class LauncherActivity extends Activity {
     public static final String EXTRA_TARGET_LABEL = "EXTRA_TARGET_LABEL";
 
     /** 起動対象アプリのパッケージ名 */
+    @CheckForNull
     private String targetPackage_;
 
     /** 起動対象アプリのクラス名 */
+    @CheckForNull
     private String targetFqcn_;
 
     /** 起動対象アプリのラベル */
+    @CheckForNull
     private String targetLabel_;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@CheckForNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        targetPackage_ = getTargetPackage(getIntent());
-        targetFqcn_ = getTargetFqcn(getIntent());
-        targetLabel_ = getTargetLabel(getIntent());
+        @CheckForNull
+        final Intent intent = getIntent();
+        
+        targetPackage_ = getTargetPackage(intent);
+        targetFqcn_ = getTargetFqcn(intent);
+        targetLabel_ = getTargetLabel(intent);
         setContentView(R.layout.launcher);
     }
 
@@ -69,7 +80,8 @@ public class LauncherActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
-        if (targetPackage_ == null) {
+        final String targetPackage = targetPackage_;
+        if (targetPackage == null) {
             // 起動対象が不明なので終了
             finish();
             return;
@@ -83,9 +95,8 @@ public class LauncherActivity extends Activity {
             final String message = getString(R.string.target_app_not_installed, targetLabel_);
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 
-            final Intent istallIntent = buildInstallIntent();
+            final Intent istallIntent = buildInstallIntent(targetPackage);
             startActivity(istallIntent);
-
             finish();
             return;
         }
@@ -102,7 +113,8 @@ public class LauncherActivity extends Activity {
      * @return ターゲットパッケージ名。 取得元インテントが {@code null} の場合や、取得元インテントが
      *         ターゲットパッケージ名情報を保持していない場合は {@code null} を返します。
      */
-    private String getTargetPackage(Intent intent) {
+    @CheckForNull
+    private String getTargetPackage(@CheckForNull Intent intent) {
         if (intent == null) {
             return null;
         }
@@ -117,7 +129,8 @@ public class LauncherActivity extends Activity {
      * @return ターゲットクラス名。 取得元インテントが {@code null} の場合や、取得元インテントが
      *         ターゲットクラス名情報を保持していない場合は {@code null} を返します。
      */
-    private String getTargetFqcn(Intent intent) {
+    @CheckForNull
+    private String getTargetFqcn(@CheckForNull Intent intent) {
         if (intent == null) {
             return null;
         }
@@ -132,7 +145,8 @@ public class LauncherActivity extends Activity {
      * @return ターゲットラベル。 取得元インテントが {@code null} の場合や、取得元インテントが
      *         ターゲットラベル情報を保持していない場合は {@code null} を返します。
      */
-    private String getTargetLabel(Intent intent) {
+    @CheckForNull
+    private String getTargetLabel(@CheckForNull Intent intent) {
         if (intent == null) {
             return null;
         }
@@ -159,8 +173,8 @@ public class LauncherActivity extends Activity {
      * 
      * @return ターゲットアプリインストール用インテント。
      */
-    private Intent buildInstallIntent() {
-        final Uri uri = Uri.parse("market://details?id=" + targetPackage_);
+    private Intent buildInstallIntent(String targetPackage) {
+        final Uri uri = Uri.parse("market://details?id=" + targetPackage);
         final Intent installIntent = new Intent(Intent.ACTION_VIEW, uri);
         installIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 

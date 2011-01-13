@@ -18,6 +18,9 @@ package org.zakky.stickyshortcut;
 
 import java.util.Locale;
 
+import edu.umd.cs.findbugs.annotations.DefaultAnnotation;
+import edu.umd.cs.findbugs.annotations.NonNull;
+
 import android.app.Activity;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
@@ -29,6 +32,7 @@ import android.widget.TextView;
  * 
  * @author zaki
  */
+@DefaultAnnotation(NonNull.class)
 public class InfoActivity extends Activity {
 
     @Override

@@ -24,6 +24,9 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.umd.cs.findbugs.annotations.DefaultAnnotation;
+import edu.umd.cs.findbugs.annotations.NonNull;
+
 import yanzm.products.quickaction.lib.ActionItem;
 import yanzm.products.quickaction.lib.QuickAction;
 import android.app.Activity;
@@ -59,6 +62,7 @@ import android.widget.TextView;
  * 
  * @author zaki
  */
+@DefaultAnnotation(NonNull.class)
 public final class CreateShortcutActivity extends Activity implements OnItemClickListener {
     private static final String TAG = CreateShortcutActivity.class.getSimpleName();
 
@@ -348,6 +352,7 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
      * 
      * @author zaki
      */
+    @DefaultAnnotation(NonNull.class)
     public static final class AppsAdapter extends BaseAdapter {
 
         private final List<AppInfo> apps_;
