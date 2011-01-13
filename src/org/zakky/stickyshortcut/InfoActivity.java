@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.zakky.stickyshortcut;
 
 import java.util.Locale;
@@ -42,8 +43,7 @@ public class InfoActivity extends Activity {
 
         // WebView
         final WebView separator = (WebView) findViewById(R.id.info_separator);
-        separator.loadData("<body bgcolor=\"#FFFFFF\"><hr/></body>",
-                "text/html", "utf-8");
+        separator.loadData("<body bgcolor=\"#FFFFFF\"><hr/></body>", "text/html", "utf-8");
 
         final WebView info = (WebView) findViewById(R.id.info);
         if (Locale.getDefault().equals(Locale.JAPAN)) {
@@ -60,14 +60,12 @@ public class InfoActivity extends Activity {
 
     /**
      * アプリケーションの表示用バージョン番号文字列を返します。
-     *
-     * @return
-     * 表示用バージョン番号文字列。取得に失敗した場合は "{@code unknon}" を返します。
+     * 
+     * @return 表示用バージョン番号文字列。取得に失敗した場合は "{@code unknown}" を返します。
      */
     private String getAppVersion() {
         try {
-            final String version = getPackageManager().getPackageInfo(
-                    getPackageName(), 0).versionName;
+            final String version = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             return version;
         } catch (NameNotFoundException e) {
             return "unknown";

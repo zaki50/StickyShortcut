@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.zakky.stickyshortcut;
 
 import static org.zakky.stickyshortcut.LauncherActivity.EXTRA_TARGET_FQCN;
@@ -54,22 +55,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
- * ショートカット作成時に呼び出され、ユーザが選択したアプリを起動するショートカットをホームに
- * 作成します。
+ * ショートカット作成時に呼び出され、ユーザが選択したアプリを起動するショートカットをホームに 作成します。
  * 
  * @author zaki
  */
-public final class CreateShortcutActivity extends Activity implements
-        OnItemClickListener {
-    private static final String TAG = CreateShortcutActivity.class
-            .getSimpleName();
+public final class CreateShortcutActivity extends Activity implements OnItemClickListener {
+    private static final String TAG = CreateShortcutActivity.class.getSimpleName();
 
     /**
      * バッヂアイコンリスト。
      */
-    private static final int[] BADGE_RES_IDS = { -1, R.drawable.badge1,
-            R.drawable.badge2, R.drawable.badge3, R.drawable.badge4,
-            R.drawable.badge5, R.drawable.badge6 };
+    private static final int[] BADGE_RES_IDS = {
+            -1, R.drawable.badge1, R.drawable.badge2, R.drawable.badge3, R.drawable.badge4,
+            R.drawable.badge5, R.drawable.badge6
+    };
 
     /**
      * アプリ一覧表示用グリッド。
@@ -93,8 +92,7 @@ public final class CreateShortcutActivity extends Activity implements
     }
 
     /**
-     * アクティビティ開始処理として、アプリ一覧を取得してグリッドにセットするためのタスクを
-     * 実行します。
+     * アクティビティ開始処理として、アプリ一覧を取得してグリッドにセットするためのタスクを 実行します。
      */
     @Override
     protected void onStart() {
@@ -108,8 +106,7 @@ public final class CreateShortcutActivity extends Activity implements
      * アプリ一覧で、あるアプリがクリックされたときのアクションです。
      */
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position,
-            long id) {
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         final AppInfo appInfo = (AppInfo) parent.getItemAtPosition(position);
 
         // QuickAction を表示し、ユーザにアイコンを選択してもらう。
@@ -124,16 +121,13 @@ public final class CreateShortcutActivity extends Activity implements
 
     /**
      * 無理やりショートカットアイコンリストをセンタリングします。
-     *
      * <p>
      * {@code quickaction.xml} に含まれている、{@code id} が {@code tracks} な
      * {@link LinearLayout} に対して、 layout_gravity をセットするメソッドです。
      * </p>
-     *
-     * @param qa
-     * ショートカットアイコンリストを表示する {@link QuickAction}。
-     * @param gravity
-     * {@link Gravity} に定義された定数。
+     * 
+     * @param qa ショートカットアイコンリストを表示する {@link QuickAction}。
+     * @param gravity {@link Gravity} に定義された定数。
      */
     private void setItemListGravity(QuickAction qa, int gravity) {
         try {
@@ -154,16 +148,12 @@ public final class CreateShortcutActivity extends Activity implements
 
     /**
      * {@link QuickAction} に表示する、ショートカットアイコン候補を構築します。
-     *
-     * 候補は、クリックされるとショートカット作成インテントをリザルトとしてセットして
-     * {@link CreateShortcutActivity} を終了します。
-     *
-     * @param appInfo
-     * 対象アプリ情報。
-     * @param badgeResId
-     * バッヂリソースID. {@code -1} はバッヂなしを表します。
-     * @return
-     * {@link ActionItem}。
+     * 候補は、クリックされるとショートカット作成インテントをリザルトとしてセットして {@link CreateShortcutActivity}
+     * を終了します。
+     * 
+     * @param appInfo 対象アプリ情報。
+     * @param badgeResId バッヂリソースID. {@code -1} はバッヂなしを表します。
+     * @return {@link ActionItem}。
      */
     private ActionItem buildCandidate(final AppInfo appInfo, int badgeResId) {
         final BitmapDrawable bd = (BitmapDrawable) appInfo.getIcon();
@@ -175,8 +165,7 @@ public final class CreateShortcutActivity extends Activity implements
         item.setIcon(new BitmapDrawable(shortcutIcon));
         item.setOnClickListener(new View.OnClickListener() {
             /**
-             * アイコンが選択されたので、選択されたアイコンでショートカットを作成し
-             * アクティビティ自体を終了する。
+             * アイコンが選択されたので、選択されたアイコンでショートカットを作成し アクティビティ自体を終了する。
              */
             @Override
             public void onClick(View v) {
@@ -192,19 +181,14 @@ public final class CreateShortcutActivity extends Activity implements
     /**
      * 指定されたバッヂ付きのショートカットアイコンを作成します。
      * 
-     * @param originalIcon
-     * 対象アプリのオリジナルアイコン。
-     * @param badgeResId
-     * バッジに使用するリソースの識別子。
-     * {@code -1} が渡された場合はバッヂなしでアイコンを作成します。
-     * @return
-     * ショートカットアイコンお {@link Bitmap} オブジェクト。
-     * 必ず新たに作成された {@link Bitmap} オブジェクトが返ります。
+     * @param originalIcon 対象アプリのオリジナルアイコン。
+     * @param badgeResId バッジに使用するリソースの識別子。 {@code -1} が渡された場合はバッヂなしでアイコンを作成します。
+     * @return ショートカットアイコンお {@link Bitmap} オブジェクト。 必ず新たに作成された {@link Bitmap}
+     *         オブジェクトが返ります。
      */
     private Bitmap createShortcutIcon(Bitmap originalIcon, int badgeResId) {
-        final Bitmap shortcutIcon = Bitmap.createBitmap(
-                originalIcon.getWidth(), originalIcon.getHeight(),
-                Bitmap.Config.ARGB_8888);
+        final Bitmap shortcutIcon = Bitmap.createBitmap(originalIcon.getWidth(),
+                originalIcon.getHeight(), Bitmap.Config.ARGB_8888);
 
         final Canvas canvas = new Canvas(shortcutIcon);
         canvas.drawBitmap(originalIcon, 0, 0, null);
@@ -215,8 +199,7 @@ public final class CreateShortcutActivity extends Activity implements
         }
 
         // バッヂを重ねる
-        final Bitmap badge = BitmapFactory.decodeResource(getResources(),
-                badgeResId);
+        final Bitmap badge = BitmapFactory.decodeResource(getResources(), badgeResId);
         try {
             final Matrix m = new Matrix();
             final float originalX = originalIcon.getWidth();
@@ -238,20 +221,15 @@ public final class CreateShortcutActivity extends Activity implements
     }
 
     /**
-     * このアクティビティの {@code result} として使用される、ショートカット作成インテントを
-     * 構築して返します。
-     *
-     * @param appInfo
-     * 作成するショートカットが対象とするアプリ情報。
-     * @param icon
-     * ショートカットセットするアイコン。
-     * @return
-     * {@code result} インテント。
+     * このアクティビティの {@code result} として使用される、ショートカット作成インテントを 構築して返します。
+     * 
+     * @param appInfo 作成するショートカットが対象とするアプリ情報。
+     * @param icon ショートカットセットするアイコン。
+     * @return {@code result} インテント。
      */
     private Intent buildResultIntent(AppInfo appInfo, Bitmap icon) {
         // ショートカット作成
-        final Intent shortcutIntent = new Intent(
-                "org.zakky.stickyshortcut.LAUNCH");
+        final Intent shortcutIntent = new Intent("org.zakky.stickyshortcut.LAUNCH");
         shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         shortcutIntent.setClassName(getApplicationContext().getPackageName(),
                 LauncherActivity.class.getCanonicalName());
@@ -271,15 +249,13 @@ public final class CreateShortcutActivity extends Activity implements
 
     /**
      * アプリ一覧を取得し、 {@value CreateShortcutActivity#appGrid_} にセットするタスクです。
-     * 
      * <p>
      * 取得処理中はキャンセル不可なプログレスダイアログを表示します。
      * </p>
      * 
      * @author zaki
      */
-    private final class LoadAppListTask extends
-            AsyncTask<Void, Void, List<AppInfo>> {
+    private final class LoadAppListTask extends AsyncTask<Void, Void, List<AppInfo>> {
         private final ProgressDialog progressDialog_;
 
         public LoadAppListTask() {
@@ -301,8 +277,7 @@ public final class CreateShortcutActivity extends Activity implements
             mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
 
             final PackageManager pm = getPackageManager();
-            final List<ResolveInfo> apps = pm.queryIntentActivities(mainIntent,
-                    0);
+            final List<ResolveInfo> apps = pm.queryIntentActivities(mainIntent, 0);
             final List<AppInfo> appList = new ArrayList<AppInfo>(apps.size());
             for (ResolveInfo info : apps) {
                 final String packageName = info.activityInfo.packageName;
@@ -313,8 +288,7 @@ public final class CreateShortcutActivity extends Activity implements
                 final CharSequence label = info.loadLabel(pm);
                 final Drawable icon = info.activityInfo.loadIcon(pm);
 
-                final AppInfo appInfo = new AppInfo(label, icon, activityFqcn,
-                        packageName);
+                final AppInfo appInfo = new AppInfo(label, icon, activityFqcn, packageName);
                 appList.add(appInfo);
             }
 
@@ -323,8 +297,7 @@ public final class CreateShortcutActivity extends Activity implements
 
         @Override
         protected final void onPostExecute(List<AppInfo> appList) {
-            final AppsAdapter adapter = new AppsAdapter(
-                    getApplicationContext(), appList);
+            final AppsAdapter adapter = new AppsAdapter(getApplicationContext(), appList);
             appGrid_.setAdapter(adapter);
             progressDialog_.dismiss();
         }
@@ -337,12 +310,14 @@ public final class CreateShortcutActivity extends Activity implements
      */
     private static final class AppInfo {
         private final CharSequence label_;
+
         private final Drawable icon_;
+
         private final String activityFqcn_;
+
         private final String packageName_;
 
-        public AppInfo(CharSequence label, Drawable icon, String activityFqcn,
-                String packageName) {
+        public AppInfo(CharSequence label, Drawable icon, String activityFqcn, String packageName) {
             super();
             label_ = label;
             icon_ = icon;
@@ -378,12 +353,12 @@ public final class CreateShortcutActivity extends Activity implements
         private final List<AppInfo> apps_;
 
         private final LayoutInflater inflater_;
+
         private final LinearLayout.LayoutParams params_;
 
         public AppsAdapter(Context context, List<AppInfo> apps) {
             apps_ = apps;
-            inflater_ = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            inflater_ = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             // 画面サイズを取得
             int wallpaperSizeY = context.getWallpaperDesiredMinimumHeight();
@@ -398,15 +373,14 @@ public final class CreateShortcutActivity extends Activity implements
 
         /**
          * アプリ1つ分を表現する {@link View} を返します。
-         *
-         * @return
-         * {@link View} オブジェクト。
+         * 
+         * @return {@link View} オブジェクト。
          */
         public View getView(int position, View convertView, ViewGroup parent) {
-            final View v = (convertView == null) ? inflater_.inflate(
-                    R.layout.grid_row, null) : convertView;
-            final GridRowData rowData = (v.getTag() == null) ? createRowData(v)
-                    : (GridRowData) v.getTag();
+            final View v = (convertView == null) ? inflater_.inflate(R.layout.grid_row, null)
+                    : convertView;
+            final GridRowData rowData = (v.getTag() == null) ? createRowData(v) : (GridRowData) v
+                    .getTag();
 
             final AppInfo info = getItem(position);
             rowData.getTextView().setText(info.getLabel());
@@ -417,10 +391,8 @@ public final class CreateShortcutActivity extends Activity implements
         }
 
         private GridRowData createRowData(View rowView) {
-            final TextView text = (TextView) rowView
-                    .findViewById(R.id.grid_row_txt);
-            final ImageView image = (ImageView) rowView
-                    .findViewById(R.id.grid_row_img);
+            final TextView text = (TextView) rowView.findViewById(R.id.grid_row_txt);
+            final ImageView image = (ImageView) rowView.findViewById(R.id.grid_row_img);
             image.setLayoutParams(params_);
 
             final GridRowData rowData = new GridRowData(text, image);
@@ -441,6 +413,7 @@ public final class CreateShortcutActivity extends Activity implements
 
         private static final class GridRowData {
             private final TextView text_;
+
             private final ImageView image_;
 
             public GridRowData(TextView text, ImageView image) {
