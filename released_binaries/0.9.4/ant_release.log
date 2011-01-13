@@ -1,0 +1,252 @@
+Buildfile: /Users/zaki/fromgit/StickyShortcut/build.xml
+    [setup] Android SDK Tools Revision 8
+    [setup] Project Target: Android 1.6
+    [setup] API level: 4
+    [setup] 
+    [setup] ------------------
+    [setup] Resolving library dependencies:
+    [setup] /Users/zaki/fromgit/StickyShortcut: ../QuickActionLib/ => /Users/zaki/fromgit/QuickActionLib
+    [setup] ------------------
+    [setup] Ordered libraries:
+    [setup] /Users/zaki/fromgit/QuickActionLib
+    [setup] ------------------
+    [setup] 
+    [setup] WARNING: Attribute minSdkVersion in AndroidManifest.xml (3) is lower than the project target API level (4)
+    [setup] 
+    [setup] Importing rules file: tools/ant/main_rules.xml
+
+-set-release-mode:
+
+-release-obfuscation-check:
+
+-dirs:
+     [echo] Creating output directories if needed...
+    [mkdir] Created dir: /Users/zaki/fromgit/StickyShortcut/bin
+    [mkdir] Created dir: /Users/zaki/fromgit/StickyShortcut/gen
+    [mkdir] Created dir: /Users/zaki/fromgit/StickyShortcut/bin/classes
+
+-pre-build:
+
+-resource-src:
+     [echo] Generating R.java / Manifest.java from the resources...
+
+-aidl:
+     [echo] Compiling aidl files into Java classes...
+
+-pre-compile:
+
+compile:
+    [javac] /Applications/android-sdk-mac_x86/tools/ant/main_rules.xml:361: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 8 source files to /Users/zaki/fromgit/StickyShortcut/bin/classes
+
+-post-compile:
+
+-obfuscate:
+    [mkdir] Created dir: /Users/zaki/fromgit/StickyShortcut/bin/proguard
+      [jar] Building jar: /Users/zaki/fromgit/StickyShortcut/bin/proguard/original.jar
+ [proguard] ProGuard, version 4.4
+ [proguard] ProGuard is released under the GNU General Public License. The authors of all
+ [proguard] programs or plugins that link to it (com.android.ant, ...) therefore
+ [proguard] must ensure that these programs carry the GNU General Public License as well.
+ [proguard] Reading input...
+ [proguard] Reading program jar [/Users/zaki/fromgit/StickyShortcut/bin/proguard/original.jar]
+ [proguard] Reading library jar [/Applications/android-sdk-mac_x86/platforms/android-4/android.jar]
+ [proguard] Initializing...
+ [proguard] Note: the configuration refers to the unknown class 'com.android.vending.licensing.ILicensingService'
+ [proguard] Note: there were 1 references to unknown classes.
+ [proguard]       You should check your configuration for typos.
+ [proguard] Ignoring unused library classes...
+ [proguard]   Original number of library classes: 2400
+ [proguard]   Final number of library classes:    276
+ [proguard] Printing kept classes, fields, and methods...
+ [proguard] Shrinking...
+ [proguard] Printing usage to [/Users/zaki/fromgit/StickyShortcut/bin/proguard/usage.txt]...
+ [proguard] Removing unused program classes and class elements...
+ [proguard]   Original number of program classes: 31
+ [proguard]   Final number of program classes:    13
+ [proguard] Optimizing...
+ [proguard]   Number of finalized classes:                 5
+ [proguard]   Number of vertically merged classes:         0   (disabled)
+ [proguard]   Number of horizontally merged classes:       0   (disabled)
+ [proguard]   Number of removed write-only fields:         0   (disabled)
+ [proguard]   Number of privatized fields:                 6   (disabled)
+ [proguard]   Number of inlined constant fields:           43   (disabled)
+ [proguard]   Number of privatized methods:                9
+ [proguard]   Number of staticized methods:                7
+ [proguard]   Number of finalized methods:                 32
+ [proguard]   Number of removed method parameters:         1
+ [proguard]   Number of inlined constant parameters:       3
+ [proguard]   Number of inlined constant return values:    0
+ [proguard]   Number of inlined short method calls:        4
+ [proguard]   Number of inlined unique method calls:       17
+ [proguard]   Number of inlined tail recursion calls:      0
+ [proguard]   Number of merged code blocks:                1
+ [proguard]   Number of variable peephole optimizations:   74
+ [proguard]   Number of arithmetic peephole optimizations: 0   (disabled)
+ [proguard]   Number of cast peephole optimizations:       0
+ [proguard]   Number of field peephole optimizations:      0
+ [proguard]   Number of branch peephole optimizations:     22
+ [proguard]   Number of simplified instructions:           7
+ [proguard]   Number of removed instructions:              22
+ [proguard]   Number of removed local variables:           10
+ [proguard]   Number of removed exception blocks:          1
+ [proguard]   Number of optimized local variable frames:   30
+ [proguard] Shrinking...
+ [proguard] Removing unused program classes and class elements...
+ [proguard]   Original number of program classes: 13
+ [proguard]   Final number of program classes:    13
+ [proguard] Optimizing...
+ [proguard]   Number of finalized classes:                 0
+ [proguard]   Number of vertically merged classes:         0   (disabled)
+ [proguard]   Number of horizontally merged classes:       0   (disabled)
+ [proguard]   Number of removed write-only fields:         0   (disabled)
+ [proguard]   Number of privatized fields:                 0   (disabled)
+ [proguard]   Number of inlined constant fields:           43   (disabled)
+ [proguard]   Number of privatized methods:                0
+ [proguard]   Number of staticized methods:                0
+ [proguard]   Number of finalized methods:                 0
+ [proguard]   Number of removed method parameters:         2
+ [proguard]   Number of inlined constant parameters:       2
+ [proguard]   Number of inlined constant return values:    0
+ [proguard]   Number of inlined short method calls:        0
+ [proguard]   Number of inlined unique method calls:       0
+ [proguard]   Number of inlined tail recursion calls:      0
+ [proguard]   Number of merged code blocks:                0
+ [proguard]   Number of variable peephole optimizations:   2
+ [proguard]   Number of arithmetic peephole optimizations: 0   (disabled)
+ [proguard]   Number of cast peephole optimizations:       0
+ [proguard]   Number of field peephole optimizations:      0
+ [proguard]   Number of branch peephole optimizations:     0
+ [proguard]   Number of simplified instructions:           6
+ [proguard]   Number of removed instructions:              69
+ [proguard]   Number of removed local variables:           2
+ [proguard]   Number of removed exception blocks:          0
+ [proguard]   Number of optimized local variable frames:   1
+ [proguard] Shrinking...
+ [proguard] Removing unused program classes and class elements...
+ [proguard]   Original number of program classes: 13
+ [proguard]   Final number of program classes:    13
+ [proguard] Optimizing...
+ [proguard]   Number of finalized classes:                 0
+ [proguard]   Number of vertically merged classes:         0   (disabled)
+ [proguard]   Number of horizontally merged classes:       0   (disabled)
+ [proguard]   Number of removed write-only fields:         0   (disabled)
+ [proguard]   Number of privatized fields:                 0   (disabled)
+ [proguard]   Number of inlined constant fields:           43   (disabled)
+ [proguard]   Number of privatized methods:                0
+ [proguard]   Number of staticized methods:                0
+ [proguard]   Number of finalized methods:                 0
+ [proguard]   Number of removed method parameters:         0
+ [proguard]   Number of inlined constant parameters:       0
+ [proguard]   Number of inlined constant return values:    0
+ [proguard]   Number of inlined short method calls:        0
+ [proguard]   Number of inlined unique method calls:       0
+ [proguard]   Number of inlined tail recursion calls:      0
+ [proguard]   Number of merged code blocks:                0
+ [proguard]   Number of variable peephole optimizations:   0
+ [proguard]   Number of arithmetic peephole optimizations: 0   (disabled)
+ [proguard]   Number of cast peephole optimizations:       0
+ [proguard]   Number of field peephole optimizations:      0
+ [proguard]   Number of branch peephole optimizations:     0
+ [proguard]   Number of simplified instructions:           0
+ [proguard]   Number of removed instructions:              2
+ [proguard]   Number of removed local variables:           0
+ [proguard]   Number of removed exception blocks:          0
+ [proguard]   Number of optimized local variable frames:   1
+ [proguard] Shrinking...
+ [proguard] Removing unused program classes and class elements...
+ [proguard]   Original number of program classes: 13
+ [proguard]   Final number of program classes:    13
+ [proguard] Optimizing...
+ [proguard]   Number of finalized classes:                 0
+ [proguard]   Number of vertically merged classes:         0   (disabled)
+ [proguard]   Number of horizontally merged classes:       0   (disabled)
+ [proguard]   Number of removed write-only fields:         0   (disabled)
+ [proguard]   Number of privatized fields:                 0   (disabled)
+ [proguard]   Number of inlined constant fields:           43   (disabled)
+ [proguard]   Number of privatized methods:                0
+ [proguard]   Number of staticized methods:                0
+ [proguard]   Number of finalized methods:                 0
+ [proguard]   Number of removed method parameters:         0
+ [proguard]   Number of inlined constant parameters:       0
+ [proguard]   Number of inlined constant return values:    0
+ [proguard]   Number of inlined short method calls:        0
+ [proguard]   Number of inlined unique method calls:       0
+ [proguard]   Number of inlined tail recursion calls:      0
+ [proguard]   Number of merged code blocks:                0
+ [proguard]   Number of variable peephole optimizations:   0
+ [proguard]   Number of arithmetic peephole optimizations: 0   (disabled)
+ [proguard]   Number of cast peephole optimizations:       0
+ [proguard]   Number of field peephole optimizations:      0
+ [proguard]   Number of branch peephole optimizations:     0
+ [proguard]   Number of simplified instructions:           0
+ [proguard]   Number of removed instructions:              0
+ [proguard]   Number of removed local variables:           0
+ [proguard]   Number of removed exception blocks:          0
+ [proguard]   Number of optimized local variable frames:   0
+ [proguard] Shrinking...
+ [proguard] Removing unused program classes and class elements...
+ [proguard]   Original number of program classes: 13
+ [proguard]   Final number of program classes:    13
+ [proguard] Optimizing...
+ [proguard]   Number of finalized classes:                 0
+ [proguard]   Number of vertically merged classes:         0   (disabled)
+ [proguard]   Number of horizontally merged classes:       0   (disabled)
+ [proguard]   Number of removed write-only fields:         0   (disabled)
+ [proguard]   Number of privatized fields:                 0   (disabled)
+ [proguard]   Number of inlined constant fields:           43   (disabled)
+ [proguard]   Number of privatized methods:                0
+ [proguard]   Number of staticized methods:                0
+ [proguard]   Number of finalized methods:                 0
+ [proguard]   Number of removed method parameters:         0
+ [proguard]   Number of inlined constant parameters:       0
+ [proguard]   Number of inlined constant return values:    0
+ [proguard]   Number of inlined short method calls:        0
+ [proguard]   Number of inlined unique method calls:       0
+ [proguard]   Number of inlined tail recursion calls:      0
+ [proguard]   Number of merged code blocks:                0
+ [proguard]   Number of variable peephole optimizations:   0
+ [proguard]   Number of arithmetic peephole optimizations: 0   (disabled)
+ [proguard]   Number of cast peephole optimizations:       0
+ [proguard]   Number of field peephole optimizations:      0
+ [proguard]   Number of branch peephole optimizations:     0
+ [proguard]   Number of simplified instructions:           0
+ [proguard]   Number of removed instructions:              0
+ [proguard]   Number of removed local variables:           0
+ [proguard]   Number of removed exception blocks:          0
+ [proguard]   Number of optimized local variable frames:   0
+ [proguard] Shrinking...
+ [proguard] Removing unused program classes and class elements...
+ [proguard]   Original number of program classes: 13
+ [proguard]   Final number of program classes:    13
+ [proguard] Obfuscating...
+ [proguard] Printing mapping to [/Users/zaki/fromgit/StickyShortcut/bin/proguard/mapping.txt]...
+ [proguard] Writing output...
+ [proguard] Preparing output jar [/Users/zaki/fromgit/StickyShortcut/bin/proguard/obfuscated.jar]
+ [proguard]   Copying resources from program jar [/Users/zaki/fromgit/StickyShortcut/bin/proguard/original.jar]
+ [proguard] Printing classes to [/Users/zaki/fromgit/StickyShortcut/bin/proguard/dump.txt]...
+
+-dex:
+     [echo] Converting compiled files and external libraries into /Users/zaki/fromgit/StickyShortcut/bin/classes.dex...
+
+-package-resources:
+     [echo] Packaging resources
+     [aapt] Creating full resource package...
+
+-package-release:
+[apkbuilder] Creating InfoActivity-unsigned.apk for release...
+
+-release-prompt-for-password:
+    [input] Please enter keystore password (store:/Users/zaki/.android/release.keystore):
+    [input] Please enter password for alias 'android_app_release':
+
+-release-nosign:
+
+release:
+     [echo] Signing final apk...
+  [signjar] Signing JAR: /Users/zaki/fromgit/StickyShortcut/bin/InfoActivity-unsigned.apk to /Users/zaki/fromgit/StickyShortcut/bin/InfoActivity-unaligned.apk as android_app_release
+     [echo] Running zip align on final apk...
+     [echo] Release Package: /Users/zaki/fromgit/StickyShortcut/bin/InfoActivity-release.apk
+
+BUILD SUCCESSFUL
+Total time: 16 seconds
