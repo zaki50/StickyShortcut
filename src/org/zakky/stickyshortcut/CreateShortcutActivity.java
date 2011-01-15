@@ -67,12 +67,12 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
     private static final String TAG = CreateShortcutActivity.class.getSimpleName();
 
     /**
-     * バッヂ無しを表す定数。
+     * バッジ無しを表す定数。
      */
     private static final int NO_BADGE = -1;
 
     /**
-     * バッヂアイコンリスト。
+     * バッジアイコンリスト。
      */
     private static final int[] BADGE_RES_IDS = {
             NO_BADGE, //
@@ -166,7 +166,7 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
      * を終了します。
      * 
      * @param appInfo 対象アプリ情報。
-     * @param badgeResId バッヂリソースID. {@link #NO_BADGE} はバッヂなしを表します。
+     * @param badgeResId バッジリソースID. {@link #NO_BADGE} はバッジなしを表します。
      * @return {@link ActionItem}。
      */
     private ActionItem buildCandidate(final AppInfo appInfo, int badgeResId) {
@@ -193,11 +193,11 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
     }
 
     /**
-     * 指定されたバッヂ付きのショートカットアイコンを作成します。
+     * 指定されたバッジ付きのショートカットアイコンを作成します。
      * 
      * @param originalIcon 対象アプリのオリジナルアイコン。
      * @param badgeResId バッジに使用するリソースの識別子。 {@link #NO_BADGE} が
-     *            渡された場合はバッヂなしでアイコンを作成します。
+     *            渡された場合はバッジなしでアイコンを作成します。
      * @return ショートカットアイコンお {@link Bitmap} オブジェクト。 必ず新たに作成された {@link Bitmap}
      *         オブジェクトが返ります。
      */
@@ -209,11 +209,11 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
         canvas.drawBitmap(originalIcon, 0, 0, null);
 
         if (badgeResId == NO_BADGE) {
-            // バッヂなしなので、そのまま帰す。
+            // バッジなしなので、そのまま帰す。
             return shortcutIcon;
         }
 
-        // バッヂを重ねる
+        // バッジを重ねる
         final Bitmap badge = BitmapFactory.decodeResource(getResources(), badgeResId);
         try {
             final Matrix m = new Matrix();
