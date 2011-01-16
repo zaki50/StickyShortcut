@@ -224,7 +224,7 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
             final float badgeY = badge.getHeight();
             final float ratioY = originalY / badgeY;
 
-            // 縦横比を維持するため、比が小さい方を採用してスケーリングする
+            // 縦横比を維持するため、比が小さい方を縦横両方に採用してスケーリングする
             final float ratio = Math.min(ratioX, ratioY);
             m.postScale(ratio, ratio);
             canvas.drawBitmap(badge, m, null);
