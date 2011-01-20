@@ -24,6 +24,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.umd.cs.findbugs.annotations.CheckForNull;
 import edu.umd.cs.findbugs.annotations.DefaultAnnotation;
 import edu.umd.cs.findbugs.annotations.NonNull;
 
@@ -90,6 +91,16 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
     private GridView appGrid_;
 
     /**
+     * アプリ一覧グリッド構築時のプログレス
+     *
+     * <p>
+     * UI スレッドからのみアクセスすること。
+     * </p>
+     */
+    @CheckForNull
+    private ProgressDialog progressDialog_ = null;
+
+    /**
      * アプリ一覧のグリッドを用意します。
      */
     @Override
@@ -114,6 +125,45 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
         final LoadAppListTask task = new LoadAppListTask();
         task.execute();
+        startProgress();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        dismissProgress();
+    }
+
+    /**
+     * プログレスダイアログを作成して表示します。
+     */
+    private void startProgress() {
+        dismissProgress();
+
+        final ProgressDialog progress = new ProgressDialog(this);
+        final String message = getString(R.string.shortcut_progressdialog_title);
+        progress.setMessage(message);
+        progress.setCancelable(false);
+        progress.show();
+
+        progressDialog_ = progress;
+    }
+
+    /**
+     * プログレスダイアログが表示されていれば中止します。
+     *
+     * <p>
+     * このメソッドが正常に完了した後は、 {@link #progressDialog_} が {@code null} に
+     * なります。
+     * </p>
+     */
+    private void dismissProgress() {
+        final ProgressDialog progress = progressDialog_;
+        if (progress != null) {
+            progress.dismiss();
+        }
+        progressDialog_ = null;
     }
 
     /**
@@ -271,20 +321,6 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
      * @author zaki
      */
     private final class LoadAppListTask extends AsyncTask<Void, Void, List<AppInfo>> {
-        private final ProgressDialog progressDialog_;
-
-        public LoadAppListTask() {
-            progressDialog_ = new ProgressDialog(CreateShortcutActivity.this);
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            progressDialog_.setMessage(getResources().getString(
-                    R.string.shortcut_progressdialog_title));
-            progressDialog_.setCancelable(false);
-            progressDialog_.show();
-        }
 
         @Override
         protected List<AppInfo> doInBackground(Void... v) {
@@ -314,7 +350,7 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
         protected final void onPostExecute(List<AppInfo> appList) {
             final AppsAdapter adapter = new AppsAdapter(getApplicationContext(), appList);
             appGrid_.setAdapter(adapter);
-            progressDialog_.dismiss();
+            dismissProgress();
         }
     }
 
@@ -390,9 +426,16 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
         /**
          * アプリ1つ分を表現する {@link View} を返します。
          * 
+         * @param position
+         * アイテムのインデックス。 0 ベース。
+         * @param convertView
+         * これまで使用されていた {@link View} オブジェクト。 {@code null} の可能性あり。
+         * 可能なかぎり再利用すること。
+         * @param parent
+         * 対象とする {@link View} の親。
          * @return {@link View} オブジェクト。
          */
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, @CheckForNull View convertView, ViewGroup parent) {
             final View v = (convertView == null) ? inflater_.inflate(R.layout.grid_row, null)
                     : convertView;
             final GridRowData rowData = (v.getTag() == null) ? createRowData(v) : (GridRowData) v
