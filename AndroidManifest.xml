@@ -27,7 +27,8 @@
         </activity>
 
         <!-- ショートカット作成の際に呼び出される Activity -->
-        <activity android:name=".CreateShortcutActivity" >
+        <activity android:name=".CreateShortcutActivity"
+            android:configChanges="orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
                 <category android:name="android.intent.category.DEFAULT" />
