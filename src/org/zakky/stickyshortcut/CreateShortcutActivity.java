@@ -414,7 +414,9 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
             // 画面サイズを取得
             int wallpaperSizeY = context.getWallpaperDesiredMinimumHeight();
-            if (wallpaperSizeY >= 800) {
+            if (wallpaperSizeY >= 960) {
+                params_ = new LinearLayout.LayoutParams(72, 72);
+            } else if (wallpaperSizeY >= 800) {
                 params_ = new LinearLayout.LayoutParams(60, 60);
             } else if (wallpaperSizeY >= 480) {
                 params_ = new LinearLayout.LayoutParams(44, 44);
