@@ -1,0 +1,4 @@
+yanzm.products.quickaction.lib.QuickAction: android.view.ViewGroup mTrack
+org.zakky.stickyshortcut.CreateShortcutActivity
+org.zakky.stickyshortcut.LauncherActivity
+org.zakky.stickyshortcut.InfoActivity
