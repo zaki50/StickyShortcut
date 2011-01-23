@@ -23,10 +23,10 @@ import static org.zakky.stickyshortcut.LauncherActivity.EXTRA_TARGET_PACKAGE;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-import edu.umd.cs.findbugs.annotations.CheckForNull;
-import edu.umd.cs.findbugs.annotations.DefaultAnnotation;
-import edu.umd.cs.findbugs.annotations.NonNull;
+import org.zakky.stickyshortcut.util.ShortcutIconCreator;
+import org.zakky.stickyshortcut.util.ShortcutIconCreator.IconInfo;
 
 import yanzm.products.quickaction.lib.ActionItem;
 import yanzm.products.quickaction.lib.QuickAction;
@@ -37,9 +37,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -57,6 +54,9 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import edu.umd.cs.findbugs.annotations.CheckForNull;
+import edu.umd.cs.findbugs.annotations.DefaultAnnotation;
+import edu.umd.cs.findbugs.annotations.NonNull;
 
 /**
  * ショートカット作成時に呼び出され、ユーザが選択したアプリを起動するショートカットをホームに 作成します。
@@ -67,22 +67,18 @@ import android.widget.TextView;
 public final class CreateShortcutActivity extends Activity implements OnItemClickListener {
     private static final String TAG = CreateShortcutActivity.class.getSimpleName();
 
-    /**
-     * バッジ無しを表す定数。
-     */
-    private static final int NO_BADGE = -1;
+    private static final float RATIO = 0.92f;
 
     /**
      * バッジアイコンリスト。
      */
-    private static final int[] BADGE_RES_IDS = {
-            NO_BADGE, //
-            R.drawable.badge1, //
-            R.drawable.badge2, //
-            R.drawable.badge3, //
-            R.drawable.badge4, //
-            R.drawable.badge5, //
-            R.drawable.badge6
+    private static final IconInfo[] ICON_INFO_LIST = {
+        new IconInfo(R.drawable.arrow_dro02, R.drawable.arrow_dro01, 0.9f, 0.0f, 0.1f),
+        new IconInfo(R.drawable.arrow_blue02, R.drawable.arrow_blue01, RATIO, 1.0f - RATIO, 0.0f),
+        new IconInfo(R.drawable.arrow_green02, R.drawable.arrow_green01, RATIO, 1.0f - RATIO, 0.0f),
+        new IconInfo(R.drawable.arrow_pink02, R.drawable.arrow_pink01, RATIO, 1.0f - RATIO, 0.0f),
+        new IconInfo(R.drawable.arrow_black02, R.drawable.arrow_black01, RATIO, 1.0f - RATIO, 0.0f),
+        new IconInfo(R.drawable.arrow_white02, R.drawable.arrow_white01, RATIO, 1.0f - RATIO, 0.0f),
     };
 
     /**
@@ -175,11 +171,21 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
         // QuickAction を表示し、ユーザにアイコンを選択してもらう。
         final QuickAction qa = new QuickAction(view);
-        for (int badgeResId : BADGE_RES_IDS) {
-            final ActionItem chart = buildCandidate(appInfo, badgeResId);
+        final long start = System.nanoTime();
+
+        ActionItem chart = buildCandidate(appInfo, new NoBagdeIconBuilder());
+        qa.addActionItem(chart);
+        for (IconInfo iconInfo : ICON_INFO_LIST) {
+            chart = buildCandidate(appInfo, new KamekoSpecialIconBuilder(iconInfo));
             qa.addActionItem(chart);
         }
+        
+        final long end1 = System.nanoTime();
         setItemListGravity(qa, Gravity.CENTER);
+        final long end2 = System.nanoTime();
+
+        Log.i("DEBUG", "t1: " + TimeUnit.NANOSECONDS.toMillis(end1 - start) + "ms, t2: "
+                + TimeUnit.NANOSECONDS.toMillis(end2 - start) + "ms");
         qa.show();
     }
 
@@ -216,14 +222,13 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
      * を終了します。
      * 
      * @param appInfo 対象アプリ情報。
-     * @param badgeResId バッジリソースID. {@link #NO_BADGE} はバッジなしを表します。
      * @return {@link ActionItem}。
      */
-    private ActionItem buildCandidate(final AppInfo appInfo, int badgeResId) {
+    private ActionItem buildCandidate(final AppInfo appInfo, ShortcutIconBuilder builder) {
         final BitmapDrawable bd = (BitmapDrawable) appInfo.getIcon();
         final Bitmap originalIcon = bd.getBitmap();
 
-        final Bitmap shortcutIcon = createShortcutIcon(originalIcon, badgeResId);
+        final Bitmap shortcutIcon = builder.build(getApplicationContext(), originalIcon);
 
         final ActionItem item = new ActionItem();
         item.setIcon(new BitmapDrawable(shortcutIcon));
@@ -241,48 +246,31 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
         return item;
     }
+    
+    private interface ShortcutIconBuilder {
+        public Bitmap build(Context appContext, Bitmap originalIcon);
+    }
+    
+    private static final class NoBagdeIconBuilder implements ShortcutIconBuilder {
+        @Override
+        public Bitmap build(Context appContext, Bitmap originalIcon) {
+            return ShortcutIconCreator.create(appContext, originalIcon,
+                    ShortcutIconCreator.NO_BADGE);
+        }
+    }
 
-    /**
-     * 指定されたバッジ付きのショートカットアイコンを作成します。
-     * 
-     * @param originalIcon 対象アプリのオリジナルアイコン。
-     * @param badgeResId バッジに使用するリソースの識別子。 {@link #NO_BADGE} が
-     *            渡された場合はバッジなしでアイコンを作成します。
-     * @return ショートカットアイコンお {@link Bitmap} オブジェクト。 必ず新たに作成された {@link Bitmap}
-     *         オブジェクトが返ります。
-     */
-    private Bitmap createShortcutIcon(Bitmap originalIcon, int badgeResId) {
-        final Bitmap shortcutIcon = Bitmap.createBitmap(originalIcon.getWidth(),
-                originalIcon.getHeight(), Bitmap.Config.ARGB_8888);
-
-        final Canvas canvas = new Canvas(shortcutIcon);
-        canvas.drawBitmap(originalIcon, 0, 0, null);
-
-        if (badgeResId == NO_BADGE) {
-            // バッジなしなので、そのまま帰す。
-            return shortcutIcon;
+    private static final class KamekoSpecialIconBuilder implements ShortcutIconBuilder {
+        private final IconInfo info_;
+        
+        public KamekoSpecialIconBuilder(IconInfo info) {
+            super();
+            info_ = info;
         }
 
-        // バッジを重ねる
-        final Bitmap badge = BitmapFactory.decodeResource(getResources(), badgeResId);
-        try {
-            final Matrix m = new Matrix();
-            final float originalX = originalIcon.getWidth();
-            final float badgeX = badge.getWidth();
-            final float ratioX = originalX / badgeX;
-            final float originalY = originalIcon.getHeight();
-            final float badgeY = badge.getHeight();
-            final float ratioY = originalY / badgeY;
-
-            // 縦横比を維持するため、比が小さい方を縦横両方に採用してスケーリングする
-            final float ratio = Math.min(ratioX, ratioY);
-            m.postScale(ratio, ratio);
-            canvas.drawBitmap(badge, m, null);
-        } finally {
-            badge.recycle();
+        @Override
+        public Bitmap build(Context appContext, Bitmap originalIcon) {
+            return ShortcutIconCreator.createKamekoSpecial(appContext, originalIcon, info_);
         }
-
-        return shortcutIcon;
     }
 
     /**
