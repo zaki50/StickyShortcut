@@ -1,0 +1,50 @@
+org.zakky.stickyshortcut.CreateShortcutActivity:
+    private static final float RATIO
+org.zakky.stickyshortcut.LauncherActivity:
+    public static final java.lang.String EXTRA_TARGET_PACKAGE
+    public static final java.lang.String EXTRA_TARGET_FQCN
+    public static final java.lang.String EXTRA_TARGET_LABEL
+org.zakky.stickyshortcut.R
+org.zakky.stickyshortcut.R$anim
+org.zakky.stickyshortcut.R$attr
+org.zakky.stickyshortcut.R$color
+org.zakky.stickyshortcut.R$drawable
+org.zakky.stickyshortcut.R$id
+org.zakky.stickyshortcut.R$layout
+org.zakky.stickyshortcut.R$string
+org.zakky.stickyshortcut.R$style
+org.zakky.stickyshortcut.util.ShortcutIconCreator:
+    public static final int NO_BADGE
+yanzm.products.quickaction.lib.ActionItem:
+    27:29:public ActionItem(android.graphics.drawable.Drawable)
+    37:38:public void setTitle(java.lang.String)
+yanzm.products.quickaction.lib.PopupWindowForQuickAction:
+    97:98:public void setBackgroundDrawable(android.graphics.drawable.Drawable)
+    118:122:public void setContentView(int)
+    130:131:public void setOnDismissListener(android.widget.PopupWindow$OnDismissListener)
+    137:138:public void showDropDown()
+    149:155:public void showDropDown(int,int)
+    161:162:public void showLikeQuickAction()
+    173:204:public void showLikeQuickAction(int,int)
+    207:208:public void dismiss()
+yanzm.products.quickaction.lib.QuickAction:
+    public static final int STYLE_BUTTON
+    public static final int STYLE_LIST
+    public static final int ANIM_GROW_FROM_LEFT
+    public static final int ANIM_GROW_FROM_RIGHT
+    public static final int ANIM_GROW_FROM_CENTER
+    public static final int ANIM_REFLECT
+    public static final int ANIM_AUTO
+    105:106:public QuickAction(android.view.View,int,int)
+    151:152:public void setAnimStyle(int)
+    161:171:public void setLayoutStyle(int)
+    206:207:public void setItemLayoutId(int)
+yanzm.products.quickaction.lib.R
+yanzm.products.quickaction.lib.R$anim
+yanzm.products.quickaction.lib.R$attr
+yanzm.products.quickaction.lib.R$color
+yanzm.products.quickaction.lib.R$drawable
+yanzm.products.quickaction.lib.R$id
+yanzm.products.quickaction.lib.R$layout
+yanzm.products.quickaction.lib.R$string
+yanzm.products.quickaction.lib.R$style
