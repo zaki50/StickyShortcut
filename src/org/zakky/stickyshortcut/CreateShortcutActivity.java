@@ -21,6 +21,8 @@ import static org.zakky.stickyshortcut.LauncherActivity.EXTRA_TARGET_LABEL;
 import static org.zakky.stickyshortcut.LauncherActivity.EXTRA_TARGET_PACKAGE;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -269,9 +271,15 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
                 final CharSequence label = info.loadLabel(pm);
                 final Drawable icon = info.activityInfo.loadIcon(pm);
 
-                final AppInfo appInfo = new AppInfo(label, icon, activityFqcn, packageName);
+                final AppInfo appInfo = new AppInfo(label.toString(), icon, activityFqcn, packageName);
                 appList.add(appInfo);
             }
+            Collections.sort(appList, new Comparator<AppInfo>() {
+                @Override
+                public int compare(AppInfo app1, AppInfo app2) {
+                    return app1.getLabel().compareTo(app2.getLabel());
+                }
+            });
 
             return appList;
         }
@@ -290,7 +298,7 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
      * @author zaki
      */
     private static final class AppInfo {
-        private final CharSequence label_;
+        private final String label_;
 
         private final Drawable icon_;
 
@@ -298,7 +306,7 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
         private final String packageName_;
 
-        public AppInfo(CharSequence label, Drawable icon, String activityFqcn, String packageName) {
+        public AppInfo(String label, Drawable icon, String activityFqcn, String packageName) {
             super();
             label_ = label;
             icon_ = icon;
@@ -306,7 +314,7 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
             packageName_ = packageName;
         }
 
-        public CharSequence getLabel() {
+        public String getLabel() {
             return label_;
         }
 
