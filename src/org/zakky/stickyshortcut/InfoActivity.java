@@ -29,7 +29,7 @@ import android.widget.TextView;
 
 /**
  * 使用方法を表示するアクティビティです。
- * 
+ *
  * @author zaki
  */
 @DefaultAnnotation(NonNull.class)
@@ -64,7 +64,7 @@ public class InfoActivity extends Activity {
 
     /**
      * アプリケーションの表示用バージョン番号文字列を返します。
-     * 
+     *
      * @return 表示用バージョン番号文字列。取得に失敗した場合は "{@code unknown}" を返します。
      */
     private String getAppVersion() {
