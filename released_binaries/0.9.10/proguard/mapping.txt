@@ -1,0 +1,131 @@
+org.zakky.stickyshortcut.CreateShortcutActivity -> org.zakky.stickyshortcut.CreateShortcutActivity:
+    org.zakky.stickyshortcut.icon.SandwichIconCreator$IconInfo[] ICON_INFO_LIST -> a
+    int[] ICON_SIZE_CONFIG -> b
+    android.widget.GridView appGrid_ -> c
+    android.app.ProgressDialog progressDialog_ -> d
+    void onCreate(android.os.Bundle) -> onCreate
+    void onStart() -> onStart
+    void onStop() -> onStop
+    void dismissProgress() -> b
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    yanzm.products.quickaction.lib.ActionItem buildIconCandidate(org.zakky.stickyshortcut.CreateShortcutActivity$AppInfo,org.zakky.stickyshortcut.icon.ShortcutIconCreator) -> a
+    android.content.Intent access$100(org.zakky.stickyshortcut.CreateShortcutActivity,org.zakky.stickyshortcut.CreateShortcutActivity$AppInfo,android.graphics.Bitmap) -> a
+    android.widget.GridView access$200(org.zakky.stickyshortcut.CreateShortcutActivity) -> a
+    void access$300(org.zakky.stickyshortcut.CreateShortcutActivity) -> b
+    int[] access$400() -> a
+org.zakky.stickyshortcut.CreateShortcutActivity$1 -> org.zakky.stickyshortcut.e:
+    org.zakky.stickyshortcut.CreateShortcutActivity$AppInfo val$appInfo -> a
+    android.graphics.Bitmap val$shortcutIcon -> b
+    org.zakky.stickyshortcut.CreateShortcutActivity this$0 -> c
+    void onClick(android.view.View) -> onClick
+org.zakky.stickyshortcut.CreateShortcutActivity$AppInfo -> org.zakky.stickyshortcut.d:
+    java.lang.String label_ -> a
+    android.graphics.drawable.Drawable icon_ -> b
+    java.lang.String activityFqcn_ -> c
+    java.lang.String packageName_ -> d
+    java.lang.String getLabel() -> a
+    android.graphics.drawable.Drawable getIcon() -> b
+    java.lang.String getActivityFqcn() -> c
+    java.lang.String getPackageName() -> d
+org.zakky.stickyshortcut.CreateShortcutActivity$AppsAdapter -> org.zakky.stickyshortcut.b:
+    java.util.List apps_ -> a
+    android.view.LayoutInflater inflater_ -> b
+    android.widget.LinearLayout$LayoutParams params_ -> c
+    int getIconSize(int,int) -> a
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    int getCount() -> getCount
+    org.zakky.stickyshortcut.CreateShortcutActivity$AppInfo getItem(int) -> a
+    long getItemId(int) -> getItemId
+    java.lang.Object getItem(int) -> getItem
+org.zakky.stickyshortcut.CreateShortcutActivity$AppsAdapter$GridRowData -> org.zakky.stickyshortcut.c:
+    android.widget.TextView text_ -> a
+    android.widget.ImageView image_ -> b
+    android.widget.TextView getTextView() -> a
+    android.widget.ImageView getImageView() -> b
+org.zakky.stickyshortcut.CreateShortcutActivity$LoadAppListTask -> org.zakky.stickyshortcut.a:
+    org.zakky.stickyshortcut.CreateShortcutActivity this$0 -> a
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+org.zakky.stickyshortcut.CreateShortcutActivity$LoadAppListTask$1 -> org.zakky.stickyshortcut.f:
+    org.zakky.stickyshortcut.CreateShortcutActivity$LoadAppListTask this$1 -> a
+    int compare(java.lang.Object,java.lang.Object) -> compare
+org.zakky.stickyshortcut.InfoActivity -> org.zakky.stickyshortcut.InfoActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+    java.lang.String getAppVersion() -> a
+org.zakky.stickyshortcut.LauncherActivity -> org.zakky.stickyshortcut.LauncherActivity:
+    java.lang.String targetPackage_ -> a
+    java.lang.String targetFqcn_ -> b
+    java.lang.String targetLabel_ -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+org.zakky.stickyshortcut.icon.BadgeIconCreator -> org.zakky.stickyshortcut.a.c:
+    int badgeResId_ -> a
+    android.graphics.Bitmap build(android.content.Context,android.graphics.Bitmap) -> a
+org.zakky.stickyshortcut.icon.SandwichIconCreator -> org.zakky.stickyshortcut.a.b:
+    org.zakky.stickyshortcut.icon.SandwichIconCreator$IconInfo info_ -> a
+    android.graphics.Bitmap build(android.content.Context,android.graphics.Bitmap) -> a
+org.zakky.stickyshortcut.icon.SandwichIconCreator$IconInfo -> org.zakky.stickyshortcut.a.d:
+    int base72_ -> d
+    int arrow72_ -> e
+    int base60_ -> f
+    int arrow60_ -> g
+    int base48_ -> h
+    int arrow48_ -> i
+    int base44_ -> j
+    int arrow44_ -> k
+    int base36_ -> l
+    int arrow36_ -> m
+    int base32_ -> n
+    int arrow32_ -> o
+    float scale_ -> a
+    float topMergin_ -> b
+    float leftMergin_ -> c
+    int getBaseIconResId(int) -> a
+    int getArrowIconResId(int) -> b
+org.zakky.stickyshortcut.icon.ShortcutIconCreator -> org.zakky.stickyshortcut.a.e:
+    android.graphics.Bitmap build(android.content.Context,android.graphics.Bitmap) -> a
+org.zakky.stickyshortcut.icon.ShortcutIconUtil -> org.zakky.stickyshortcut.a.a:
+    float calcRatio(int,int,int,int) -> a
+yanzm.products.quickaction.lib.ActionItem -> a.a.a.a.d:
+    android.graphics.drawable.Drawable icon -> a
+    java.lang.String title -> b
+    android.view.View$OnClickListener listener -> c
+    java.lang.String getTitle() -> a
+    void setIcon(android.graphics.drawable.Drawable) -> a
+    android.graphics.drawable.Drawable getIcon() -> b
+    void setOnClickListener(android.view.View$OnClickListener) -> a
+    android.view.View$OnClickListener getListener() -> c
+yanzm.products.quickaction.lib.PopupWindowForQuickAction -> a.a.a.a.b:
+    android.view.View anchor -> a
+    android.widget.PopupWindow window -> b
+    android.view.View rootView -> d
+    android.graphics.drawable.Drawable background -> e
+    android.view.WindowManager windowManager -> c
+    void preShow() -> a
+    void setContentView(android.view.View) -> a
+yanzm.products.quickaction.lib.PopupWindowForQuickAction$1 -> a.a.a.a.a:
+    yanzm.products.quickaction.lib.PopupWindowForQuickAction this$0 -> a
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+yanzm.products.quickaction.lib.QuickAction -> a.a.a.a.c:
+    android.view.View rootView -> d
+    android.widget.ImageView mArrowUp -> e
+    android.widget.ImageView mArrowDown -> f
+    android.view.animation.Animation mTrackAnim -> g
+    android.view.LayoutInflater inflater -> h
+    android.content.Context context -> i
+    int itemLayoutId -> j
+    int layoutStyle -> k
+    int animStyle -> l
+    boolean animateTrack -> m
+    android.view.ViewGroup mTrack -> n
+    android.widget.ScrollView scroller -> o
+    java.util.ArrayList actionList -> p
+    void addActionItem(yanzm.products.quickaction.lib.ActionItem) -> a
+    void show() -> b
+    void setAnimationStyle(int,int,boolean) -> a
+    void createActionList() -> c
+    void showArrow(int,int) -> a
+yanzm.products.quickaction.lib.QuickAction$1 -> a.a.a.a.e:
+    yanzm.products.quickaction.lib.QuickAction this$0 -> a
+    float getInterpolation(float) -> getInterpolation
