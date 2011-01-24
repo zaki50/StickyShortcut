@@ -26,7 +26,7 @@
         >
             <!-- app name -->
             <TextView
-                android:text="@string/app_name"
+                android:text="@string/info_app_name"
                 android:textSize="26sp"
                 android:textColor="@color/text"
                 android:layout_width="wrap_content"
