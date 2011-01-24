@@ -20,13 +20,14 @@ import static org.zakky.stickyshortcut.LauncherActivity.EXTRA_TARGET_FQCN;
 import static org.zakky.stickyshortcut.LauncherActivity.EXTRA_TARGET_LABEL;
 import static org.zakky.stickyshortcut.LauncherActivity.EXTRA_TARGET_PACKAGE;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.zakky.stickyshortcut.util.ShortcutIconCreator;
-import org.zakky.stickyshortcut.util.ShortcutIconCreator.IconInfo;
+import org.zakky.stickyshortcut.icon.BadgeIconCreator;
+import org.zakky.stickyshortcut.icon.SandwichIconCreator;
+import org.zakky.stickyshortcut.icon.SandwichIconCreator.IconInfo;
+import org.zakky.stickyshortcut.icon.ShortcutIconCreator;
 
 import yanzm.products.quickaction.lib.ActionItem;
 import yanzm.products.quickaction.lib.QuickAction;
@@ -42,14 +43,12 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -60,25 +59,28 @@ import edu.umd.cs.findbugs.annotations.NonNull;
 
 /**
  * ショートカット作成時に呼び出され、ユーザが選択したアプリを起動するショートカットをホームに 作成します。
- * 
+ *
  * @author zaki
  */
 @DefaultAnnotation(NonNull.class)
 public final class CreateShortcutActivity extends Activity implements OnItemClickListener {
-    private static final String TAG = CreateShortcutActivity.class.getSimpleName();
-
     private static final float RATIO = 0.92f;
 
     /**
      * バッジアイコンリスト。
      */
     private static final IconInfo[] ICON_INFO_LIST = {
-        new IconInfo(R.drawable.arrow_dro02, R.drawable.arrow_dro01, 0.9f, 0.0f, 0.1f),
-        new IconInfo(R.drawable.arrow_blue02, R.drawable.arrow_blue01, RATIO, 1.0f - RATIO, 0.0f),
-        new IconInfo(R.drawable.arrow_green02, R.drawable.arrow_green01, RATIO, 1.0f - RATIO, 0.0f),
-        new IconInfo(R.drawable.arrow_pink02, R.drawable.arrow_pink01, RATIO, 1.0f - RATIO, 0.0f),
-        new IconInfo(R.drawable.arrow_black02, R.drawable.arrow_black01, RATIO, 1.0f - RATIO, 0.0f),
-        new IconInfo(R.drawable.arrow_white02, R.drawable.arrow_white01, RATIO, 1.0f - RATIO, 0.0f),
+            new IconInfo(R.drawable.arrow_dro02, R.drawable.arrow_dro01, 0.9f, 0.0f, 0.1f),
+            new IconInfo(R.drawable.arrow_blue02, R.drawable.arrow_blue01, RATIO, 1.0f - RATIO,
+                    0.0f),
+            new IconInfo(R.drawable.arrow_green02, R.drawable.arrow_green01, RATIO, 1.0f - RATIO,
+                    0.0f),
+            new IconInfo(R.drawable.arrow_pink02, R.drawable.arrow_pink01, RATIO, 1.0f - RATIO,
+                    0.0f),
+            new IconInfo(R.drawable.arrow_black02, R.drawable.arrow_black01, RATIO, 1.0f - RATIO,
+                    0.0f),
+            new IconInfo(R.drawable.arrow_white02, R.drawable.arrow_white01, RATIO, 1.0f - RATIO,
+                    0.0f),
     };
 
     /**
@@ -88,7 +90,6 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
     /**
      * アプリ一覧グリッド構築時のプログレス
-     *
      * <p>
      * UI スレッドからのみアクセスすること。
      * </p>
@@ -148,10 +149,8 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
     /**
      * プログレスダイアログが表示されていれば中止します。
-     *
      * <p>
-     * このメソッドが正常に完了した後は、 {@link #progressDialog_} が {@code null} に
-     * なります。
+     * このメソッドが正常に完了した後は、 {@link #progressDialog_} が {@code null} に なります。
      * </p>
      */
     private void dismissProgress() {
@@ -173,58 +172,28 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
         final QuickAction qa = new QuickAction(view);
         final long start = System.nanoTime();
 
-        ActionItem chart = buildCandidate(appInfo, new NoBagdeIconBuilder());
+        ActionItem chart = buildIconCandidate(appInfo, new BadgeIconCreator(
+                BadgeIconCreator.NO_BADGE));
         qa.addActionItem(chart);
         for (IconInfo iconInfo : ICON_INFO_LIST) {
-            chart = buildCandidate(appInfo, new KamekoSpecialIconBuilder(iconInfo));
+            chart = buildIconCandidate(appInfo, new SandwichIconCreator(iconInfo));
             qa.addActionItem(chart);
         }
-        
-        final long end1 = System.nanoTime();
-        setItemListGravity(qa, Gravity.CENTER);
-        final long end2 = System.nanoTime();
+        final long end = System.nanoTime();
 
-        Log.i("DEBUG", "t1: " + TimeUnit.NANOSECONDS.toMillis(end1 - start) + "ms, t2: "
-                + TimeUnit.NANOSECONDS.toMillis(end2 - start) + "ms");
+        Log.i("DEBUG", "t: " + TimeUnit.NANOSECONDS.toMillis(end - start) + "ms");
         qa.show();
-    }
-
-    /**
-     * 無理やりショートカットアイコンリストをセンタリングします。
-     * <p>
-     * {@code quickaction.xml} に含まれている、{@code id} が {@code tracks} な
-     * {@link LinearLayout} に対して、 layout_gravity をセットするメソッドです。
-     * </p>
-     * 
-     * @param qa ショートカットアイコンリストを表示する {@link QuickAction}。
-     * @param gravity {@link Gravity} に定義された定数。
-     */
-    private void setItemListGravity(QuickAction qa, int gravity) {
-        try {
-            final Field mTrackField = qa.getClass().getDeclaredField("mTrack");
-            mTrackField.setAccessible(true);
-            final LinearLayout tracks = (LinearLayout) mTrackField.get(qa);
-            ((FrameLayout.LayoutParams) tracks.getLayoutParams()).gravity = gravity;
-        } catch (IllegalArgumentException e) {
-            Log.e(TAG, "failed to set icon list gravity. ignored.", e);
-        } catch (IllegalAccessException e) {
-            Log.e(TAG, "failed to set icon list gravity. ignored.", e);
-        } catch (SecurityException e) {
-            Log.e(TAG, "failed to set icon list gravity. ignored.", e);
-        } catch (NoSuchFieldException e) {
-            Log.e(TAG, "failed to set icon list gravity. ignored.", e);
-        }
     }
 
     /**
      * {@link QuickAction} に表示する、ショートカットアイコン候補を構築します。
      * 候補は、クリックされるとショートカット作成インテントをリザルトとしてセットして {@link CreateShortcutActivity}
      * を終了します。
-     * 
+     *
      * @param appInfo 対象アプリ情報。
      * @return {@link ActionItem}。
      */
-    private ActionItem buildCandidate(final AppInfo appInfo, ShortcutIconBuilder builder) {
+    private ActionItem buildIconCandidate(final AppInfo appInfo, ShortcutIconCreator builder) {
         final BitmapDrawable bd = (BitmapDrawable) appInfo.getIcon();
         final Bitmap originalIcon = bd.getBitmap();
 
@@ -243,39 +212,12 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
                 CreateShortcutActivity.this.finish();
             }
         });
-
         return item;
-    }
-    
-    private interface ShortcutIconBuilder {
-        public Bitmap build(Context appContext, Bitmap originalIcon);
-    }
-    
-    private static final class NoBagdeIconBuilder implements ShortcutIconBuilder {
-        @Override
-        public Bitmap build(Context appContext, Bitmap originalIcon) {
-            return ShortcutIconCreator.create(appContext, originalIcon,
-                    ShortcutIconCreator.NO_BADGE);
-        }
-    }
-
-    private static final class KamekoSpecialIconBuilder implements ShortcutIconBuilder {
-        private final IconInfo info_;
-        
-        public KamekoSpecialIconBuilder(IconInfo info) {
-            super();
-            info_ = info;
-        }
-
-        @Override
-        public Bitmap build(Context appContext, Bitmap originalIcon) {
-            return ShortcutIconCreator.createKamekoSpecial(appContext, originalIcon, info_);
-        }
     }
 
     /**
      * このアクティビティの {@code result} として使用される、ショートカット作成インテントを 構築して返します。
-     * 
+     *
      * @param appInfo 作成するショートカットが対象とするアプリ情報。
      * @param icon ショートカットセットするアイコン。
      * @return {@code result} インテント。
@@ -305,7 +247,7 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
      * <p>
      * 取得処理中はキャンセル不可なプログレスダイアログを表示します。
      * </p>
-     * 
+     *
      * @author zaki
      */
     private final class LoadAppListTask extends AsyncTask<Void, Void, List<AppInfo>> {
@@ -344,7 +286,7 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
     /**
      * アプリ一覧に表示される１つのアプリの情報を保持するクラスです。
-     * 
+     *
      * @author zaki
      */
     private static final class AppInfo {
@@ -384,7 +326,7 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
     /**
      * {@link GridView} に対してアプリ一覧を提供するアダプタです。
-     * 
+     *
      * @author zaki
      */
     @DefaultAnnotation(NonNull.class)
@@ -415,14 +357,11 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
         /**
          * アプリ1つ分を表現する {@link View} を返します。
-         * 
-         * @param position
-         * アイテムのインデックス。 0 ベース。
-         * @param convertView
-         * これまで使用されていた {@link View} オブジェクト。 {@code null} の可能性あり。
-         * 可能なかぎり再利用すること。
-         * @param parent
-         * 対象とする {@link View} の親。
+         *
+         * @param position アイテムのインデックス。 0 ベース。
+         * @param convertView これまで使用されていた {@link View} オブジェクト。 {@code null}
+         *            の可能性あり。 可能なかぎり再利用すること。
+         * @param parent 対象とする {@link View} の親。
          * @return {@link View} オブジェクト。
          */
         public View getView(int position, @CheckForNull View convertView, ViewGroup parent) {
