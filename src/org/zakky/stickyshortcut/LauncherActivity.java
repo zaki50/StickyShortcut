@@ -23,20 +23,23 @@ import edu.umd.cs.findbugs.annotations.DefaultAnnotation;
 import edu.umd.cs.findbugs.annotations.NonNull;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 /**
  * 起動対象を実際に呼び出すアクティビティです。 スティッキーショートカットから呼び出されることを想定しています。
- * 
+ *
  * @author zaki
  */
 @DefaultAnnotation(NonNull.class)
 public class LauncherActivity extends Activity {
+    private static final String TAG = LauncherActivity.class.getSimpleName();
 
     /*
      * スティッキーショートカットに保持させる EXTRA のキーのための定数群
@@ -69,7 +72,7 @@ public class LauncherActivity extends Activity {
 
         @CheckForNull
         final Intent intent = getIntent();
-        
+
         targetPackage_ = getTargetPackage(intent);
         targetFqcn_ = getTargetFqcn(intent);
         targetLabel_ = getTargetLabel(intent);
@@ -93,22 +96,33 @@ public class LauncherActivity extends Activity {
             // 起動対象アプリがインストールされていない場合
 
             final String message = getString(R.string.target_app_not_installed, targetLabel_);
-            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 
             final Intent istallIntent = buildInstallIntent(targetPackage);
-            startActivity(istallIntent);
+            try {
+                startActivity(istallIntent);
+            } catch (ActivityNotFoundException e) {
+                final Toast toast = Toast.makeText(this, R.string.failed_to_open_market,
+                        Toast.LENGTH_LONG);
+                toast.show();
+            }
             finish();
             return;
         }
 
         // 起動対象アプリを実際に呼び出す。
-        startActivity(launchIntent);
+        try {
+            startActivity(launchIntent);
+        } catch (ActivityNotFoundException e) {
+            Log.e(TAG, "failed to start activity. package=" + targetPackage + ", fqcn="
+                    + targetFqcn_ + ", label=" + targetLabel_, e);
+        }
         finish();
     }
 
     /**
      * 指定されたインテントからターゲットパッケージ名を取得します。
-     * 
+     *
      * @param intent 取得元インテント。
      * @return ターゲットパッケージ名。 取得元インテントが {@code null} の場合や、取得元インテントが
      *         ターゲットパッケージ名情報を保持していない場合は {@code null} を返します。
@@ -124,7 +138,7 @@ public class LauncherActivity extends Activity {
 
     /**
      * 指定されたインテントからターゲットクラス名を取得します。
-     * 
+     *
      * @param intent 取得元インテント。
      * @return ターゲットクラス名。 取得元インテントが {@code null} の場合や、取得元インテントが
      *         ターゲットクラス名情報を保持していない場合は {@code null} を返します。
@@ -140,7 +154,7 @@ public class LauncherActivity extends Activity {
 
     /**
      * 指定されたインテントからターゲットラベルを取得します。
-     * 
+     *
      * @param intent 取得元インテント。
      * @return ターゲットラベル。 取得元インテントが {@code null} の場合や、取得元インテントが
      *         ターゲットラベル情報を保持していない場合は {@code null} を返します。
@@ -156,7 +170,7 @@ public class LauncherActivity extends Activity {
 
     /**
      * ターゲットアプリを起動するためのインテントを構築します。
-     * 
+     *
      * @return ターゲットアプリ起動用インテント。
      */
     private Intent buildLaunchIntent() {
@@ -170,7 +184,7 @@ public class LauncherActivity extends Activity {
 
     /**
      * ターゲットアプリをインストールするためのインテントを構築します。
-     * 
+     *
      * @return ターゲットアプリインストール用インテント。
      */
     private Intent buildInstallIntent(String targetPackage) {
@@ -183,7 +197,7 @@ public class LauncherActivity extends Activity {
 
     /**
      * 指定されたインテントを送った際に、レシーバが存在するかどうかを返します。
-     * 
+     *
      * @param intent インテント。
      * @return レシーバが存在すれば {@code true}、存在しなければ {@code false} を返します。
      */

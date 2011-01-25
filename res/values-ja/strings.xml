@@ -2,5 +2,6 @@
 <resources>
     <string name="app_name">スティッキーショートカット</string>
     <string name="shortcut_progressdialog_title">読み込み中...</string>
-    <string name="target_app_not_installed">アプリが見つかりません: %1$s</string>
+    <string name="target_app_not_installed">アプリが見つかりません。マーケットを開きます: %1$s</string>
+    <string name="failed_to_open_market">マーケットが開けませんでした。</string>
 </resources>
