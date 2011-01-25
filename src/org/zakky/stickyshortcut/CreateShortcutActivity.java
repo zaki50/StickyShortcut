@@ -116,8 +116,25 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
     };
 
     private static final int[] ICON_SIZE_CONFIG = {
-            ((960 << 16) | 72), ((800 << 16) | 60), ((480 << 16) | 44), ((0 << 16) | 32),
+            makeConfig(960, 72), makeConfig(800, 60), makeConfig(480, 44), makeConfig(0, 32),
     };
+
+    private static int makeConfig(int border, int size) {
+        if (border < 0 || size < 0) {
+            throw new RuntimeException("unexpected icon size config. border=" + border + ", size="
+                    + size);
+        }
+        final int config = (border << 16) | (size & 0xFFFF);
+        return config;
+    }
+
+    private static int getBorderFromConfig(int config) {
+        return (config >> 16) & 0xFFFF;
+    }
+
+    private static int getSizeFromConfig(int config) {
+        return (config & 0xFFFF);
+    }
 
     /**
      * アプリ一覧表示用グリッド。
@@ -333,12 +350,16 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
      * @author zaki
      */
     private static final class AppInfo {
+        /** アプリケーションのラベル */
         private final String label_;
 
+        /** アプリケーションのアイコン */
         private final Drawable icon_;
 
+        /** アプリケーションの FQCN */
         private final String activityFqcn_;
 
+        /** アプリケーションのパッケージ名 */
         private final String packageName_;
 
         public AppInfo(String label, Drawable icon, String activityFqcn, String packageName) {
@@ -349,18 +370,38 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
             packageName_ = packageName;
         }
 
+        /**
+         * アプリケーションのラベルを返します。
+         *
+         * @return ラベル。
+         */
         public String getLabel() {
             return label_;
         }
 
+        /**
+         * アプリケーションのアイコンを返します。
+         *
+         * @return アイコン。
+         */
         public Drawable getIcon() {
             return icon_;
         }
 
+        /**
+         * アプリケーションの FQCN を返します。
+         *
+         * @return FQCN
+         */
         public String getActivityFqcn() {
             return activityFqcn_;
         }
 
+        /**
+         * アプリケーションのパッケージ名を返します。
+         *
+         * @return パッケージ名。
+         */
         public String getPackageName() {
             return packageName_;
         }
@@ -375,19 +416,36 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
     @DefaultAnnotation(NonNull.class)
     public static final class AppsAdapter extends BaseAdapter {
 
+        /**
+         * アプリ一覧
+         */
         private final List<AppInfo> apps_;
 
+        /**
+         * グリッドの要素を生成するためのインフレータ。
+         */
         private final LayoutInflater inflater_;
 
+        /**
+         * グリッドにアプリアイコンを表示する際のサイズを保持するパラメータ。
+         */
         private final LinearLayout.LayoutParams params_;
 
-        public AppsAdapter(Context context, List<AppInfo> apps) {
+        /**
+         * 指定されたアプリ一覧を提供する {@link AppsAdapter} を構築します。
+         *
+         * @param appContext アプリケーションコンテキスト。 コンストラクタ内でのみ使用し、参照は保持しません。
+         * @param apps 表示するアプリケーションのリスト。
+         *            渡されたリストは、アダプター内で保持します。以降呼び出し側で変更しないことを前提にしています。
+         */
+        public AppsAdapter(Context appContext, List<AppInfo> apps) {
             apps_ = apps;
-            inflater_ = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            inflater_ = (LayoutInflater) appContext
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             // 画面サイズを取得
-            final int iconSize = getIconSize(context.getWallpaperDesiredMinimumWidth(),
-                    context.getWallpaperDesiredMinimumHeight());
+            final int iconSize = getIconSize(appContext.getWallpaperDesiredMinimumWidth(),
+                    appContext.getWallpaperDesiredMinimumHeight());
             params_ = new LinearLayout.LayoutParams(iconSize, iconSize);
         }
 
@@ -400,11 +458,11 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
          */
         private static int getIconSize(int wallpaperWidth, int wallpaperHeight) {
             for (int config : ICON_SIZE_CONFIG) {
-                final int border = (config >> 16);
+                final int border = getBorderFromConfig(config);
                 if (wallpaperHeight < border) {
                     continue;
                 }
-                final int size = (config & 0xFFFF);
+                final int size = getSizeFromConfig(config);
                 return size;
             }
             throw new RuntimeException("failed to determine icon size. wallpaperWidth="
@@ -434,6 +492,11 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
             return v;
         }
 
+        /**
+         * グリッド内の UI コンポーネントを取り出し、 {@link GridRowData} として返します。
+         * @param rowView アプリ1つ分のView。
+         * @return {@link View} から取り出した UI コンポーネントを保持する {@link GridRowData}。
+         */
         private GridRowData createRowData(View rowView) {
             final TextView text = (TextView) rowView.findViewById(R.id.grid_row_txt);
             final ImageView image = (ImageView) rowView.findViewById(R.id.grid_row_img);
@@ -443,32 +506,78 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
             return rowData;
         }
 
+        /**
+         * アダプタが保持するアプリの数を返します。
+         */
         public final int getCount() {
             return apps_.size();
         }
 
+        /**
+         * 指定されたインデックスの {@link AppInfo} を返します。
+         * @return 指定されたインデックスに対応する {@link AppInfo}。
+         * @throws IndexOutOfBoundsException 指定されたインデックスが、
+         * {@code 0} 以上 {@link #getCount()} 未満の範囲かた外れている場合。
+         */
         public final AppInfo getItem(int position) {
+            if (position < 0 || getCount() <= position) {
+                throw new IndexOutOfBoundsException();
+            }
             return apps_.get(position);
         }
 
+        /**
+         * インデックスをアイテムIDに変換します。
+         */
         public final long getItemId(int position) {
             return position;
         }
 
+        /**
+         * グリッドに属するUIコンポーネントを束ねるクラスです。
+         *
+         * <p>
+         * グリッドのセル１つを構成する {@link View} に簡単にアクセスできるように、
+         * 関係する {@link View} をメンバ変数として保持するクラスです。
+         * <p>
+         *
+         * @author zaki
+         */
+        @DefaultAnnotation(NonNull.class)
         private static final class GridRowData {
+            /**
+             * アプリのラベルを保持する {@link View}。
+             */
             private final TextView text_;
 
+            /**
+             * アプリのアイコンを保持する {@link View}。
+             */
             private final ImageView image_;
 
             public GridRowData(TextView text, ImageView image) {
+                if (text == null) {
+                    throw new IllegalArgumentException("'text' must not be null");
+                }
+                if (image == null) {
+                    throw new IllegalArgumentException("'image' must not be null");
+                }
                 text_ = text;
                 image_ = image;
             }
 
+            /**
+             * アプリラベルを保持する {@link View} を返します。
+             * @return {@link TextView}
+             */
             public TextView getTextView() {
                 return text_;
             }
 
+            /**
+             * アプリアイコンを保持する {@link View} を返します。
+             * @return {@link ImageView}
+             */
             public ImageView getImageView() {
                 return image_;
             }
