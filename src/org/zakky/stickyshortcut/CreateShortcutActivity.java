@@ -66,7 +66,12 @@ import edu.umd.cs.findbugs.annotations.NonNull;
  */
 @DefaultAnnotation(NonNull.class)
 public final class CreateShortcutActivity extends Activity implements OnItemClickListener {
-    private static final float RATIO = 0.92f;
+
+    /** ドロイド君ショートカットアイコンを作成する際の、オリジナルアイコンの拡大率 */
+    private static final float SCALE_FOR_DROID = 0.9f;
+
+    /** 矢印ショートカットアイコンを作成する際の、オリジナルアイコンの拡大率 */
+    private static final float SCALE_FOR_ARROW = 0.92f;
 
     /**
      * バッジアイコンリスト。
@@ -77,42 +82,43 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
                     R.drawable.arrow_dro02_48, R.drawable.arrow_dro01_48,
                     R.drawable.arrow_dro02_44, R.drawable.arrow_dro01_44,
                     R.drawable.arrow_dro02_36, R.drawable.arrow_dro01_36,
-                    R.drawable.arrow_dro02_32, R.drawable.arrow_dro01_32, 0.9f, 0.0f, 0.1f),
+                    R.drawable.arrow_dro02_32, R.drawable.arrow_dro01_32, SCALE_FOR_DROID, 0.0f,
+                    1.0f - SCALE_FOR_DROID),
             new IconInfo(R.drawable.arrow_blue02_72, R.drawable.arrow_blue01_72,
                     R.drawable.arrow_blue02_60, R.drawable.arrow_blue01_60,
                     R.drawable.arrow_blue02_48, R.drawable.arrow_blue01_48,
                     R.drawable.arrow_blue02_44, R.drawable.arrow_blue01_44,
                     R.drawable.arrow_blue02_36, R.drawable.arrow_blue01_36,
-                    R.drawable.arrow_blue02_32, R.drawable.arrow_blue01_32, RATIO, 1.0f - RATIO,
-                    0.0f),
+                    R.drawable.arrow_blue02_32, R.drawable.arrow_blue01_32, SCALE_FOR_ARROW,
+                    1.0f - SCALE_FOR_ARROW, 0.0f),
             new IconInfo(R.drawable.arrow_green02_72, R.drawable.arrow_green01_72,
                     R.drawable.arrow_green02_60, R.drawable.arrow_green01_60,
                     R.drawable.arrow_green02_48, R.drawable.arrow_green01_48,
                     R.drawable.arrow_green02_44, R.drawable.arrow_green01_44,
                     R.drawable.arrow_green02_36, R.drawable.arrow_green01_36,
-                    R.drawable.arrow_green02_32, R.drawable.arrow_green01_32, RATIO, 1.0f - RATIO,
-                    0.0f),
+                    R.drawable.arrow_green02_32, R.drawable.arrow_green01_32, SCALE_FOR_ARROW,
+                    1.0f - SCALE_FOR_ARROW, 0.0f),
             new IconInfo(R.drawable.arrow_pink02_72, R.drawable.arrow_pink01_72,
                     R.drawable.arrow_pink02_60, R.drawable.arrow_pink01_60,
                     R.drawable.arrow_pink02_48, R.drawable.arrow_pink01_48,
                     R.drawable.arrow_pink02_44, R.drawable.arrow_pink01_44,
                     R.drawable.arrow_pink02_36, R.drawable.arrow_pink01_36,
-                    R.drawable.arrow_pink02_32, R.drawable.arrow_pink01_32, RATIO, 1.0f - RATIO,
-                    0.0f),
+                    R.drawable.arrow_pink02_32, R.drawable.arrow_pink01_32, SCALE_FOR_ARROW,
+                    1.0f - SCALE_FOR_ARROW, 0.0f),
             new IconInfo(R.drawable.arrow_white02_72, R.drawable.arrow_white01_72,
                     R.drawable.arrow_white02_60, R.drawable.arrow_white01_60,
                     R.drawable.arrow_white02_48, R.drawable.arrow_white01_48,
                     R.drawable.arrow_white02_44, R.drawable.arrow_white01_44,
                     R.drawable.arrow_white02_36, R.drawable.arrow_white01_36,
-                    R.drawable.arrow_white02_32, R.drawable.arrow_white01_32, RATIO, 1.0f - RATIO,
-                    0.0f),
+                    R.drawable.arrow_white02_32, R.drawable.arrow_white01_32, SCALE_FOR_ARROW,
+                    1.0f - SCALE_FOR_ARROW, 0.0f),
             new IconInfo(R.drawable.arrow_black02_72, R.drawable.arrow_black01_72,
                     R.drawable.arrow_black02_60, R.drawable.arrow_black01_60,
                     R.drawable.arrow_black02_48, R.drawable.arrow_black01_48,
                     R.drawable.arrow_black02_44, R.drawable.arrow_black01_44,
                     R.drawable.arrow_black02_36, R.drawable.arrow_black01_36,
-                    R.drawable.arrow_black02_32, R.drawable.arrow_black01_32, RATIO, 1.0f - RATIO,
-                    0.0f),
+                    R.drawable.arrow_black02_32, R.drawable.arrow_black01_32, SCALE_FOR_ARROW,
+                    1.0f - SCALE_FOR_ARROW, 0.0f),
     };
 
     private static final int[] ICON_SIZE_CONFIG = {
@@ -494,6 +500,7 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
         /**
          * グリッド内の UI コンポーネントを取り出し、 {@link GridRowData} として返します。
+         *
          * @param rowView アプリ1つ分のView。
          * @return {@link View} から取り出した UI コンポーネントを保持する {@link GridRowData}。
          */
@@ -515,9 +522,10 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
         /**
          * 指定されたインデックスの {@link AppInfo} を返します。
+         *
          * @return 指定されたインデックスに対応する {@link AppInfo}。
-         * @throws IndexOutOfBoundsException 指定されたインデックスが、
-         * {@code 0} 以上 {@link #getCount()} 未満の範囲かた外れている場合。
+         * @throws IndexOutOfBoundsException 指定されたインデックスが、 {@code 0} 以上
+         *             {@link #getCount()} 未満の範囲かた外れている場合。
          */
         public final AppInfo getItem(int position) {
             if (position < 0 || getCount() <= position) {
@@ -535,10 +543,9 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
         /**
          * グリッドに属するUIコンポーネントを束ねるクラスです。
-         *
          * <p>
-         * グリッドのセル１つを構成する {@link View} に簡単にアクセスできるように、
-         * 関係する {@link View} をメンバ変数として保持するクラスです。
+         * グリッドのセル１つを構成する {@link View} に簡単にアクセスできるように、 関係する {@link View}
+         * をメンバ変数として保持するクラスです。
          * <p>
          *
          * @author zaki
@@ -568,6 +575,7 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
             /**
              * アプリラベルを保持する {@link View} を返します。
+             *
              * @return {@link TextView}
              */
             public TextView getTextView() {
@@ -576,6 +584,7 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
 
             /**
              * アプリアイコンを保持する {@link View} を返します。
+             *
              * @return {@link ImageView}
              */
             public ImageView getImageView() {
