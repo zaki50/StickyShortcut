@@ -52,7 +52,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import edu.umd.cs.findbugs.annotations.CheckForNull;
@@ -485,32 +484,16 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
          * @return {@link View} オブジェクト。
          */
         public View getView(int position, @CheckForNull View convertView, ViewGroup parent) {
-            final View v = (convertView == null) ? inflater_.inflate(R.layout.grid_row, null)
-                    : convertView;
-            final GridRowData rowData = (v.getTag() == null) ? createRowData(v) : (GridRowData) v
-                    .getTag();
+            final TextView v = (TextView) ((convertView == null) ? inflater_.inflate(
+                    R.layout.grid_row, null) : convertView);
 
             final AppInfo info = getItem(position);
-            rowData.getTextView().setText(info.getLabel());
-            rowData.getImageView().setImageDrawable(info.getIcon());
+            v.setText(info.getLabel());
+            final Drawable icon = info.getIcon();
+            icon.setBounds(0, 0, params_.width, params_.height);
+            v.setCompoundDrawables(null, icon, null, null);
 
-            v.setTag(rowData);
             return v;
-        }
-
-        /**
-         * グリッド内の UI コンポーネントを取り出し、 {@link GridRowData} として返します。
-         *
-         * @param rowView アプリ1つ分のView。
-         * @return {@link View} から取り出した UI コンポーネントを保持する {@link GridRowData}。
-         */
-        private GridRowData createRowData(View rowView) {
-            final TextView text = (TextView) rowView.findViewById(R.id.grid_row_txt);
-            final ImageView image = (ImageView) rowView.findViewById(R.id.grid_row_img);
-            image.setLayoutParams(params_);
-
-            final GridRowData rowData = new GridRowData(text, image);
-            return rowData;
         }
 
         /**
@@ -539,57 +522,6 @@ public final class CreateShortcutActivity extends Activity implements OnItemClic
          */
         public final long getItemId(int position) {
             return position;
-        }
-
-        /**
-         * グリッドに属するUIコンポーネントを束ねるクラスです。
-         * <p>
-         * グリッドのセル１つを構成する {@link View} に簡単にアクセスできるように、 関係する {@link View}
-         * をメンバ変数として保持するクラスです。
-         * <p>
-         *
-         * @author zaki
-         */
-        @DefaultAnnotation(NonNull.class)
-        private static final class GridRowData {
-            /**
-             * アプリのラベルを保持する {@link View}。
-             */
-            private final TextView text_;
-
-            /**
-             * アプリのアイコンを保持する {@link View}。
-             */
-            private final ImageView image_;
-
-            public GridRowData(TextView text, ImageView image) {
-                if (text == null) {
-                    throw new IllegalArgumentException("'text' must not be null");
-                }
-                if (image == null) {
-                    throw new IllegalArgumentException("'image' must not be null");
-                }
-                text_ = text;
-                image_ = image;
-            }
-
-            /**
-             * アプリラベルを保持する {@link View} を返します。
-             *
-             * @return {@link TextView}
-             */
-            public TextView getTextView() {
-                return text_;
-            }
-
-            /**
-             * アプリアイコンを保持する {@link View} を返します。
-             *
-             * @return {@link ImageView}
-             */
-            public ImageView getImageView() {
-                return image_;
-            }
         }
     }
 }
